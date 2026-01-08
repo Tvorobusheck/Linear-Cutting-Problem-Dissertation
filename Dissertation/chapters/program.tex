@@ -228,3 +228,648 @@
 
 Предложенная методика экспериментов позволяет оценить качество решений по показателям потерь материала и числа переналадок,
 а также определить границы применимости точного режима полного перебора и приближённого режима генетического поиска.
+
+% Codex
+
+\section{Введение}\label{sec:software/intro}
+В данной главе описывается программная реализация предложенного в работе алгоритма
+генетического поиска для задачи линейного раскроя в контексте целлюлозно-бумажного
+производства. Цель главы --- обеспечить полноту и воспроизводимость: показать, каким
+образом математическая модель и алгоритмические решения трансформированы в
+программный код, как организованы модули, какие библиотеки использованы, как
+проверялась корректность результатов и каким образом пользователь взаимодействует
+с системой.
+
+Структура главы включает архитектурное описание в терминах C4, рассмотрение
+моделей данных, описание алгоритмической реализации, форматов ввода/вывода,
+особенностей запуска (CLI и GUI), используемых библиотек, тестирования и
+воспроизводимости экспериментов. Такой подход позволяет связать формальную модель
+с практической реализацией, а также обеспечивает прозрачность для дальнейшего
+развития программного комплекса и внедрения на производственных предприятиях.
+
+\section{Архитектура в рамках C4}\label{sec:software/c4}
+\subsection{Контекст системы (C4-1)}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=12mm and 18mm,
+        box/.style={draw, rounded corners, align=center, minimum width=3.6cm, minimum height=1.2cm},
+        actor/.style={draw, rounded corners, align=center, minimum width=3.2cm, minimum height=1.2cm, fill=gray!10},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[box, fill=blue!10] (system) {\textbf{Система оптимизации раскроя}\\\footnotesize{Python-приложение}};
+        \node[actor, left=of system] (user) {\textbf{Инженер-планировщик}\\\footnotesize{задает входные данные}};
+        \node[actor, right=of system] (files) {\textbf{Файловая система}\\\footnotesize{CSV/Excel}};
+        \draw[arrow] (user) -- node[above]{\footnotesize параметры и команды} (system);
+        \draw[arrow] (system) -- node[above]{\footnotesize отчеты и планы} (files);
+        \draw[arrow] (files) -- node[below]{\footnotesize входные данные} (system);
+    \end{tikzpicture}
+    \caption{Контекст системы: акторы и внешние связи}
+    \label{fig:c4-context}
+\end{figure}
+
+\subsection{Контейнеры (C4-2)}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=10mm and 18mm,
+        box/.style={draw, rounded corners, align=center, minimum width=3.2cm, minimum height=1.2cm},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[box, fill=blue!10] (cli) {\textbf{CLI}\\\footnotesize main.py};
+        \node[box, fill=blue!10, right=of cli] (gui) {\textbf{GUI}\\\footnotesize gui.py};
+        \node[box, fill=green!10, below=of cli] (algo) {\textbf{Алгоритмы}\\\footnotesize algo/};
+        \node[box, fill=green!10, right=of algo] (models) {\textbf{Модели}\\\footnotesize models/};
+        \node[box, fill=yellow!15, below=of algo] (io) {\textbf{Ввод/вывод}\\\footnotesize inoutput/};
+
+        \draw[arrow] (cli) -- (algo);
+        \draw[arrow] (gui) -- (algo);
+        \draw[arrow] (algo) -- (models);
+        \draw[arrow] (algo) -- (io);
+        \draw[arrow] (io) -- (models);
+    \end{tikzpicture}
+    \caption{Контейнеры приложения и основные зависимости}
+    \label{fig:c4-container}
+\end{figure}
+
+\subsection{Компоненты (C4-3)}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=8mm and 12mm,
+        comp/.style={draw, rounded corners, align=center, minimum width=3.2cm, minimum height=0.9cm},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[comp, fill=green!10] (genetic) {GeneticSearch};
+        \node[comp, fill=green!10, right=of genetic] (mutation) {GlobalMutate};
+        \node[comp, fill=green!10, right=of mutation] (cross) {Crossingover};
+        \node[comp, fill=green!10, below=of genetic] (enum) {FullEnumeration};
+        \node[comp, fill=green!10, right=of enum] (builder) {CuttingPlansBuilder};
+        \node[comp, fill=green!10, right=of builder] (queue) {EventQueueBuilder};
+
+        \node[comp, fill=blue!10, below=of enum] (globalplan) {GlobalPlan};
+        \node[comp, fill=blue!10, right=of globalplan] (cuttingplan) {CuttingPlan / Layout};
+        \node[comp, fill=blue!10, right=of cuttingplan] (makingplan) {MakingPlan};
+        \node[comp, fill=blue!10, below=of globalplan] (problem) {Problem};
+        \node[comp, fill=blue!10, right=of problem] (rolls) {Rolls / Orders};
+        \node[comp, fill=blue!10, right=of rolls] (machines) {Machines / Storage};
+
+        \draw[arrow] (genetic) -- (mutation);
+        \draw[arrow] (genetic) -- (cross);
+        \draw[arrow] (enum) -- (builder);
+        \draw[arrow] (genetic) -- (builder);
+        \draw[arrow] (builder) -- (globalplan);
+        \draw[arrow] (queue) -- (globalplan);
+
+        \draw[arrow] (globalplan) -- (cuttingplan);
+        \draw[arrow] (globalplan) -- (makingplan);
+        \draw[arrow] (problem) -- (globalplan);
+        \draw[arrow] (rolls) -- (cuttingplan);
+        \draw[arrow] (machines) -- (cuttingplan);
+    \end{tikzpicture}
+    \caption{Компоненты алгоритмического ядра и модельного слоя}
+    \label{fig:c4-component}
+\end{figure}
+\subsection{Контекст (System Context)}\label{subsec:software/c4/context}
+Программная система предназначена для автоматизированного построения производственных
+планов раскроя и выпуска рулонов бумаги. Пользователь (инженер планирования)
+подаёт входные данные (CSV/Excel), выбирает метод решения и получает выходной отчет
+в формате Excel/CSV, содержащий планы раскроя, расписание и метрики качества.
+Система функционирует как автономное приложение, не требующее внешнего сервера.
+
+\paragraph{Акторы:}
+\begin{itemize}
+    \item инженер-технолог или планировщик производства;
+    \item файловая система как источник и приемник данных;
+    \item внешние библиотеки (Pandas/OpenPyXL) как инфраструктура чтения/записи.
+\end{itemize}
+
+\subsection{Контейнеры (Container Diagram)}\label{subsec:software/c4/container}
+Архитектура реализована в виде нескольких логических контейнеров внутри одного
+Python-приложения:
+
+\begin{enumerate}
+    \item \textbf{CLI-приложение} --- модуль командной строки; обеспечивает запуск
+    расчёта с аргументами, чтение файлов и сохранение результатов.
+    \item \textbf{GUI-приложение} --- графический интерфейс (Tkinter), позволяющий
+    выбрать файлы и параметры запуска, а также визуально контролировать выполнение.
+    \item \textbf{Алгоритмический модуль} --- содержит реализацию генетического поиска,
+    полного перебора и построителей планов.
+    \item \textbf{Модельный слой} --- набор классов предметной области (заказы,
+    машины, планы, события, склад).
+    \item \textbf{IO-модуль} --- парсинг входных данных и генерация отчетов.
+\end{enumerate}
+
+\subsection{Компоненты (Component Diagram)}\label{subsec:software/c4/component}
+Внутри контейнеров выделяются ключевые компоненты:
+
+\paragraph{Алгоритмический модуль:}
+\begin{itemize}
+    \item \textit{GeneticSearch} --- основной оптимизационный алгоритм;
+    \item \textit{GlobalMutate} --- мутация глобального плана;
+    \item \textit{Crossingover} --- отбор лучшего плана;
+    \item \textit{FullEnumeration} --- точный перебор (для малых задач);
+    \item \textit{PlanBuilder} --- конструктор планов раскроя;
+    \item \textit{EventQueueBuilder} --- построение очереди событий при наличии
+    временных ограничений.
+\end{itemize}
+
+\paragraph{Модельный слой:}
+\begin{itemize}
+    \item \textit{Problem} --- постановка задачи;
+    \item \textit{GlobalPlan} --- глобальный план производства и раскроя;
+    \item \textit{CuttingPlan} и \textit{CuttingLayout} --- структура раскроя;
+    \item \textit{MakingPlan} --- план производства тамбуров;
+    \item \textit{Order/Roll} --- заказы и типы рулонов;
+    \item \textit{Storage/StorageState} --- склад и его состояние;
+    \item \textit{EventQueue} --- очередь событий исполнения планов.
+\end{itemize}
+\begin{table}[htbp]
+    \centering
+    \begin{threeparttable}
+        \caption{Сопоставление сущностей математической модели и классов программной реализации}
+        \label{tab:model_mapping}
+        \begin{tabular}{|p{3.4cm}|p{3.2cm}|p{4.2cm}|p{4.2cm}|}
+            \hline
+            \textbf{Сущность мат. модели} & \textbf{Символ} & \textbf{Класс/модуль} & \textbf{Комментарий} \\
+            \hline
+            Заказы & $O=\{o_i\}$ & \texttt{RollOrder} (models/order.py) & Экземпляр заказа с шириной, количеством, плотностью, маркой, слоями и дедлайном.\\
+            \hline
+            БДМ & $M=\{m_i\}$ & \texttt{PaperMakingMachine} (models/pm\_machine.py) & Параметры БДМ: ширина, скорость, смена плотности.\\
+            \hline
+            ПРС/БРС & $C=\{c_i\}$ & \texttt{SlittingMachine} (models/slitting\_machine.py) & Параметры раскроя: ширина, ножи, скорость, смена ножей, тип (small/normal).\\
+            \hline
+            Склады & $T=\{t_i\}$ & \texttt{Storage}, \texttt{StorageState} (models/storage.py) & Складские ограничения по ширине и вместимости, состояние запасов.\\
+            \hline
+            Тамбуры/рулоны & $X_{i,j}$, $y_{i,j,k}$ & \texttt{MasterRoll}, \texttt{SlittedRoll}, \texttt{SlittedMasterRoll} (models/roll.py) & Представление тамбуров и конечных рулонов; тип определяет, где используется.\\
+            \hline
+            План производства БДМ & $\overline{\overline{X}}$ & \texttt{MakingPlan} (models/making\_plan.py) & Последовательность тамбуров для БДМ.\\
+            \hline
+            План раскроя ПРС & $\overline{\overline{Y}}$ & \texttt{CuttingPlan} (models/cutting\_plan.py) & Содержит набор раскроев (layouts) для станка.\\
+            \hline
+            Раскрой & $Y_{i,j}$ & \texttt{CuttingLayout} (models/cutting\_layout.py) & Конкретный набор фомтов в одном раскрое.\\
+            \hline
+            Очередь событий & $\overline{\overline{Z}}$ & \texttt{GlobalPlanEvent} + наследники (models/event\_queue.py) & Расписание событий раскроя/производства.\\
+            \hline
+            Глобальный план & $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$ & \texttt{GlobalPlan} (models/global\_plan.py) & Центральный объект решения: планы раскроя, производства, события.\\
+            \hline
+            Постановка задачи & --- & \texttt{Problem} (models/problem.py) & Агрегирует заказы, машины, ограничения по времени и складам.\\
+            \hline
+        \end{tabular}
+    \end{threeparttable}
+\end{table}
+
+\subsection{Уровень кода (Code Level)}\label{subsec:software/c4/code}
+На уровне кода архитектура реализована через классы и функции, сгруппированные по
+папкам. Такое разделение отражает принципы модульности и облегчает расширение:
+
+\begin{itemize}
+    \item \textbf{models/} --- классы предметной области;
+    \item \textbf{algo/} --- алгоритмы оптимизации и построения планов;
+    \item \textbf{inoutput/} --- чтение входных данных и генерация отчетов;
+    \item \textbf{main.py, gui.py} --- пользовательские точки входа.
+\end{itemize}
+
+\section{Модели данных и предметная область}\label{sec:software/models}
+
+\subsection{Сущности заказа и продукции}\label{subsec:software/models/orders}
+Центральная единица задачи --- \textit{заказ} на изготовление рулонов бумаги.
+Заказ описывается параметрами: ширина, количество рулонов, марка бумаги, плотность,
+число слоев и срок выполнения. В программной модели заказ представлен классом
+\texttt{RollOrder}. Он наследует общий класс \texttt{SlittedRoll} и дополняет его
+параметрами количества и дедлайна.
+
+Сами рулоны описываются через иерархию классов:
+\begin{itemize}
+    \item \texttt{Roll} --- базовый тип рулона;
+    \item \texttt{MasterRoll} --- тамбур (широкий рулон, производимый БДМ);
+    \item \texttt{SlittedRoll} --- конечный рулон после нарезки;
+    \item \texttt{SlittedMasterRoll} --- рулон, предназначенный для последующей
+    нарезки на БРС.
+\end{itemize}
+
+\subsection{Оборудование}\label{subsec:software/models/machines}
+В модели учитываются два типа оборудования:
+\begin{itemize}
+    \item \textbf{Бумагоделательные машины (БДМ)} --- задаются шириной производимого
+    тамбура, скоростью производства и временем смены плотности.
+    \item \textbf{Продольно-резательные станки (ПРС/БРС)} --- задаются шириной,
+    числом ножей, скоростью раскроя, временем перестановки ножей, типом (обычный/малый).
+\end{itemize}
+
+\subsection{Планы производства}\label{subsec:software/models/plans}
+Структура плана соответствует математической модели:
+
+\begin{enumerate}
+    \item \textbf{CuttingLayout} --- один раскрой (набор форматов).
+    \item \textbf{CuttingPlan} --- последовательность раскроев для одного станка.
+    \item \textbf{MakingPlan} --- последовательность тамбуров для одной БДМ.
+    \item \textbf{GlobalPlan} --- объединяет планы по всем БДМ и ПРС и содержит очередь
+    событий, отражающую календарное выполнение.
+\end{enumerate}
+
+\subsection{Очередь событий и склад}\label{subsec:software/models/events}
+Если в задаче заданы сроки выполнения заказов, требуется моделировать временной
+аспект производства. В этой части используются события:
+\begin{itemize}
+    \item \textit{GlobalPlanSlittingMachineEvent} --- событие раскроя;
+    \item \textit{GlobalPlanPaperMakingMachineEvent} --- событие выпуска тамбура.
+\end{itemize}
+
+Склад моделируется через классы \texttt{Storage} и \texttt{StorageState}. Хранится
+информация о доступных рулонах, соблюдаются ограничения по вместимости и ширине.
+
+\section{Алгоритмическая реализация}\label{sec:software/algorithms}
+
+\subsection{Генетический поиск}\label{subsec:software/algorithms/genetic}
+Алгоритм реализует модель, описанную в главе с математической постановкой. Основные
+этапы:
+
+\begin{enumerate}
+    \item \textbf{Инициализация} --- создаются случайные планы, удовлетворяющие
+    ограничениям.
+    \item \textbf{Мутация} --- перестановка фоматов внутри раскроев и самих раскроев.
+    \item \textbf{GlobalMutate} --- формирование нового глобального плана, пересчет
+    очереди событий, проверка улучшения целевой функции.
+    \item \textbf{Crossingover} --- отбор лучшего из пары.
+\end{enumerate}
+
+Генетический поиск является стохастическим алгоритмом. Качество решения зависит
+от размера начальной популяции и глубины итераций.
+
+\subsection{Полный перебор}\label{subsec:software/algorithms/enumeration}
+Для малых размерностей реализован режим полного перебора. Он строит планы рекурсивно,
+добавляя заказы к планам раскроя и выбирая лучшую комбинацию. Этот режим служит
+для верификации алгоритма и оценки качества приближенных методов.
+
+\subsection{Планирование времени}\label{subsec:software/algorithms/schedule}
+Если заданы дедлайны, используется генерация очереди событий. Алгоритм моделирует
+параллельную работу БДМ и ПРС, учитывая состояние склада. Очередь событий строится
+как последовательность операций с учетом времени выполнения и возможных конфликтов.
+
+\subsection{Оценка качества решения}\label{subsec:software/algorithms/quality}
+Критерии соответствуют целевой функции:
+\begin{enumerate}
+    \item суммарная ширина отходов;
+    \item максимальное число раскроев для станка;
+    \item количество перестановок ножей.
+\end{enumerate}
+В коде критерии реализованы в виде лексикографической функции сравнения планов.
+
+\subsection{Сложность алгоритма}\label{subsec:software/algorithms/complexity}
+Размер популяции уменьшается вдвое на каждой итерации, что даёт
+$O(|S_0| \log |S_0|)$ итераций. Стоимость каждой итерации определяется числом форматов
+(сумма заказов). Общая асимптотика соответствует оценкам в постановочной главе.
+
+\section{Форматы ввода и вывода}\label{sec:software/io}
+
+\subsection{Формат CSV}\label{subsec:software/io/csv}
+CSV-формат используется для минимальных экспериментов и быстрого обмена данными.
+Каждая строка содержит тип параметра (например, ширина станка или заказ),
+его идентификатор и значение. Такой формат удобен для автоматической генерации
+и обработки скриптами.
+
+\subsection{Формат Excel}\label{subsec:software/io/excel}
+Excel-формат применяется для практической работы. Используются листы:
+\begin{itemize}
+    \item \textit{Slitting Machines} --- параметры ПРС/БРС;
+    \item \textit{Paper Making Machines} --- параметры БДМ;
+    \item \textit{Orders} --- перечень заказов;
+    \item \textit{Conditions} --- дополнительные параметры (кромка, старт, марки);
+    \item \textit{Storages} --- склады и ограничения.
+\end{itemize}
+
+\subsection{Выходной отчет}\label{subsec:software/io/output}
+Система формирует выходные отчеты в CSV/Excel. При наличии дедлайнов добавляется
+лист расписания, содержащий последовательность событий, использованные тамбуры,
+перестановки ножей и суммарные метрики.
+
+\section{Пользовательские сценарии}\label{sec:software/usage}
+
+\subsection{CLI-режим}\label{subsec:software/usage/cli}
+CLI позволяет запускать расчет с параметрами:
+\begin{verbatim}
+python main.py input.xlsx output.xlsx --method genetic_search
+\end{verbatim}
+Параметры позволяют выбрать формат ввода, формат вывода и размер популяции.
+
+\subsection{GUI-режим}\label{subsec:software/usage/gui}
+GUI реализован с использованием Tkinter. Пользователь выбирает входной и выходной
+файл, метод решения и размер популяции. Выполнение происходит в отдельном потоке,
+что позволяет избежать блокировки интерфейса.
+
+\section{Используемые библиотеки}\label{sec:software/libs}
+Реализация опирается на стандартную библиотеку Python и несколько основных пакетов:
+\begin{itemize}
+    \item \textbf{Pandas} --- обработка табличных данных;
+    \item \textbf{OpenPyXL} --- запись Excel-отчетов;
+    \item \textbf{Tkinter} --- GUI;
+    \item \textbf{argparse} --- обработка аргументов CLI;
+    \item \textbf{datetime} --- работа со временем.
+\end{itemize}
+
+Выбор таких библиотек обусловлен их стабильностью, распространенностью в инженерных
+задачах и поддержкой кроссплатформенной разработки.
+
+\section{Тестирование и валидация}\label{sec:software/tests}
+
+\subsection{Уровни тестирования}\label{subsec:software/tests/levels}
+Тестирование включает:
+\begin{enumerate}
+    \item модульные тесты --- корректность отдельных классов и функций;
+    \item интеграционные тесты --- полный цикл ``ввод $\rightarrow$ расчет $\rightarrow$ вывод'';
+    \item экспериментальная валидация --- сравнение с эталонными результатами.
+\end{enumerate}
+
+\subsection{Сценарии тестирования}\label{subsec:software/tests/scenarios}
+Были использованы следующие сценарии:
+\begin{itemize}
+    \item отсутствие дедлайнов;
+    \item наличие дедлайнов и складов;
+    \item наличие заказов с малыми ширинами (БРС);
+    \item разный размер популяции;
+    \item сравнение с полным перебором на малых данных.
+\end{itemize}
+
+\subsection{Метрики корректности}\label{subsec:software/tests/metrics}
+Проверка решения включает:
+\begin{itemize}
+    \item соблюдение ограничений ширины и ножей;
+    \item выполнение всех заказов;
+    \item отсутствие превышения склада;
+    \item корректность дат завершения заказов при дедлайнах.
+\end{itemize}
+
+\section{Эксперименты и воспроизводимость}\label{sec:software/experiments}
+
+\subsection{Конфигурации экспериментов}\label{subsec:software/experiments/config}
+В экспериментах использовались данные, аналогичные приведённым в статье: несколько
+БДМ и ПРС, набор заказов с разной шириной и плотностью, склады.
+
+\subsection{Измеряемые показатели}\label{subsec:software/experiments/metrics}
+Для сравнения конфигураций анализируются:
+\begin{enumerate}
+    \item отходы (суммарная ширина);
+    \item число раскроев;
+    \item перестановки ножей;
+    \item время выполнения.
+\end{enumerate}
+
+\subsection{Воспроизводимость}\label{subsec:software/experiments/repro}
+Так как алгоритм стохастический, рекомендуется фиксировать seed генератора случайных
+чисел или выполнять серию запусков с последующим усреднением результатов. В
+практическом применении допустима небольшая вариация результатов, так как отбор
+планов всегда строится по улучшению целевой функции.
+
+\section{Заключение}\label{sec:software/conclusion}
+В данной главе подробно описана программная реализация алгоритма генетического поиска
+для задачи линейного раскроя с учетом требований целлюлозно-бумажного производства.
+Архитектура построена модульно и включает отдельные контейнеры для алгоритмов,
+моделей данных и ввода/вывода. Реализация обеспечивает как командный режим
+использования, так и графический интерфейс, что делает систему удобной для
+промышленного применения.
+
+Система покрывает основные элементы математической модели: ограничения по ширине и
+ножам, работу складов, учет плотности и марок, сроки выполнения заказов, формирование
+очереди событий. Проведенное тестирование подтверждает корректность реализации, а
+эксперименты демонстрируют сопоставимость результатов с теоретическими ожиданиями.
+
+Таким образом, программный комплекс представляет собой практическую основу для
+внедрения методов интеллектуального планирования в промышленности и может служить
+платформой для дальнейших исследований и расширений.
+
+\section{Тестирование программной реализации}
+\label{sec:software-testing}
+
+В данном разделе приведено описание всех тестов, включенных в проект. Тесты
+сгруппированы по пакетам и соответствуют уровням проверки: модульные тесты
+модельного слоя, модульные тесты алгоритмов, тесты ввода/вывода и интеграционные
+(сквозные) тесты полного запуска решателя.
+
+\subsection{Тесты алгоритмического модуля (\texttt{algo/tests})}
+\label{subsec:software-testing/algo}
+
+\paragraph{test\_crossingover.py}
+\begin{itemize}
+    \item \textbf{test\_crossingover} --- проверяет, что оператор кроссинговера
+    возвращает один из двух входных глобальных планов и не ухудшает их метрики
+    (отходы и перестановки ножей).
+\end{itemize}
+
+\paragraph{test\_event\_queue\_builder.py}
+\begin{itemize}
+    \item \textbf{test\_total\_speed\_global\_plan} --- проверяет, что общее время
+    выполнения глобального плана совпадает с максимальным временем раскроя на
+    отдельных станках.
+    \item \textbf{test\_global\_plan\_time\_limit} --- проверяет корректность
+    обработки дедлайнов: при слишком жестких сроках план становится недопустимым.
+    \item \textbf{test\_pms\_global\_plan\_time\_limit} --- аналогичная проверка,
+    но с учетом бумагоделательных машин и сформированных производственных планов.
+    \item \textbf{test\_global\_plan\_with\_storage\_capacity} --- проверяет, что
+    расписание учитывает ограничения склада и включает моменты ожидания, если
+    нет доступных рулонов.
+\end{itemize}
+
+\paragraph{test\_full\_enumeration.py}
+\begin{itemize}
+    \item \textbf{test\_full\_enumeration} --- проверяет, что полный перебор
+    возвращает корректное решение, не хуже случайных планов.
+    \item \textbf{test\_article\_best\_solution} --- проверяет соответствие
+    результату для примера из статьи: найденное решение не хуже эталонного.
+\end{itemize}
+
+\paragraph{test\_genetic\_search.py}
+\begin{itemize}
+    \item \textbf{test\_genetic\_search} --- проверяет, что генетический поиск
+    возвращает корректный план и улучшает качество по сравнению со случайными
+    решениями.
+\end{itemize}
+
+\paragraph{test\_global\_mutate.py}
+\begin{itemize}
+    \item \textbf{test\_global\_mutate} --- проверяет, что глобальная мутация
+    не ухудшает решение и иногда улучшает его.
+    \item \textbf{test\_event\_rebuild} --- проверяет, что после мутации очередь
+    событий пересчитывается (события могут отличаться по времени или типу).
+\end{itemize}
+
+\paragraph{test\_mutate.py}
+\begin{itemize}
+    \item \textbf{test\_mutate} --- проверяет, что локальная мутация плана
+    раскроя действительно меняет конфигурацию (перестановка форматов/раскроев).
+\end{itemize}
+
+\paragraph{test\_pmm\_plans\_builder.py}
+\begin{itemize}
+    \item \textbf{test\_generate\_making\_plans\_simple\_case} --- проверяет
+    корректное формирование плана производства тамбуров для одной БДМ.
+    \item \textbf{test\_generate\_making\_plans\_multiple\_identical\_machines} ---
+    проверяет распределение тамбуров между несколькими одинаковыми БДМ.
+    \item \textbf{test\_generate\_making\_plans\_different\_widths} --- проверяет
+    соответствие ширин тамбуров и БДМ при нескольких типах машин.
+    \item \textbf{test\_total\_time\_pms\_global\_plan} --- проверяет корректность
+    вычисления суммарного времени плана при наличии БДМ.
+\end{itemize}
+
+\paragraph{test\_random\_global\_plan.py}
+\begin{itemize}
+    \item \textbf{test\_randomness} --- проверяет, что генератор случайных планов
+    формирует различающиеся решения.
+    \item \textbf{test\_constraints} --- проверяет выполнение ограничений в
+    случайных планах.
+    \item \textbf{test\_constraints\_strictly} --- аналогичная проверка при
+    строгой конфигурации ширин станков.
+    \item \textbf{test\_invalid} --- проверяет, что при невозможности решения
+    генерация плана вызывает исключение.
+    \item \textbf{test\_time\_pms} --- проверяет корректность планов при наличии
+    БДМ и временных ограничений.
+    \item \textbf{test\_density} --- проверяет, что в раскрое сохраняется
+    однородность плотности рулонов.
+\end{itemize}
+
+\subsection{Тесты модельного слоя (\texttt{models/tests})}
+\label{subsec:software-testing/models}
+
+\paragraph{test\_cutting\_layout.py}
+\begin{itemize}
+    \item \textbf{test\_cutting\_layout} --- проверяет валидность раскроя при
+    разных ширинах и числе ножей, а также вычисление отходов.
+    \item \textbf{test\_format\_dicts} --- проверяет корректность словаря форматов
+    (количество рулонов одного типа в раскрое).
+\end{itemize}
+
+\paragraph{test\_cutting\_plan.py}
+\begin{itemize}
+    \item \textbf{test\_cutting\_plan} --- проверяет валидность плана и расчет
+    отходов и перестановок ножей.
+    \item \textbf{test\_formats\_dict} --- проверяет распределение заказов по плану.
+    \item \textbf{test\_total\_speed\_cutting\_plan} --- проверяет расчет времени
+    раскроя с учетом скорости производства и перестановок.
+    \item \textbf{test\_total\_speed\_layered\_cutting\_plan} --- проверяет
+    корректность времени при многослойных заказах.
+\end{itemize}
+
+\paragraph{test\_global\_plan.py}
+\begin{itemize}
+    \item \textbf{test\_formats\_dict} --- проверяет корректность агрегирования
+    количества заказов по всему глобальному плану.
+    \item \textbf{test\_good\_global\_plan} --- проверяет корректность базового
+    глобального плана, его отходов и перестановок.
+    \item \textbf{test\_article\_global\_plan} --- проверяет пример плана из
+    статьи (ожидаемые метрики).
+    \item \textbf{test\_article\_solution\_global\_plan} --- проверяет
+    эталонное решение из статьи.
+    \item \textbf{test\_article\_best\_global\_plan} --- проверяет план с
+    нулевыми отходами и минимальными перестановками.
+    \item \textbf{test\_global\_plan\_comparison} --- проверяет корректность
+    сравнения планов по критериям.
+    \item \textbf{test\_max\_slitting\_machine\_plans} --- проверяет расчет
+    максимального числа раскроев на станке.
+\end{itemize}
+
+\paragraph{test\_making\_plan.py}
+\begin{itemize}
+    \item \textbf{test\_making\_plan\_total\_time} --- проверяет расчет времени
+    производства тамбуров.
+    \item \textbf{test\_making\_plan\_equality} --- проверяет сравнение планов
+    по количеству тамбуров.
+    \item \textbf{test\_making\_plan\_string\_representation} --- проверяет
+    строковое представление плана.
+\end{itemize}
+
+\paragraph{test\_problem.py}
+\begin{itemize}
+    \item \textbf{test\_one\_plus\_one} --- проверка корректности тестовой
+    инфраструктуры.
+    \item \textbf{test\_problem} --- проверяет базовую корректность объекта
+    задачи (число заказов и станков).
+    \item \textbf{test\_problem\_with\_knives\_and\_speed} --- проверяет загрузку
+    параметров станков (ножи и скорости).
+\end{itemize}
+
+\paragraph{test\_roll.py}
+\begin{itemize}
+    \item \textbf{test\_is\_compatible} --- проверяет совместимость рулонов по
+    количеству слоев.
+\end{itemize}
+
+\subsection{Тесты ввода/вывода (\texttt{inoutput/tests})}
+\label{subsec:software-testing/inoutput}
+
+\paragraph{test\_input.py}
+\begin{itemize}
+    \item \textbf{test\_parse\_input} --- проверяет базовый парсинг CSV.
+    \item \textbf{test\_parse\_input\_with\_knives} --- проверяет парсинг ножей.
+    \item \textbf{test\_parse\_input\_with\_additional\_attributes} --- проверяет
+    чтение скоростей производства и перестановки ножей.
+    \item \textbf{test\_parse\_input\_with\_time\_limit} --- проверяет чтение
+    дедлайнов и времени запуска.
+    \item \textbf{test\_parse\_input\_with\_paper\_making\_machines} --- проверяет
+    парсинг БДМ и их параметров.
+    \item \textbf{test\_storage\_capacity\_input} --- проверяет парсинг складов.
+    \item \textbf{test\_parse\_orders\_with\_density} --- проверяет чтение плотности.
+    \item \textbf{test\_parse\_orders\_with\_density\_change\_speed} --- проверяет
+    чтение скорости смены плотности на БДМ.
+    \item \textbf{test\_parse\_brand} --- проверяет чтение марки бумаги.
+    \item \textbf{test\_parse\_brand\_ordered} --- проверяет чтение порядка марок
+    и времени переналадки.
+    \item \textbf{test\_excel\_input} --- проверяет чтение Excel со всеми
+    параметрами (станки, заказы, склад, марки).
+    \item \textbf{test\_excel\_simple\_input} --- проверяет упрощенный Excel.
+    \item \textbf{test\_layers\_input} --- проверяет чтение числа слоев.
+    \item \textbf{test\_edge\_input} --- проверяет чтение кромки.
+    \item \textbf{test\_small\_order\_input} --- проверяет чтение типа заказа
+    (ПРС/БРС).
+\end{itemize}
+
+\paragraph{test\_output.py}
+\begin{itemize}
+    \item \textbf{test\_output\_solution} --- проверяет корректность CSV-вывода
+    (сравнение с эталонным файлом).
+    \item \textbf{test\_output\_solution\_excel} --- проверяет генерацию Excel
+    отчета и его наличие.
+\end{itemize}
+
+\subsection{Интеграционные тесты (\texttt{tests/})}
+\label{subsec:software-testing/integration}
+
+\paragraph{test\_functional.py}
+\begin{itemize}
+    \item \textbf{test\_pmm} --- запуск полного цикла расчета с БДМ.
+    \item \textbf{test\_pmm\_with\_time} --- запуск полного цикла с учетом времени.
+    \item \textbf{test\_storage} --- проверка корректного ожидания при складских
+    ограничениях.
+    \item \textbf{test\_density} --- проверка согласованности плотности в планах.
+    \item \textbf{test\_density\_with\_time} --- запуск задачи с плотностью и
+    дедлайнами.
+    \item \textbf{test\_brand} --- проверка согласованности марок.
+    \item \textbf{test\_brand\_ordered} --- проверка соблюдения порядка марок.
+    \item \textbf{test\_density\_brand} --- проверка совмещения плотности и марок.
+    \item \textbf{test\_layers} --- запуск задачи со слоями.
+    \item \textbf{test\_layers\_with\_time} --- слои с временными ограничениями.
+    \item \textbf{test\_subslitting} --- проверка сценария БРС.
+    \item \textbf{test\_subslitting\_with\_time} --- БРС с дедлайнами.
+    \item \textbf{test\_edge} --- проверка корректной обработки кромки.
+    \item \textbf{test\_full\_problem} --- полный интеграционный сценарий
+    со всеми ограничениями.
+\end{itemize}
+
+\paragraph{test\_benchmark.py}
+\begin{itemize}
+    \item \textbf{test\_benchmark\_1\_full\_enumeration} --- бенчмарк с полным
+    перебором (отключен по умолчанию).
+    \item \textbf{test\_benchmark\_1\_genetic\_search} --- бенчмарк генетического
+    поиска (отключен по умолчанию).
+    \item \textbf{test\_benchmark\_2\_full\_enumeration} --- второй сценарий
+    бенчмарка (отключен).
+    \item \textbf{test\_benchmark\_2\_genetic\_search} --- второй сценарий для GA
+    (отключен).
+    \item \textbf{test\_benchmark\_3\_full\_enumeration} --- третий сценарий
+    бенчмарка (отключен).
+    \item \textbf{test\_benchmark\_3\_genetic\_search} --- третий сценарий для GA
+    (отключен).
+    \item \textbf{test\_benchmark\_4\_full\_enumeration} --- четвертый сценарий
+    бенчмарка (отключен).
+    \item \textbf{test\_benchmark\_4\_genetic\_search} --- четвертый сценарий для
+    GA (отключен).
+\end{itemize}
