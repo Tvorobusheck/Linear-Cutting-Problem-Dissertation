@@ -1,0 +1,1093 @@
+% ГОСТ Р 7.0.11-2011, Приложение Б, Книги
+@BOOK{Sychev,
+  author = {Сычёв, М. С.},
+  title = {История Астраханского казачьего войска : учебное пособие},
+  address = {Астрахань},
+  publisher = {Волга},
+  year = {2009},
+  numpages = {231},
+  language = {russian}
+}
+
+@BOOK{Sokolov,
+  author = {Соколов, А. Н. and Сердобинцев, К. С.},
+  editor = {Бочарова, В. М.},
+  address = {Астрахань},
+  publisher = {Калиниградский ЮИ МВД России},
+  title = {Гражданское общество: проблемы формирования и развития (философский и юридический аспекты) : монография},
+  year = {2009},
+  numpages = {218},
+  language = {russian}
+}
+
+@BOOK{Gaidaenko,
+  author = {Гайдаенко, Т. А.},
+  title = {Маркетинговое управление: принципы управленческих решений и российская практика},
+  edition = {{}3-е изд, перераб. и доп.},
+  address = {М.},
+  publisher = {Эксмо: МИРБИС},
+  year = {2008},
+  numpages = {508},
+  language = {russian}
+}
+
+@BOOK{Lermontov,
+  author = {Лермонтов, Михаил Юрьевич},
+  title = {Собрание сочинений: в 4 т.},
+  address = {М.},
+  publisher = {Терра-Кн. клуб},
+  year = {2009},
+  note = {4 т.},
+  language = {russian}
+}
+
+@BOOK{Management,
+  title = {Управление бизнесом : сборник статей},
+  address = {Нижний новгород},
+  publisher = {Изд-во Нижегородского университета},
+  year = {2009},
+  numpages = {243},
+  language = {russian}
+}
+
+@BOOK{Borozda,
+  author = {Борозда, И. В. and Воронин, Н. И. and Бушманов, А. В.},
+  title = {Лечение сочетанных повреждений таза},
+  address = {Владивосток},
+  publisher = {Дальнаука},
+  year = {2009},
+  numpages = {195},
+  language = {russian}
+}
+
+@BOOK{Marketing,
+  author = {Михненков, О. В. and Коготкова, И. З. and Генкин, Е. В. and Сороко, Г. Я.},
+  title = {Маркетинговые исследования в строительстве : учебное пособие для студентов специальности «Менеджмент организаций»},
+  address = {М.},
+  publisher = {Государственный университет управления},
+  year = {2005},
+  numpages = {59},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Нормативные правовые акты
+@BOOK{Constitution,
+  title = {Конституция Российской Федерации : офиц. текст.},
+  address = {М.},
+  publisher = {Маркетинг},
+  year = {2001},
+  numpages = {39},
+  language = {russian}
+}
+
+@BOOK{FamilyCode,
+  title = {Семейный кодекс Российской Федерации : [федер. закон: принят Гос. Думой 8 дек. 1995~г. : по состоянию на 3~янв. 2001~г.]},
+  address = {СПб.},
+  publisher = {Стаун-кантри},
+  year = {2001},
+  numpages = {94},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Стандарты
+@BOOK{Gost.7.0.53,
+  title = {ГОСТ Р 7.0.53-2007 Система стандартов по информации, библиотечному и издательскому делу. Издания. Международный стандартный книжный номер. Использование и издательское оформление.},
+  address = {М.},
+  publisher = {Стандартинформ},
+  year = {2007},
+  numpages = {5},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Депонированные научные работы
+@BOOK{Razumovski,
+  author = {Разумовский, В. А. and Андреев, Д. А.},
+  title = {Управление маркетинговыми исследованиями в регионе},
+  address = {М.},
+  year = {2002},
+  numpages = {210},
+  note = {Деп. в ИНИОН Рос. акад. наук 15.02.02, № 139876},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Диссертации
+@BOOK{Lagkueva,
+  author = {Лагкуева, Ирина Владимировна},
+  title = {Особенности регулирования труда творческих работников театров : дис. ... канд. юрид. наук : 12.00.05},
+  address = {М.},
+  year = {2009},
+  numpages = {168},
+  language = {russian}
+}
+
+@BOOK{Pokrovski,
+  author = {Покровский, Андрей Владимирович},
+  title = {Устранимые особенности решений эллиптических уравнений : дис. ... д-ра физ.-мат. наук : 01.01.01},
+  address = {М.},
+  year = {2008},
+  numpages = {178},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Авторефераты диссертаций
+@BOOK{Sirotko,
+  author = {Сиротко, Владимир Викторович},
+  title = {Медико-социальные аспекты городского травматизма в современных условиях : автореф. дис. ... канд. мед. наук : 14.00.33},
+  address = {М.},
+  year = {2006},
+  numpages = {26},
+  language = {russian}
+}
+
+% !!! этот пример НЕ работает с bibtex
+% Тот же пример, с использованием https://www.ctan.org/pkg/biblatex-gost
+@THESIS{Sirotko2,
+  author =       {Сиротко, Владимир Викторович},
+  title =        {Медико-социальные аспекты городского травматизма в современных условиях},
+  media =        {text},
+  type =         {phdautoref},
+  science =      {мед. наук},
+  specialitycode ={14.00.33},
+  address =      {М.},
+  year =         {2006},
+  pagetotal =    {26},
+  language =     {russian},
+}
+
+@BOOK{Lukina,
+  author = {Лукина, Валентина Александровна},
+  title = {Творческая история «Записок охотника» И. С. Тургенева : автореф. дис. ... канд. филол. наук : 10.01.01},
+  address = {СПб.},
+  year = {2006},
+  numpages = {26},
+  language = {russian}
+}
+
+% !!! этот пример НЕ работает с bibtex
+% Тот же пример, с использованием https://www.ctan.org/pkg/biblatex-gost
+@THESIS{Lukina2,
+  author =       {Лукина, Валентина Александровна},
+  title =        {Творческая история «Записок охотника» И. С. Тургенева},
+  media =        {text},
+  type =         {phdautoref},
+  science =      {филол. наук},
+  specialitycode ={10.01.01},
+  address =      {СПб.},
+  year =         {2006},
+  pagetotal =    {26},
+  language =     {russian},
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Отчёты о научно-исследовательской работе
+@BOOK{Methodology,
+  author = {Загорюев, А. Л.},
+  title = {Методология и методы изучения военно-профессиональной направленности подростков : отчёт о НИР},
+  address = {Екатеринбург},
+  institution = {Уральский институт практической психологии},
+  year = {2008},
+  numpages = {102},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Электронные ресурсы
+@BOOK{Encyclopedia,
+  title = {Художественная энциклопедия зарубежного классического искусства [Электронный ресурс]},
+  address = {М.},
+  publisher = {Большая Рос. энкцикл.},
+  year = {1996},
+  note = {1 электрон. опт. диск (CD-ROM)},
+  language = {russian}
+}
+
+% !!! этот пример НЕ работает с bibtex
+% Тот же пример, с использованием https://www.ctan.org/pkg/biblatex-gost
+@BOOK{Encyclopedia2,
+  title = {Художественная энциклопедия зарубежного классического искусства},
+  address = {М.},
+  media = {eresource},
+  publisher = {Большая Рос. энкцикл.},
+  year = {1996},
+  note = {1 электрон. опт. диск (CD-ROM)},
+  language = {russian},
+}
+
+@ARTICLE{Nasirova,
+  author =       {Насырова, Г. А.},
+  title =        {Модели государственного регулирования страховой деятельности
+                  [Электронный ресурс]},
+  journal =      {Вестник Финансовой академии},
+  year =         {2003},
+  number =       {4},
+  note =         {Режим доступа: http://vestnik.fa.ru/4(28)2003/4.html},
+  language =     {russian}
+}
+
+@ARTICLE{Nasirova2,
+  author = {Насырова, Г. А.},
+  title = {Модели государственного регулирования страховой деятельности},
+  journal = {Вестник Финансовой академии},
+  year = {2003},
+  media = {eresource},
+  number = {4},
+  note = {Режим доступа: http://vestnik.fa.ru/4(28)2003/4.html},
+  language = {russian}
+}
+
+% ГОСТ Р 7.0.11-2011, Приложение Б, Статьи
+
+@ARTICLE{Berestova,
+  author = {Берестова, Т. Ф.},
+  title = {Поисковые инструменты библиотеки},
+  journal = {Библиография},
+  year = {2006},
+  number = {4},
+  pages = {19},
+  language = {russian}
+}
+
+@ARTICLE{Kriger,
+  author = {Кригер, И.},
+  title =  {Бумага терпит},
+  journal = {Новая газета},
+  year = {2009},
+  note = {1 июля},
+  language = {russian}
+}
+
+
+% Examples from https://verbosus.com/bibtex-style-examples.html
+@ARTICLE{Article,
+  author   = {Peter Adams},
+  title    = {The title of the work},
+  journal  = {The name of the journal},
+  year     = {1993},
+  number   = {2},
+  pages    = {201-213},
+  month    = {7},
+  note     = {An optional note},
+  volume   = {4},
+  language = {english}
+}
+
+@BOOK{Book,
+  author    = {Peter Babington},
+  title     = {The title of the work},
+  publisher = {The name of the publisher},
+  year      = {1993},
+  volume    = {4},
+  series    = {10},
+  address   = {The address},
+  edition   = {3},
+  month     = {7},
+  note      = {An optional note},
+  isbn      = {3257227892},
+  language  = {english}
+}
+
+@BOOKLET{Booklet,
+  title        = {The title of the work},
+  author       = {Peter Caxton},
+  howpublished = {How it was published},
+  address      = {The address of the publisher},
+  month        = {7},
+  year         = {1993},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@CONFERENCE{Conference,
+  author       = {Peter Draper},
+  title        = {The title of the work},
+  booktitle    = {The title of the book},
+  year         = {1993},
+  editor       = {The editor},
+  volume       = {4},
+  series       = {5},
+  pages        = {213},
+  address      = {The address of the publisher},
+  month        = {7},
+  organization = {The organization},
+  publisher    = {The publisher},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@INBOOK{Inbook,
+  author       = {Peter Eston},
+  title        = {The title of the work},
+  booktitle    = {Book title},
+  chapter      = {8},
+  pages        = {201-213},
+  publisher    = {The name of the publisher},
+  year         = {1993},
+  volume       = {4},
+  series       = {5},
+  address      = {The address of the publisher},
+  edition      = {3},
+  month        = {7},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@INCOLLECTION{Incollection,
+  author       = {Peter Farindon},
+  title        = {The title of the work},
+  booktitle    = {The title of the book},
+  publisher    = {The name of the publisher},
+  year         = {1993},
+  editor       = {The editor},
+  volume       = {4},
+  series       = {5},
+  chapter      = {8},
+  pages        = {201-213},
+  address      = {The address of the publisher},
+  edition      = {3},
+  month        = {7},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@MANUAL{Manual,
+  title        = {The title of the work},
+  author       = {Peter Gainsford},
+  organization = {The organization},
+  address      = {The address of the publisher},
+  edition      = {3},
+  month        = {7},
+  year         = {1993},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@MASTERSTHESIS{Mastersthesis,
+  author       = {Peter Harwood},
+  title        = {The title of the work},
+  school       = {The school where the thesis was written},
+  year         = {1993},
+  address      = {The address of the publisher},
+  month        = {7},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@MISC{Misc,
+  author       = {Peter Isley},
+  title        = {The title of the work},
+  howpublished = {How it was published},
+  month        = {7},
+  year         = {1993},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@PHDTHESIS{Phdthesis,
+  author       = {Peter Joslin},
+  title        = {The title of the work},
+  school       = {The school where the thesis was written},
+  year         = {1993},
+  address      = {The address of the publisher},
+  month        = {7},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@PROCEEDINGS{Proceedings,
+  title        = {The title of the work},
+  year         = {1993},
+  editor       = {Peter Kidwelly},
+  volume       = {4},
+  series       = {5},
+  address      = {The address of the publisher},
+  month        = {7},
+  organization = {The organization},
+  publisher    = {The name of the publisher},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@TECHREPORT{Techreport,
+  author       = {Peter Lambert},
+  title        = {The title of the work},
+  institution  = {The institution that published},
+  year         = {1993},
+  number       = {2},
+  address      = {The address of the publisher},
+  month        = {7},
+  note         = {An optional note},
+  language     = {english}
+}
+
+@UNPUBLISHED{Unpublished,
+  author       = {Peter Marcheford},
+  title        = {The title of the work},
+  note         = {An optional note},
+  month        = {7},
+  year         = {1993},
+  language     = {english}
+}
+
+%%% Реальные примеры
+
+% Инициалы должны быть записаны после запятой, с точками, через пробел
+% http://www.kit-e.ru/articles/elcomp/2006_12_124.php
+% Подчёркивания в ссылке приходится экранировать
+% http://www.kit-e.ru/articles/elcomp/2006\_12\_124.php
+@online{medvedev2006jelektronnye,
+  title={Электронные компоненты и монтажные подложки},
+  author={Медведев, А. М.},
+  journal={Компоненты и технологии},
+  number={12},
+  pages={124--134},
+  year={2006},
+  medium={Электронный ресурс},
+  url = {http://www.kit-e.ru/articles/elcomp/2006\_12\_124.php},
+  urldate = {19.01.2015},
+  language = {russian}
+}
+
+% Real example
+% & в названии журнала надо экранировать
+% 10.1002/1521-4125(200007)23:7<581::AID-CEAT581>3.0.CO;2-P
+% < > в ссылке приходится экранировать %3C и %3E, а потом ещё знаки процента в них экранировать
+% 10.1002/1521-4125(200007)23:7%3C581::AID-CEAT581%3E3.0.CO;2-P
+% 10.1002/1521-4125(200007)23:7\%3C581::AID-CEAT581\%3E3.0.CO;2-P
+% url не нужен. если запись о бумажной публикации
+@article {CEAT:CEAT581,
+  author = {Deiters, U. K.},
+  title = {A Modular Program System for the Calculation of Thermodynamic Properties of Fluids},
+  journal = {Chemical Engineering \& Technology},
+  volume = {23},
+  number = {7},
+  publisher = {WILEY-VCH Verlag},
+  issn = {1521-4125},
+  doi = {10.1002/1521-4125(200007)23:7<581::AID-CEAT581>3.0.CO;2-P},
+  pages = {581--584},
+  year = {2000},
+  language = {english}
+}
+
+% Real with  4 authors
+@article{doi:10.1080/01932691.2010.513279,
+  author = {Young-Sang Cho and Young Kuk Kim and Kook Chae Chung and Chul Jin Choi },
+  title = {Deformation of Colloidal Crystals for Photonic Band Gap Tuning},
+  journal = {Journal of Dispersion Science and Technology},
+  volume = {32},
+  number = {10},
+  pages = {1408-1415},
+  year = {2011},
+  doi = {10.1080/01932691.2010.513279},
+  language = {english}
+}
+
+% doi with (), author with umlaut or other unicode or specific symbols, 9 authors
+% latex don't like Gösele1999161 in ref
+% Умляуты в авторах понимаются из-за поддержки в юникодной странице pdflatex и xelatex
+% Иллюстрация того, что будет. если на английской записи будут поставлена пометка, что язык русский
+@article{Gosele1999161,
+  title = "Wafer bonding for microsystems technologies",
+  journal = "Sensors and Actuators A: Physical",
+  volume = "74",
+  number = "1–3",
+  pages = "161 - 168",
+  year = "1999",
+  issn = "0924-4247",
+  doi = "10.1016/S0924-4247(98)00310-0",
+  author = "Gösele, U. and Tong, Q.-Y. and Schumacher, A. and Kräuter, G. and Reiche, M. and Plößl, A. and Kopperschmidt, P. and Lee, T.-H. and Kim, W.-J.",
+  keywords = "Wafer bonding",
+  keywords = "Fusion bonding",
+  keywords = "Pressure sensors",
+  keywords = "Interface reactions",
+  keywords = "Hydrophilic bonding",
+  keywords = "Hydrophobic bonding",
+  language = {russian}
+}
+
+% Real example (from Google or Springer)
+% unmodified styles don't know %language = {English}
+% язык писать с маленьких
+% иллюстрация incollection
+% 10.1007/0-387-32989-7_45
+% Подчёркивания в DOI приходится экранировать
+% 10.1007/0-387-32989-7\_45
+@incollection{Li2007StressAnalysis,
+  year={2007},
+  isbn={978-0-387-27974-9},
+  booktitle={Micro- and Opto-Electronic Materials and Structures: Physics, Mechanics, Design, Reliability, Packaging},
+  editor={Suhir, E. and Lee, Y. C. and Wong, C. P.},
+  doi={10.1007/0-387-32989-7_45},
+  title={Stress Analysis for Processed Silicon Wafers and Packaged Micro-devices},
+  publisher={Springer US},
+  author={Li, Li and Guo, Yifan and Zheng, Dawei},
+  pages={B677-B709},
+  language={english}
+}
+
+% Real, β sign
+% inputenc don't know β sign %aluminosilicate-β-quartz
+% Знаки типа β, которые не знает таблица кодировки, с которой работает компилятор нужно заменять на latex команды
+% doi должен быть без http://dx.doi.org/
+@article{Shoji199895,
+title = "Low-temperature anodic bonding using lithium aluminosilicate-\(\beta\)-quartz glass ceramic",
+journal = "Sensors and Actuators A: Physical",
+volume = "64",
+number = "1",
+pages = "95 - 100",
+year = "1998",
+note = "Tenth {IEEE} International Workshop on Micro Electro Mechanical Systems ",
+issn = "0924-4247",
+doi = "10.1016/S0924-4247(97)01659-2",
+author = {Shuichi Shoji and Hiroto Kikuchi and Hirotaka Torigoe},
+keywords = "Anodic bonding",
+keywords = "Low-temperature bonding",
+keywords = "Micro assembly",
+keywords = "Micro package",
+keywords = "Glass ceramic",
+}
+
+
+% from urlbst package
+% Example from Jason Eisner, by mail (nothing special about the entry,
+% but he seemed to be having formatting problems with unsrturl and proceedings
+% entries.
+% http://cs.jhu.edu/~jason/papers/#icassp07
+@InProceedings{test:eisner-sample,
+  author =       {Damianos Karakos and Sanjeev Khudanpur and Jason
+                  Eisner and Carey~E. Priebe},
+  title =        {Iterative denoising using {J}ensen-{R}enyi
+                  divergences with an application to unsupervised
+                  document categorization},
+  booktitle =    {Proceedings of ICASSP},
+  year =         2007,
+  url =          {http://cs.jhu.edu/~jason/papers/\#icassp07}
+}
+
+@InProceedings{test:eisner-sample-shorted,
+  author =       {Damianos Karakos and Sanjeev Khudanpur and Jason
+                  Eisner and Carey~E. Priebe},
+  title =        {Iterative denoising using {J}ensen-{R}enyi
+                  divergences with an application to unsupervised
+                  document categorization},
+  booktitle =    {Proceedings of ICASSP},
+  shortbooktitle = {Proc. of ICASSP},
+  year =         2007,
+  url =          {http://cs.jhu.edu/~jason/papers/\#icassp07}
+}
+
+% Попытка записать патент имеющимися средствами
+@Book{iofis_patent1960,
+  title                    = {Способ пайки керамики с~керамикой и~стекла с~металлом : а.\,с.~126728 СССР},
+  author                   = {Иофис, Н. А.},
+  year                     = {1960},
+  numpages                 = {Бюл. № 5.~1},
+  language                 = {russian}
+}
+
+% Попытка записать патент имеющимися средствами
+@Book{AB_patent_Pomerantz_1968,
+  title                    = {Anodic bonding : patent no. 3397278 US},
+  author                   = {Pomerantz, D. I.},
+  year                     = {1968},
+  language                 = {english}
+}
+
+% !!! этот пример НЕ работает с bibtex
+% Примеры оформления патентов из пакета https://www.ctan.org/pkg/biblatex-gost
+@Patent{patent2h,
+  heading =      {Заявка 1095735 Рос. федерация, МПК\ensuremath{^7} B 64 G 1/00},
+  author =       {Тернер, Э. В.},
+  authortype =   {США},
+  title =        {Одноразовая ракета-носитель},
+  media =        {text},
+  holder =       {{заявитель Спейс Системз/Лорал, инк.}},
+  credits =      {патент. поверенный Егорова Г. Б.},
+  reqnumber =    {2000108705/28},
+  date =         {2000-04-07},
+  publdate =     {2001-03-10},
+  publication =  {Бюл. № 7 (I ч.)\midsentence},
+  prdate =       {1999-04-09},
+  prnumber =     {09/289, 037},
+  prcountry =    {countryus},
+  pagetotal =    {5 с.~: ил.},
+  language =     {russian},
+}
+
+@Patent{patent3h,
+  heading =      {А. с. 1007970 СССР, МКИ\ensuremath{^3} В 25.1 15/00},
+  author =       {В. С. Ваулин and В. Г. Кемайкин},
+  authortype =   {СССР},
+  title =        {Устройство для захвата неориентированных деталей типа валов},
+  media =        {text},
+  reqnumber =    {3360585/25-08},
+  date =         {1981-11-23},
+  publication =  {Бюл. № 12},
+  publdate =     {1983-03-30},
+  pagetotal =    {2 с.~: ил.},
+  language =     {russian},
+}
+
+@Patent{patent2,
+  author =       {Тернер, Э. В.},
+  authortype =   {США},
+  title =        {Одноразовая ракета-носитель},
+  media =        {text},
+  type =         {patreq},
+  number =       1095735,
+  location =     {countryru},
+  ipc =          {МПК\ensuremath{^7} B 64 G 1/00},
+  holder =       {{заявитель Спейс Системз/Лорал, инк.}},
+  credits =      {патент. поверенный Егорова Г. Б.},
+  reqnumber =    {2000108705/28},
+  date =         {2000-04-07},
+  publdate =     {2001-03-10},
+  publication =  {Бюл. № 7 (I ч.)\midsentence},
+  prioritydate = {1999-04-09},
+  prioritynumber ={09/289, 037},
+  prioritycountry ={countryus},
+  pagetotal =    {5 с.~: ил.},
+  language =     {russian},
+}
+
+%%% Использование дополнительных опций biblatex
+
+@Book{sobenin_kdv,
+  author =       {О. А. Вальднер and Н. П. Собенин and Б. В. Зверев and И. С. Щедрин},
+  options =      {maxnames=4},
+  title =        {Диафрагмированные волноводы},
+  subtitle =     {Справочник},
+  publisher =    {Энергоатомиздат},
+  edition =      3,
+  year =         1991,
+  pagetotal =    280,
+  location =     {М.},
+  language =     {russian},
+  isbn =         {5-283-03960-9},
+}
+
+@InProceedings{initials,
+  author =       {Ya.Yu. Ivanov},
+  title =        {Stabilization of the initials in the bibliography entries},
+  booktitle =    {Proc. of {IPAC'10}},
+  options =      {giveninits=false},
+  pages =        {1234 -- 4321},
+  language =     {english},
+  venue =        {Kyoto, Japan},
+  publisher =    {JACoW Publishing},
+  location =     {Geneva},
+  month =        5,
+  year =         2010,
+}
+
+@article{gilmore1961linear,
+  author    = {P. C. Gilmore and R. E. Gomory},
+  title     = {A Linear Programming Approach to the Cutting-Stock Problem},
+  journal   = {Operations Research},
+  year      = {1961},
+  volume    = {9},
+  number    = {6},
+  pages     = {849--859},
+  language  = {english}
+}
+
+@article{gilmore1963linear,
+  author    = {P. C. Gilmore and R. E. Gomory},
+  title     = {A Linear Programming Approach to the Cutting-Stock Problem—Part II},
+  journal   = {Operations Research},
+  year      = {1963},
+  volume    = {11},
+  number    = {6},
+  pages     = {863--888},
+  language  = {english}
+}
+
+@article{dyckhoff1990typology,
+  author    = {H. Dyckhoff},
+  title     = {A Typology of Cutting and Packing Problems},
+  journal   = {European Journal of Operational Research},
+  year      = {1990},
+  volume    = {44},
+  number    = {2},
+  pages     = {145--159},
+  language  = {english}
+}
+
+@article{scheithauer1999practical,
+  author    = {G. Scheithauer},
+  title     = {Practical Experiences with Cutting Stock Problems},
+  journal   = {European Journal of Operational Research},
+  year      = {1999},
+  volume    = {112},
+  number    = {3},
+  pages     = {617--628},
+  language  = {english}
+}
+
+@article{vanderbeck2000integer,
+  author    = {F. Vanderbeck},
+  title     = {On Dantzig-Wolfe Decomposition in Integer Programming and Ways to Perform Branch-and-Price in Practice},
+  journal   = {INFORMS Journal on Computing},
+  year      = {2000},
+  volume    = {12},
+  number    = {4},
+  pages     = {296--317},
+  language  = {english}
+}
+
+@article{delorme2016bin,
+  author    = {M. Delorme and M. Iori and S. Martello},
+  title     = {Bin Packing and Cutting Stock Problems: Mathematical Models and Exact Algorithms},
+  journal   = {European Journal of Operational Research},
+  year      = {2016},
+  volume    = {255},
+  number    = {1},
+  pages     = {1--20},
+  language  = {english}
+}
+
+@article{urban1999solving,
+  author = {T. L. Urban},
+  title = {Solving the cutting stock problem with an adaptive search algorithm},
+  journal = {European Journal of Operational Research},
+  year = {1999},
+  volume = {116},
+  number = {1},
+  pages = {40--52},
+  language = {english}
+}
+
+@article{voronov2005application,
+  author = {V. I. Voronov},
+  title = {Application of mathematical methods to optimize cutting in the woodworking industry},
+  journal = {Russian Engineering Research},
+  year = {2005},
+  volume = {25},
+  number = {11},
+  pages = {77--81},
+  language = {english}
+}
+
+@article{wascher2007typology,
+  author  = {W{\"a}scher, Gerhard and Hau{\ss}ner, Heike and Schumann, Holger},
+  title   = {An improved typology of cutting and packing problems},
+  journal = {European Journal of Operational Research},
+  year    = {2007},
+  volume  = {183},
+  number  = {3},
+  pages   = {1109--1130},
+  language= {english}
+}
+
+@article{hinxman1980trimloss,
+  author  = {Hinxman, A. I.},
+  title   = {The trim-loss and assortment problems: a survey},
+  journal = {European Journal of Operational Research},
+  year    = {1980},
+  volume  = {5},
+  number  = {1},
+  pages   = {8--18},
+  language= {english}
+}
+
+@article{harjunkoski1996trimloss,
+  author  = {Harjunkoski, Iiro and Westerlund, Tapio and Isaksson, Johnny and Skrifvars, Hans},
+  title   = {Different formulations for solving trim loss problems in a paper-converting mill with ILP},
+  journal = {Computers \& Chemical Engineering},
+  year    = {1996},
+  volume  = {20},
+  number  = {SUPPL.1},
+  pages   = {S915--S920},
+  language= {english}
+}
+
+@article{westerlund1998trimloss_scheduling,
+  author  = {Westerlund, Tapio and Isaksson, Johnny},
+  title   = {Some efficient formulations for the simultaneous solution of trim-loss and scheduling problems in the paper-converting industry},
+  journal = {Trans IChemE, Part A},
+  year    = {1998},
+  volume  = {76},
+  month   = {9},
+  pages   = {677--684},
+  doi     = {10.1205/026387698525388},
+  language= {english}
+}
+
+@article{giannelos2001parallel,
+  author  = {Giannelos, N. F. and Georgiadis, M. C.},
+  title   = {Scheduling of cutting-stock processes on multiple parallel machines},
+  journal = {Chemical Engineering Research and Design},
+  year    = {2001},
+  volume  = {79},
+  pages   = {747--753},
+  language= {english}
+}
+
+@article{yanasse2007integrated,
+  author  = {Yanasse, Horacio Hideki and Pinto Lamosa, Maria Jose},
+  title   = {An integrated cutting stock and sequencing problem},
+  journal = {European Journal of Operational Research},
+  year    = {2007},
+  volume  = {183},
+  number  = {3},
+  pages   = {1353--1370},
+  language= {english}
+}
+
+@article{nonas2000combined,
+  author  = {Non{\aa}s, Sigrid Lise and Thorstenson, Anders},
+  title   = {A combined cutting-stock and lot-sizing problem},
+  journal = {European Journal of Operational Research},
+  year    = {2000},
+  volume  = {120},
+  number  = {2},
+  pages   = {327--342},
+  language= {english}
+}
+
+@article{melega2018review,
+  author  = {Melega, Gislaine Mara and de Araujo, Silvio Alexandre and Jans, Raf},
+  title   = {Classification and literature review of integrated lot-sizing and cutting stock problems},
+  journal = {European Journal of Operational Research},
+  year    = {2018},
+  volume  = {271},
+  number  = {1},
+  pages   = {1--19},
+  language= {english}
+}
+
+@article{poltroniere2016tema,
+  author  = {Poltroniere, Silvio C. and de Araujo, Silvio A. and Poldi, Kelly C.},
+  title   = {Optimization of an Integrated Lot Sizing and Cutting Stock Problem in the Paper Industry},
+  journal = {TEMA (S{\~a}o Carlos)},
+  year    = {2016},
+  volume  = {17},
+  number  = {3},
+  pages   = {305--320},
+  language= {english}
+}
+@misc{cyberleninka_slitting_params,
+  author = {Бобров, В. И.},
+  title = {Исследование параметров ротационной высечки самоклеящихся этикеток},
+  year = {2016},
+  note = {// Вестник (статья). — 2016.},
+  url = {https://cyberleninka.ru/article/n/issledovanie-parametrov-rotatsionnoy-vysechki-samokleyaschihsya-etiketok},
+  language = {russian}
+}
+
+@misc{genetics_2,
+  author = {Гладков, Л. А. and Курейчик, В. В. and Курейчик, В. М.},
+  title = {Генетические алгоритмы : учебник},
+  year = {2010},
+  note = {— Москва : Физматлит, 2010. — 368 с.},
+  url = {https://elibrary.ru/item.asp?id=27280977},
+  language = {russian}
+}
+
+@misc{evolution_1,
+  author = {Дивеев, А. И. and Константинов, С. В.},
+  title = {Эволюционные алгоритмы для решения задачи оптимального управления},
+  year = {2017},
+  note = {// Вестник Российского университета дружбы народов. Серия: Инженерные исследования. — 2017. — Т. 18. — №2. — С. 254–265.},
+  url = {https://cyberleninka.ru/article/n/evolyutsionnye-algoritmy-dlya-resheniya-zadachi-optimalnogo-upravleniya.pdf},
+  language = {russian}
+}
+
+@misc{genetics_1,
+  author = {Курейчик, В. М.},
+  title = {Генетические алгоритмы},
+  year = {1998},
+  note = {// Известия Южного федерального университета. Технические науки. — 1998. — Т. 8. — №2. — С. 4–7.},
+  url = {https://cyberleninka.ru/article/n/geneticheskie-algoritmy.pdf},
+  language = {russian}
+}
+
+@misc{evolution_2,
+  author = {Семенкина, М. Е.},
+  title = {Самоадаптивные эволюционные алгоритмы проектирования информационных технологий интеллектуального анализа данных},
+  year = {2013},
+  note = {// Искусственный интеллект и принятие решений. — 2013. — №1. — С. 13–24.},
+  url = {https://www.mathnet.ru/php/getFT.phtml?jrnid=iipr&paperid=385&what=fullt},
+  language = {russian}
+}
+
+@article{bernals_energy_2025,
+  author = {Bernal, Christian Perez and Salido, Miguel A. and March Moya, Carlos},
+  title = {Optimizing energy efficiency in unrelated parallel machine scheduling problem through reinforcement learning},
+  journal = {Information Sciences},
+  year = {2025},
+  volume = {693},
+  pages = {121674},
+  month = {3},
+  doi = {10.1016/j.ins.2024.121674},
+  language = {english}
+}
+
+@misc{study_hybrid_metaheuristics_2008,
+  author = {Blum, C.},
+  title = {Hybrid Metaheuristics: An Introduction},
+  year = {2008},
+  note = {— Springer, 2008. — 1-30.},
+  url = {https://www.dei.unipd.it/~fisch/ricop/OR2/2008_Book_HybridMetaheuristics.pdf},
+  language = {english}
+}
+
+@misc{cerqueira2021,
+  author = {Cerqueira, G. R. L. and Aguiar, S. S. and Marques, M.},
+  title = {Modified Greedy Heuristic for the one-dimensional cutting stock problem},
+  year = {2021},
+  note = {// Journal of Combinatorial Optimization. — 2021. — Vol. 42, No. 3. — P. 657–674.},
+  url = {https://link.springer.com/article/10.1007/s10878-021-00695-4},
+  language = {english}
+}
+
+@misc{malik_decision_support_energy_2022,
+  author = {El, Mazgualdi C. and Others},
+  title = {A Learning-Based Decision Tool towards Smart Energy Systems for Industrial Processes},
+  year = {2022},
+  note = {// Systems. — 2022. — Vol. 10, No. 5. — Article 180.},
+  url = {https://www.mdpi.com/2079-8954/10/5/180},
+  language = {english}
+}
+
+@article{gao_energy_2019,
+  author = {Gao, Kaizhou and Huang, Yun and Sadollah, Ali and Wang, Ling},
+  title = {A review of energy-efficient scheduling in intelligent production systems},
+  journal = {Complex \& Intelligent Systems},
+  year = {2020},
+  volume = {6},
+  number = {2},
+  pages = {237--249},
+  doi = {10.1007/s40747-019-00122-6},
+  language = {english}
+}
+
+@misc{haessler1991,
+  author = {Haessler, R. W. and Sweeney, P. E.},
+  title = {Cutting stock problems and solution procedures},
+  year = {1991},
+  note = {// European Journal of Operational Research. — 1991.},
+  url = {https://deepblue.lib.umich.edu/bitstream/handle/2027.42/29128/0000167.pdf},
+  language = {english}
+}
+
+@misc{hubbe2021_energy,
+  author = {Hubbe, M. A.},
+  title = {Energy Efficiency Challenges in Pulp and Paper Manufacturing: A Tutorial Review},
+  year = {2021},
+  note = {// BioResources. — 2021. — Vol. 16, No. 4. — P. 8567-8639.},
+  url = {https://bioresources.cnr.ncsu.edu/wp-content/uploads/2021/10/BioRes_16_4_Review_Hubbe_Energy_Efficiency_Challenges_Pulp__Paper_Manuf_19310-1.pdf},
+  language = {english}
+}
+
+@misc{ippta_paper_and_water_2022,
+  author = {Ippta},
+  title = {Paper and Water Chapter 8: Paper Drying in the Manufacturing Process},
+  year = {2022},
+  note = {// IPPTA. — 2022. — Pp. (см. разделы).},
+  url = {https://ippta.co/wp-content/uploads/2025/07/BPaperandWaterChapter8.pdf},
+  language = {english}
+}
+
+@article{keskinocak2002,
+  author = {Keskinocak, Pınar and Taskin, Z. Canan and Tayur, Sridhar},
+  title = {Scheduling Solutions for the Paper Industry},
+  journal = {Operations Research},
+  year = {2002},
+  volume = {50},
+  number = {2},
+  pages = {249--259},
+  doi = {10.1287/opre.50.2.249.425},
+  language = {english}
+}
+
+@misc{sgp_ccp2021_cutting_stock_modes,
+  author = {Lemos, F. L. and De, ARAUJO S. A. and Cherri, A. C.},
+  title = {The Cutting Stock Problem with Multiple Manufacturing Modes Applied to a Construction Industry},
+  year = {2021},
+  note = {// International Journal of Production Research. — 2021. — Vol. 59, No. 3. — P. 720-739.},
+  url = {https://www.tandfonline.com/doi/abs/10.1080/00207543.2020.1720923},
+  language = {english}
+}
+
+@misc{martina2022,
+  author = {Martina, M. and Yanasse, H. H. and Neto, L. L. S.},
+  title = {Pattern-based ILP models for the one-dimensional cutting stock problem with setup cost},
+  year = {2022},
+  note = {// Optimization Online / R\&D report. — 2022.},
+  url = {https://optimization-online.org/wp-content/uploads/2022/01/8766.pdf},
+  language = {english}
+}
+
+@misc{minimizing_waste_multilevel_manufacturing_2025,
+  author = {Khamis, N. and Others},
+  title = {Minimizing Waste and Costs in Multi-Level Manufacturing},
+  year = {2025},
+  note = {// MDPI Transportation \& Logistics or Manufacturing Systems (2025). — Vol. 6, No. 3. — Article 56.},
+  url = {https://www.mdpi.com/2673-3951/6/3/56},
+  language = {english}
+}
+
+@misc{mobasher2013,
+  author = {Mobasher, A. and Others},
+  title = {Solution approaches for the cutting stock problem with setup costs},
+  year = {2013},
+  note = {// European Journal of Operational Research. — 2013.},
+  url = {https://www.sciencedirect.com/science/article/abs/pii/S0305054812001396},
+  language = {english}
+}
+
+@misc{neizami_energy_aware_2017,
+  author = {Nezami, F. G. and Heydar, M. and Berretta, R.},
+  title = {Optimizing production schedule with energy consumption and demand charges in parallel machine setting},
+  year = {2017},
+  note = {// Proceedings of (conference name). — 2017. — P. A-B.},
+  url = {https://www.researchgate.net/publication/322208044_Optimizing_Production_Schedule_with_Energy_Consumption_and_Demand_Charges_in_Parallel_Machine_Setting},
+  language = {english}
+}
+
+@misc{peng_aco_haco_2010,
+  author = {Peng, J. and Chu, Z.},
+  title = {A hybrid ant colony algorithm for the Cutting Stock Problem},
+  year = {2010},
+  note = {// IEEE Fifth International Conference on Foundation of Intelligent Systems. — 2010. — P. X-Y.},
+  url = {https://www.researchgate.net/publication/251973811_A_hybrid_ant_colony_algorithm_for_the_Cutting_Stock_Problem},
+  language = {english}
+}
+
+@article{pmc_kim_calendering_2022,
+  author = {Kim, Sangho and Sim, Kwang Soon and Hyeon, Jonghyeon and Kim, Youngjun and Kim, Kyeonghak and Lee, Dong-Joo},
+  title = {Maximization of paper machine production by means of optimization of calendering process variables},
+  journal = {ACS Omega},
+  year = {2022},
+  volume = {7},
+  number = {39},
+  pages = {35305--35315},
+  doi = {10.1021/acsomega.2c03384},
+  url = {https://pubmed.ncbi.nlm.nih.gov/36262371/},
+  language = {english}
+}
+
+@misc{vanderbeck2000,
+  author = {Vanderbeck, F.},
+  title = {Exact algorithm for minimising the number of setups in the cutting stock problem},
+  year = {2000},
+  note = {// Operations Research. — 2000.},
+  url = {https://pubsonline.informs.org/doi/10.1287/opre.48.6.915.12391},
+  language = {english}
+}
+
+@misc{wang_agosa_2023,
+  author = {Wang, Z. and Wu, Y.},
+  title = {An Ant Colony Optimization-Simulated Annealing Algorithm for Solving a Multiload AGVs Workshop Scheduling Problem with Limited Buffer Capacity},
+  year = {2023},
+  note = {// Processes. — 2023. — Vol. 11, No. 3. — Article 861.},
+  url = {https://doi.org/10.3390/pr11030861},
+  language = {english}
+}
+
+@misc{hu_parallel_2022,
+  author = {Hu, C. and Lu, S. and Kong, M. and Liu, X. and Others},
+  title = {Parallel machine scheduling with linearly increasing energy consumption cost},
+  year = {2023},
+  note = {// Annals of Mathematics and Artificial Intelligence. — 2023. — Vol. 91, No. 2. — P. 239-258.},
+  url = {https://doi.org/10.1007/s10472-022-09810-5},
+  language = {english}
+}
