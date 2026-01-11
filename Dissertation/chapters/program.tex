@@ -169,24 +169,21 @@
     \caption{Компоненты алгоритмического ядра и модельного слоя}
     \label{fig:c4-component}
 \end{figure}
-\subsection{Контекст (System Context)}\label{subsec:software/c4/context}
-Программная система предназначена для автоматизированного построения производственных
-планов раскроя и выпуска рулонов бумаги. Пользователь (инженер планирования)
-подаёт входные данные (CSV/Excel), выбирает метод решения и получает выходной отчет
-в формате Excel/CSV, содержащий планы раскроя, расписание и метрики качества.
-Система функционирует как автономное приложение, не требующее внешнего сервера.
+\subsection{Пояснения к диаграммам C4}\label{subsec:software/c4/explain}
+На рис.~\ref{fig:c4-context} представлен контекст системы: пользователь (инженер-планировщик)
+взаимодействует с приложением через CLI/GUI и работает с входными и выходными файлами
+в формате CSV/Excel. Система функционирует как автономное приложение и не требует внешнего сервера.
 
-\paragraph{Акторы:}
+\paragraph{Акторы.}
 \begin{itemize}
     \item инженер-технолог или планировщик производства;
     \item файловая система как источник и приемник данных;
     \item внешние библиотеки (Pandas/OpenPyXL) как инфраструктура чтения/записи.
 \end{itemize}
 
-\subsection{Контейнеры (Container Diagram)}\label{subsec:software/c4/container}
-Архитектура реализована в виде нескольких логических контейнеров внутри одного
-Python-приложения:
+На рис.~\ref{fig:c4-container} показаны основные контейнеры внутри Python-приложения.
 
+\paragraph{Контейнеры.}
 \begin{enumerate}
     \item \textbf{CLI-приложение} --- модуль командной строки; обеспечивает запуск
     расчёта с аргументами, чтение файлов и сохранение результатов.
@@ -199,21 +196,20 @@ Python-приложения:
     \item \textbf{IO-модуль} --- парсинг входных данных и генерация отчетов.
 \end{enumerate}
 
-\subsection{Компоненты (Component Diagram)}\label{subsec:software/c4/component}
-Внутри контейнеров выделяются ключевые компоненты:
+На рис.~\ref{fig:c4-component} приведены ключевые компоненты алгоритмического ядра и модельного слоя.
 
-\paragraph{Алгоритмический модуль:}
+\paragraph{Алгоритмический модуль.}
 \begin{itemize}
     \item \textit{GeneticSearch} --- основной оптимизационный алгоритм;
     \item \textit{GlobalMutate} --- мутация глобального плана;
     \item \textit{Crossingover} --- отбор лучшего плана;
     \item \textit{FullEnumeration} --- точный перебор (для малых задач);
-    \item \textit{PlanBuilder} --- конструктор планов раскроя;
+    \item \textit{CuttingPlansBuilder} --- конструктор планов раскроя;
     \item \textit{EventQueueBuilder} --- построение очереди событий при наличии
     временных ограничений.
 \end{itemize}
 
-\paragraph{Модельный слой:}
+\paragraph{Модельный слой.}
 \begin{itemize}
     \item \textit{Problem} --- постановка задачи;
     \item \textit{GlobalPlan} --- глобальный план производства и раскроя;
@@ -246,7 +242,7 @@ Python-приложения:
             \hline
             План раскроя ПРС & $\overline{\overline{Y}}$ & \texttt{CuttingPlan} (models/cutting\_plan.py) & Содержит набор раскроев (layouts) для станка.\\
             \hline
-            Раскрой & $Y_{i,j}$ & \texttt{CuttingLayout} (models/cutting\_layout.py) & Конкретный набор фомтов в одном раскрое.\\
+            Раскрой & $Y_{i,j}$ & \texttt{CuttingLayout} (models/cutting\_layout.py) & Конкретный набор форматов в одном раскрое.\\
             \hline
             Очередь событий & $\overline{\overline{Z}}$ & \texttt{GlobalPlanEvent} + наследники (models/event\_queue.py) & Расписание событий раскроя/производства.\\
             \hline
@@ -321,14 +317,14 @@ Python-приложения:
 \section{Алгоритмическая реализация}\label{sec:software/algorithms}
 
 \subsection{Генетический поиск}\label{subsec:software/algorithms/genetic}
-Алгоритм реализует модель, описанную в главе с математической постановкой. Основные
+Алгоритм реализует модель, описанную в главе~\ref{ch:algorithm}. Основные
 этапы:
 
 \begin{enumerate}
     \item \textbf{Инициализация} --- создаются случайные планы, удовлетворяющие
     ограничениям.
-    \item \textbf{Мутация} --- перестановка фоматов внутри раскроев и самих раскроев.
-    \item \textbf{GlobalMutate} --- формирование нового глобального плана, пересчет
+    \item \textbf{Мутация} --- перестановка форматов внутри раскроев и самих раскроев.
+    \item \textbf{GlobalMutate} --- формирование нового глобального плана, пересчёт
     очереди событий, проверка улучшения целевой функции.
     \item \textbf{Crossingover} --- отбор лучшего из пары.
 \end{enumerate}
