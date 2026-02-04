@@ -1,0 +1,2390 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{hubbe2021_energy}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d7fce7bea15a6cc08c34d87cdee87b63}{%
+           family={Hubbe},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \strng{fullhash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \strng{bibnamehash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \strng{authorbibnamehash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \strng{authornamehash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \strng{authorfullhash}{d7fce7bea15a6cc08c34d87cdee87b63}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// BioResources. — 2021. — Vol. 16, No. 4. — P. 8567-8639.}
+      \field{title}{Energy Efficiency Challenges in Pulp and Paper Manufacturing: A Tutorial Review}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://bioresources.cnr.ncsu.edu/wp-content/uploads/2021/10/BioRes_16_4_Review_Hubbe_Energy_Efficiency_Challenges_Pulp__Paper_Manuf_19310-1.pdf
+      \endverb
+      \verb{url}
+      \verb https://bioresources.cnr.ncsu.edu/wp-content/uploads/2021/10/BioRes_16_4_Review_Hubbe_Energy_Efficiency_Challenges_Pulp__Paper_Manuf_19310-1.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{ippta_paper_and_water_2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=229f42b8d89a9b478a2de2a06414fbdd}{%
+           family={Ippta},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \strng{fullhash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \strng{bibnamehash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \strng{authorbibnamehash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \strng{authornamehash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \strng{authorfullhash}{229f42b8d89a9b478a2de2a06414fbdd}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// IPPTA. — 2022. — Pp. (см. разделы).}
+      \field{title}{Paper and Water Chapter 8: Paper Drying in the Manufacturing Process}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://ippta.co/wp-content/uploads/2025/07/BPaperandWaterChapter8.pdf
+      \endverb
+      \verb{url}
+      \verb https://ippta.co/wp-content/uploads/2025/07/BPaperandWaterChapter8.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{sgp_ccp2021_cutting_stock_modes}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=dd6b26adaee88c9bc4a507ee3df65086}{%
+           family={Lemos},
+           familyi={L\bibinitperiod},
+           given={F.\bibnamedelimi L.},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=517a2e0a741d280e3ddb35537efed1ec}{%
+           family={De},
+           familyi={D\bibinitperiod},
+           given={ARAUJO\bibnamedelimb S.\bibnamedelimi A.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=bc3073b7d4c1e0a4b25509a9e5b4c9e0}{%
+           family={Cherri},
+           familyi={C\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc32cc306b548a5b34c47d765a50fffb}
+      \strng{fullhash}{fc32cc306b548a5b34c47d765a50fffb}
+      \strng{bibnamehash}{fc32cc306b548a5b34c47d765a50fffb}
+      \strng{authorbibnamehash}{fc32cc306b548a5b34c47d765a50fffb}
+      \strng{authornamehash}{fc32cc306b548a5b34c47d765a50fffb}
+      \strng{authorfullhash}{fc32cc306b548a5b34c47d765a50fffb}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// International Journal of Production Research. — 2021. — Vol. 59, No. 3. — P. 720-739.}
+      \field{title}{The Cutting Stock Problem with Multiple Manufacturing Modes Applied to a Construction Industry}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00207543.2020.1720923
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00207543.2020.1720923
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{minimizing_waste_multilevel_manufacturing_2025}{misc}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=66bf1d870b2029404d27ca2822468893}{%
+           family={Khamis},
+           familyi={K\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{c384497b0a0f51518e23f12d78102e74}
+      \strng{fullhash}{c384497b0a0f51518e23f12d78102e74}
+      \strng{bibnamehash}{c384497b0a0f51518e23f12d78102e74}
+      \strng{authorbibnamehash}{c384497b0a0f51518e23f12d78102e74}
+      \strng{authornamehash}{c384497b0a0f51518e23f12d78102e74}
+      \strng{authorfullhash}{c384497b0a0f51518e23f12d78102e74}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// MDPI Transportation \& Logistics or Manufacturing Systems (2025). — Vol. 6, No. 3. — Article 56.}
+      \field{title}{Minimizing Waste and Costs in Multi-Level Manufacturing}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2673-3951/6/3/56
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2673-3951/6/3/56
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{cyberleninka_slitting_params}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d16283de71edac0cab856b7cc3ece6e0}{%
+           family={Бобров},
+           familyi={Б\bibinitperiod},
+           given={В.\bibnamedelimi И.},
+           giveni={В\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+      }
+      \strng{namehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{fullhash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{bibnamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authorbibnamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authornamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authorfullhash}{d16283de71edac0cab856b7cc3ece6e0}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Вестник (статья). — 2016.}
+      \field{title}{Исследование параметров ротационной высечки самоклеящихся этикеток}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/issledovanie-parametrov-rotatsionnoy-vysechki-samokleyaschihsya-etiketok
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/issledovanie-parametrov-rotatsionnoy-vysechki-samokleyaschihsya-etiketok
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{martina2022}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=335671290a603bd9782796bca222ad9b}{%
+           family={Martina},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=276b3ca5b70d2e7ff4903589c5d87e0b}{%
+           family={Yanasse},
+           familyi={Y\bibinitperiod},
+           given={H.\bibnamedelimi H.},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e6a95f0b504c786e4b15c1c46f5efcc2}{%
+           family={Neto},
+           familyi={N\bibinitperiod},
+           given={L.\bibnamedelimi L.\bibnamedelimi S.},
+           giveni={L\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \strng{fullhash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \strng{bibnamehash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \strng{authorbibnamehash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \strng{authornamehash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \strng{authorfullhash}{d11bb44d0a8e3cd9d7f1f086a48c4ba7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// Optimization Online / R\&D report. — 2022.}
+      \field{title}{Pattern-based ILP models for the one-dimensional cutting stock problem with setup cost}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://optimization-online.org/wp-content/uploads/2022/01/8766.pdf
+      \endverb
+      \verb{url}
+      \verb https://optimization-online.org/wp-content/uploads/2022/01/8766.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{pmc_kim_calendering_2022}{article}{}
+      \name{author}{6}{}{%
+        {{hash=400c34d36186f401c0cb52c25e6fbba1}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Sangho},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5907c719bda1627cc9e31eccbf62ff03}{%
+           family={Sim},
+           familyi={S\bibinitperiod},
+           given={Kwang\bibnamedelima Soon},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=1f3789c39a1dc7e26cb286756a3ac263}{%
+           family={Hyeon},
+           familyi={H\bibinitperiod},
+           given={Jonghyeon},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ff9228930fb812abe78e4190473ee5c9}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Youngjun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b79240c68dd52fc49ee8cce4baa6d8b6}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Kyeonghak},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7a24f29e239e0e306547f2085337d687}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Dong-Joo},
+           giveni={D\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ecae4756b5b7ff4f18ac3fed31818cad}
+      \strng{fullhash}{2a9c6547f8bed6900a854d40c383747a}
+      \strng{bibnamehash}{ecae4756b5b7ff4f18ac3fed31818cad}
+      \strng{authorbibnamehash}{ecae4756b5b7ff4f18ac3fed31818cad}
+      \strng{authornamehash}{ecae4756b5b7ff4f18ac3fed31818cad}
+      \strng{authorfullhash}{2a9c6547f8bed6900a854d40c383747a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACS Omega}
+      \field{langid}{english}
+      \field{number}{39}
+      \field{title}{Maximization of paper machine production by means of optimization of calendering process variables}
+      \field{volume}{7}
+      \field{year}{2022}
+      \field{pages}{35305\bibrangedash 35315}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1021/acsomega.2c03384
+      \endverb
+      \verb{urlraw}
+      \verb https://pubmed.ncbi.nlm.nih.gov/36262371/
+      \endverb
+      \verb{url}
+      \verb https://pubmed.ncbi.nlm.nih.gov/36262371/
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{haessler1991}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=053e6482729c5383e1ae7dc89f1c4223}{%
+           family={Haessler},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=ddd60156e8d1593d71b1e406a0a053ea}{%
+           family={Sweeney},
+           familyi={S\bibinitperiod},
+           given={P.\bibnamedelimi E.},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{077ec54db541b8a790d555572763cad2}
+      \strng{fullhash}{077ec54db541b8a790d555572763cad2}
+      \strng{bibnamehash}{077ec54db541b8a790d555572763cad2}
+      \strng{authorbibnamehash}{077ec54db541b8a790d555572763cad2}
+      \strng{authornamehash}{077ec54db541b8a790d555572763cad2}
+      \strng{authorfullhash}{077ec54db541b8a790d555572763cad2}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// European Journal of Operational Research. — 1991.}
+      \field{title}{Cutting stock problems and solution procedures}
+      \field{year}{1991}
+      \verb{urlraw}
+      \verb https://deepblue.lib.umich.edu/bitstream/handle/2027.42/29128/0000167.pdf
+      \endverb
+      \verb{url}
+      \verb https://deepblue.lib.umich.edu/bitstream/handle/2027.42/29128/0000167.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{cerqueira2021}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=b1ab95449d96a5aac983c59e8ef77d14}{%
+           family={Cerqueira},
+           familyi={C\bibinitperiod},
+           given={G.\bibnamedelimi R.\bibnamedelimi L.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=067370fd6e05c60f1cd59ca6a24d93dc}{%
+           family={Aguiar},
+           familyi={A\bibinitperiod},
+           given={S.\bibnamedelimi S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=6e3fcfd5a875ca06fc37395fbae3c243}{%
+           family={Marques},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \strng{fullhash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \strng{bibnamehash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \strng{authorbibnamehash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \strng{authornamehash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \strng{authorfullhash}{ae3ba5f792ba67a819561030e7cfdd6a}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// Journal of Combinatorial Optimization. — 2021. — Vol. 42, No. 3. — P. 657–674.}
+      \field{title}{Modified Greedy Heuristic for the one-dimensional cutting stock problem}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10878-021-00695-4
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10878-021-00695-4
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{vanderbeck2000}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=519044d942707a00c8e3de85b1e6bb08}{%
+           family={Vanderbeck},
+           familyi={V\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{fullhash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{bibnamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authorbibnamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authornamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authorfullhash}{519044d942707a00c8e3de85b1e6bb08}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// Operations Research. — 2000.}
+      \field{title}{Exact algorithm for minimising the number of setups in the cutting stock problem}
+      \field{year}{2000}
+      \verb{urlraw}
+      \verb https://pubsonline.informs.org/doi/10.1287/opre.48.6.915.12391
+      \endverb
+      \verb{url}
+      \verb https://pubsonline.informs.org/doi/10.1287/opre.48.6.915.12391
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{mobasher2013}{misc}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=8b5217a94da7464879e09a25d2b1f6af}{%
+           family={Mobasher},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{092bec370d3f46ff51557492eb3dd6fa}
+      \strng{fullhash}{092bec370d3f46ff51557492eb3dd6fa}
+      \strng{bibnamehash}{092bec370d3f46ff51557492eb3dd6fa}
+      \strng{authorbibnamehash}{092bec370d3f46ff51557492eb3dd6fa}
+      \strng{authornamehash}{092bec370d3f46ff51557492eb3dd6fa}
+      \strng{authorfullhash}{092bec370d3f46ff51557492eb3dd6fa}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// European Journal of Operational Research. — 2013.}
+      \field{title}{Solution approaches for the cutting stock problem with setup costs}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/abs/pii/S0305054812001396
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/abs/pii/S0305054812001396
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{keskinocak2002}{article}{}
+      \name{author}{3}{}{%
+        {{hash=75dd33c71c9815f2180106489d4f92fd}{%
+           family={Keskinocak},
+           familyi={K\bibinitperiod},
+           given={Pınar},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a98bfe7951a2137bcb73d960804a48a9}{%
+           family={Taskin},
+           familyi={T\bibinitperiod},
+           given={Z.\bibnamedelimi Canan},
+           giveni={Z\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4834cfec8bf0b44953a672f0606702b2}{%
+           family={Tayur},
+           familyi={T\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{285a348ee5d7ca80662086d45ed957df}
+      \strng{fullhash}{285a348ee5d7ca80662086d45ed957df}
+      \strng{bibnamehash}{285a348ee5d7ca80662086d45ed957df}
+      \strng{authorbibnamehash}{285a348ee5d7ca80662086d45ed957df}
+      \strng{authornamehash}{285a348ee5d7ca80662086d45ed957df}
+      \strng{authorfullhash}{285a348ee5d7ca80662086d45ed957df}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Operations Research}
+      \field{langid}{english}
+      \field{number}{2}
+      \field{title}{Scheduling Solutions for the Paper Industry}
+      \field{volume}{50}
+      \field{year}{2002}
+      \field{pages}{249\bibrangedash 259}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1287/opre.50.2.249.425
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{gilmore1961linear}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1c294229b7d128b144eba9293c5eba26}{%
+           family={Gilmore},
+           familyi={G\bibinitperiod},
+           given={P.\bibnamedelimi C.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=ac55179f8c3ed78ffe791e3a3ea57049}{%
+           family={Gomory},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{fullhash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{bibnamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authorbibnamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authornamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authorfullhash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Operations Research}
+      \field{langid}{english}
+      \field{number}{6}
+      \field{title}{A Linear Programming Approach to the Cutting-Stock Problem}
+      \field{volume}{9}
+      \field{year}{1961}
+      \field{pages}{849\bibrangedash 859}
+      \range{pages}{11}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{gilmore1963linear}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1c294229b7d128b144eba9293c5eba26}{%
+           family={Gilmore},
+           familyi={G\bibinitperiod},
+           given={P.\bibnamedelimi C.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=ac55179f8c3ed78ffe791e3a3ea57049}{%
+           family={Gomory},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{fullhash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{bibnamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authorbibnamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authornamehash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \strng{authorfullhash}{a48cdefbfc71b5425f1ec62ac89006f8}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Operations Research}
+      \field{langid}{english}
+      \field{number}{6}
+      \field{title}{A Linear Programming Approach to the Cutting-Stock Problem—Part II}
+      \field{volume}{11}
+      \field{year}{1963}
+      \field{pages}{863\bibrangedash 888}
+      \range{pages}{26}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{kolmogorov2017}{book}{}
+      \name{author}{2}{}{%
+        {{hash=0c3f09f1defef5cd35e5ea64c36364ac}{%
+           family={Колмогоров},
+           familyi={К\bibinitperiod},
+           given={А.\bibnamedelimi С.},
+           giveni={А\bibinitperiod\bibinitdelim С\bibinitperiod}}}%
+        {{hash=58a25070532ad3c4f9d7860135a75b6e}{%
+           family={Боровков},
+           familyi={Б\bibinitperiod},
+           given={И.\bibnamedelimi А.},
+           giveni={И\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Наука}%
+      }
+      \strng{namehash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \strng{fullhash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \strng{bibnamehash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \strng{authorbibnamehash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \strng{authornamehash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \strng{authorfullhash}{7ada80014f2b01b2ac969b2accbe60d9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Линейное программирование и задачи оптимального раскроя}
+      \field{year}{2017}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{frolov2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=79fc1b90cc183fd881764f503870a955}{%
+           family={Фролов},
+           familyi={Ф\bibinitperiod},
+           given={В.\bibnamedelimi П.},
+           giveni={В\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Физматлит}%
+      }
+      \strng{namehash}{79fc1b90cc183fd881764f503870a955}
+      \strng{fullhash}{79fc1b90cc183fd881764f503870a955}
+      \strng{bibnamehash}{79fc1b90cc183fd881764f503870a955}
+      \strng{authorbibnamehash}{79fc1b90cc183fd881764f503870a955}
+      \strng{authornamehash}{79fc1b90cc183fd881764f503870a955}
+      \strng{authorfullhash}{79fc1b90cc183fd881764f503870a955}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Методы оптимизации в задачах раскроя и упаковки}
+      \field{year}{2019}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{dyckhoff1990typology}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3cedf546c00626fb419f1236a9342a58}{%
+           family={Dyckhoff},
+           familyi={D\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{3cedf546c00626fb419f1236a9342a58}
+      \strng{fullhash}{3cedf546c00626fb419f1236a9342a58}
+      \strng{bibnamehash}{3cedf546c00626fb419f1236a9342a58}
+      \strng{authorbibnamehash}{3cedf546c00626fb419f1236a9342a58}
+      \strng{authornamehash}{3cedf546c00626fb419f1236a9342a58}
+      \strng{authorfullhash}{3cedf546c00626fb419f1236a9342a58}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{2}
+      \field{title}{A Typology of Cutting and Packing Problems}
+      \field{volume}{44}
+      \field{year}{1990}
+      \field{pages}{145\bibrangedash 159}
+      \range{pages}{15}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{wascher2007typology}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e1a66bbc503ef442662aa84a265edc47}{%
+           family={Wäscher},
+           familyi={W\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bb86490325afe83ac9f35ebb17d5af1b}{%
+           family={Hau{ß}ner},
+           familyi={H\bibinitperiod},
+           given={Heike},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9f9079a1c76c66daac88b8f5fc8f4cf4}{%
+           family={Schumann},
+           familyi={S\bibinitperiod},
+           given={Holger},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{06ff193d7bde7badf01b2ee1319f862f}
+      \strng{fullhash}{06ff193d7bde7badf01b2ee1319f862f}
+      \strng{bibnamehash}{06ff193d7bde7badf01b2ee1319f862f}
+      \strng{authorbibnamehash}{06ff193d7bde7badf01b2ee1319f862f}
+      \strng{authornamehash}{06ff193d7bde7badf01b2ee1319f862f}
+      \strng{authorfullhash}{06ff193d7bde7badf01b2ee1319f862f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{title}{An improved typology of cutting and packing problems}
+      \field{volume}{183}
+      \field{year}{2007}
+      \field{pages}{1109\bibrangedash 1130}
+      \range{pages}{22}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{garey1979computers}{book}{}
+      \name{author}{2}{}{%
+        {{hash=3d981c215c9c575d31bcca98c6d6c69d}{%
+           family={Garey},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=8f805225d8e433c29a18a566d1f6acc6}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={David\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco}%
+      }
+      \list{publisher}{1}{%
+        {W. H. Freeman}%
+      }
+      \strng{namehash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \strng{fullhash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \strng{bibnamehash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \strng{authorbibnamehash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \strng{authornamehash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \strng{authorfullhash}{d186cd4f1f5ca75183b09d5af68f9e7c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computers and Intractability: A Guide to the Theory of NP-Completeness}
+      \field{year}{1979}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{Korte2015}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8ae862c361ecc4b852a4f7c0fae15a4e}{%
+           family={Корте},
+           familyi={К\bibinitperiod},
+           given={Б.},
+           giveni={Б\bibinitperiod}}}%
+        {{hash=fefaed0b761b15096350bd34ab0f5f15}{%
+           family={Фиген},
+           familyi={Ф\bibinitperiod},
+           given={Й.},
+           giveni={Й\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=61e40577940a611a3939dc37de56ec80}{%
+           family={Бабенко},
+           familyi={Б\bibinitperiod},
+           given={М.А.},
+           giveni={М\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {МЦНМО}%
+      }
+      \strng{namehash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{fullhash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{bibnamehash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{authorbibnamehash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{authornamehash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{authorfullhash}{b5075ca5972ec2d1607748345f80342b}
+      \strng{editorbibnamehash}{61e40577940a611a3939dc37de56ec80}
+      \strng{editornamehash}{61e40577940a611a3939dc37de56ec80}
+      \strng{editorfullhash}{61e40577940a611a3939dc37de56ec80}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Комбинаторная оптимизация. Теория и алгоритмы}
+      \field{year}{2015}
+      \field{pages}{720}
+      \range{pages}{1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{Rajgorodsky2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f1f1967ecec348a8b3e5fa6a420d4989}{%
+           family={Райгородский},
+           familyi={Р\bibinitperiod},
+           given={А.М.},
+           giveni={А\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Интеллект}%
+      }
+      \strng{namehash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \strng{fullhash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \strng{bibnamehash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \strng{authorbibnamehash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \strng{authornamehash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \strng{authorfullhash}{f1f1967ecec348a8b3e5fa6a420d4989}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Экстремальные задачи теории графов и Интернет: Учебное пособие}
+      \field{year}{2012}
+      \field{pages}{104}
+      \range{pages}{1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{vanderbeck2000integer}{article}{}
+      \name{author}{1}{}{%
+        {{hash=519044d942707a00c8e3de85b1e6bb08}{%
+           family={Vanderbeck},
+           familyi={V\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{fullhash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{bibnamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authorbibnamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authornamehash}{519044d942707a00c8e3de85b1e6bb08}
+      \strng{authorfullhash}{519044d942707a00c8e3de85b1e6bb08}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{INFORMS Journal on Computing}
+      \field{langid}{english}
+      \field{number}{4}
+      \field{title}{On Dantzig-Wolfe Decomposition in Integer Programming and Ways to Perform Branch-and-Price in Practice}
+      \field{volume}{12}
+      \field{year}{2000}
+      \field{pages}{296\bibrangedash 317}
+      \range{pages}{22}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{delorme2016bin}{article}{}
+      \name{author}{3}{}{%
+        {{hash=817d02dc7f8d67f80a83ff4f77667fe8}{%
+           family={Delorme},
+           familyi={D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ce8059d6d2cbab8288f7bedc04c5bded}{%
+           family={Iori},
+           familyi={I\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9680e482c6207bd5c935937249582d06}{%
+           family={Martello},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c666d8e8b6b76c0717830e227c4db52}
+      \strng{fullhash}{7c666d8e8b6b76c0717830e227c4db52}
+      \strng{bibnamehash}{7c666d8e8b6b76c0717830e227c4db52}
+      \strng{authorbibnamehash}{7c666d8e8b6b76c0717830e227c4db52}
+      \strng{authornamehash}{7c666d8e8b6b76c0717830e227c4db52}
+      \strng{authorfullhash}{7c666d8e8b6b76c0717830e227c4db52}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{title}{Bin Packing and Cutting Stock Problems: Mathematical Models and Exact Algorithms}
+      \field{volume}{255}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 20}
+      \range{pages}{20}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{lyapin2019}{article}{}
+      \name{author}{2}{}{%
+        {{hash=95923aedb2a79eed469795a5f0bca0e8}{%
+           family={Ляпин},
+           familyi={Л\bibinitperiod},
+           given={П.\bibnamedelimi С.},
+           giveni={П\bibinitperiod\bibinitdelim С\bibinitperiod}}}%
+        {{hash=f4a89b51880f5df56dcfefcbd1714e42}{%
+           family={Новикова},
+           familyi={Н\bibinitperiod},
+           given={М.\bibnamedelimi И.},
+           giveni={М\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+      }
+      \strng{namehash}{ef0bbd231497a571b4c8e30527c52d73}
+      \strng{fullhash}{ef0bbd231497a571b4c8e30527c52d73}
+      \strng{bibnamehash}{ef0bbd231497a571b4c8e30527c52d73}
+      \strng{authorbibnamehash}{ef0bbd231497a571b4c8e30527c52d73}
+      \strng{authornamehash}{ef0bbd231497a571b4c8e30527c52d73}
+      \strng{authorfullhash}{ef0bbd231497a571b4c8e30527c52d73}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Вестник комбинаторики и информатики}
+      \field{number}{2}
+      \field{title}{Целочисленное программирование в задачах упаковки на производствах}
+      \field{volume}{4}
+      \field{year}{2019}
+      \field{pages}{30\bibrangedash 39}
+      \range{pages}{10}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{ilin2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e4c3fcc30d0d2a56109e4179cea94b1d}{%
+           family={Ильин},
+           familyi={И\bibinitperiod},
+           given={А.\bibnamedelimi С.},
+           giveni={А\bibinitperiod\bibinitdelim С\bibinitperiod}}}%
+        {{hash=aeed47aadc4054e28bfb7122705244de}{%
+           family={Петухов},
+           familyi={П\bibinitperiod},
+           given={Д.\bibnamedelimi Ю.},
+           giveni={Д\bibinitperiod\bibinitdelim Ю\bibinitperiod}}}%
+      }
+      \strng{namehash}{c69fdfb27499026f849a3fb0024a4202}
+      \strng{fullhash}{c69fdfb27499026f849a3fb0024a4202}
+      \strng{bibnamehash}{c69fdfb27499026f849a3fb0024a4202}
+      \strng{authorbibnamehash}{c69fdfb27499026f849a3fb0024a4202}
+      \strng{authornamehash}{c69fdfb27499026f849a3fb0024a4202}
+      \strng{authorfullhash}{c69fdfb27499026f849a3fb0024a4202}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Вестник строительной математики и информатики}
+      \field{number}{1}
+      \field{title}{Целочисленные и смешанные целочисленные модели в задачах раскроя древесины}
+      \field{volume}{4}
+      \field{year}{2020}
+      \field{pages}{14\bibrangedash 22}
+      \range{pages}{9}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{Kovalyev2023}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0d4da2f6bbf4a7bf70ddf18f8e54d7dd}{%
+           family={Ковалев},
+           familyi={К\bibinitperiod},
+           given={М.М.},
+           giveni={М\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Ленанд}%
+      }
+      \strng{namehash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \strng{fullhash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \strng{bibnamehash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \strng{authorbibnamehash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \strng{authornamehash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \strng{authorfullhash}{0d4da2f6bbf4a7bf70ddf18f8e54d7dd}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Дискретная оптимизация: целочисленное программирование}
+      \field{year}{2023}
+      \field{pages}{192}
+      \range{pages}{1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{urban1999solving}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3b55c2bf501ad62bf4124f8efa7eef7c}{%
+           family={Urban},
+           familyi={U\bibinitperiod},
+           given={T.\bibnamedelimi L.},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \strng{fullhash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \strng{bibnamehash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \strng{authorbibnamehash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \strng{authornamehash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \strng{authorfullhash}{3b55c2bf501ad62bf4124f8efa7eef7c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{title}{Solving the cutting stock problem with an adaptive search algorithm}
+      \field{volume}{116}
+      \field{year}{1999}
+      \field{pages}{40\bibrangedash 52}
+      \range{pages}{13}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{avramenko2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=163ddcc07893a90ae20faf733e3aed35}{%
+           family={Авраменко},
+           familyi={А\bibinitperiod},
+           given={А.\bibnamedelimi П.},
+           giveni={А\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+        {{hash=1b4017f0cc3e58538cf76e2ee1667ea0}{%
+           family={Смирнов},
+           familyi={С\bibinitperiod},
+           given={Б.\bibnamedelimi В.},
+           giveni={Б\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{ecc92ace49431556411a010ac4182e2f}
+      \strng{fullhash}{ecc92ace49431556411a010ac4182e2f}
+      \strng{bibnamehash}{ecc92ace49431556411a010ac4182e2f}
+      \strng{authorbibnamehash}{ecc92ace49431556411a010ac4182e2f}
+      \strng{authornamehash}{ecc92ace49431556411a010ac4182e2f}
+      \strng{authorfullhash}{ecc92ace49431556411a010ac4182e2f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал прикладной математики и информатики}
+      \field{number}{3}
+      \field{title}{Методы решения задачи упаковки в условиях ограниченных ресурсов}
+      \field{volume}{5}
+      \field{year}{2018}
+      \field{pages}{15\bibrangedash 22}
+      \range{pages}{8}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{zakharov2021}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7df776702dc302d5ad21e3e225bdfea3}{%
+           family={Захаров},
+           familyi={З\bibinitperiod},
+           given={О.\bibnamedelimi Л.},
+           giveni={О\bibinitperiod\bibinitdelim Л\bibinitperiod}}}%
+        {{hash=36be88596be8f983cd94c9f9c329f5b0}{%
+           family={Чернов},
+           familyi={Ч\bibinitperiod},
+           given={Е.\bibnamedelimi П.},
+           giveni={Е\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \strng{namehash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \strng{fullhash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \strng{bibnamehash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \strng{authorbibnamehash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \strng{authornamehash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \strng{authorfullhash}{769982a8bf190e11e05c5ab73f1cdb67}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Информационные технологии}
+      \field{number}{9}
+      \field{title}{Улучшенные жадные алгоритмы для задачи упаковки и раскроя}
+      \field{volume}{27}
+      \field{year}{2021}
+      \field{pages}{56\bibrangedash 65}
+      \range{pages}{10}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{goldberg1989genetic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f4dae5bf19584b96b5db33b402a449d8}{%
+           family={Goldberg},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{f4dae5bf19584b96b5db33b402a449d8}
+      \strng{fullhash}{f4dae5bf19584b96b5db33b402a449d8}
+      \strng{bibnamehash}{f4dae5bf19584b96b5db33b402a449d8}
+      \strng{authorbibnamehash}{f4dae5bf19584b96b5db33b402a449d8}
+      \strng{authornamehash}{f4dae5bf19584b96b5db33b402a449d8}
+      \strng{authorfullhash}{f4dae5bf19584b96b5db33b402a449d8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Genetic Algorithms in Search, Optimization, and Machine Learning}
+      \field{year}{1989}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{bansal2003multiobjective}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6424c32df98f93987848ffb3384f8cd9}{%
+           family={Bansal},
+           familyi={B\bibinitperiod},
+           given={Sanjay},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{6424c32df98f93987848ffb3384f8cd9}
+      \strng{fullhash}{6424c32df98f93987848ffb3384f8cd9}
+      \strng{bibnamehash}{6424c32df98f93987848ffb3384f8cd9}
+      \strng{authorbibnamehash}{6424c32df98f93987848ffb3384f8cd9}
+      \strng{authornamehash}{6424c32df98f93987848ffb3384f8cd9}
+      \strng{authorfullhash}{6424c32df98f93987848ffb3384f8cd9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Manufacturing Systems}
+      \field{number}{3}
+      \field{title}{A multi-objective genetic algorithm for the one-dimensional cutting stock problem}
+      \field{volume}{22}
+      \field{year}{2003}
+      \field{pages}{185\bibrangedash 195}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/S0278-6125(03)00034-2
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{silva2008multiobjective}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e6376a6ae7d74c74a868da0a5b4004a1}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c025559eadcd341396cbb81f018bada5}{%
+           family={Ribeiro},
+           familyi={R\bibinitperiod},
+           given={Flavio},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{7f4aed01823733e91b3a9743337e979f}
+      \strng{fullhash}{7f4aed01823733e91b3a9743337e979f}
+      \strng{bibnamehash}{7f4aed01823733e91b3a9743337e979f}
+      \strng{authorbibnamehash}{7f4aed01823733e91b3a9743337e979f}
+      \strng{authornamehash}{7f4aed01823733e91b3a9743337e979f}
+      \strng{authorfullhash}{7f4aed01823733e91b3a9743337e979f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Operations Research}
+      \field{number}{7}
+      \field{title}{A multi-objective genetic algorithm for the cutting stock problem}
+      \field{volume}{35}
+      \field{year}{2008}
+      \field{pages}{2133\bibrangedash 2145}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.cor.2006.10.017
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{toksari2014multiobjective}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b1ff8c3f348116932b43965f98a2308b}{%
+           family={Toksari},
+           familyi={T\bibinitperiod},
+           given={Murat\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=d5669441d268aaa0e4d6205012b3a153}{%
+           family={Baykasoglu},
+           familyi={B\bibinitperiod},
+           given={Adil},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e4b0951a917a51d8b1347b14674ad27}
+      \strng{fullhash}{9e4b0951a917a51d8b1347b14674ad27}
+      \strng{bibnamehash}{9e4b0951a917a51d8b1347b14674ad27}
+      \strng{authorbibnamehash}{9e4b0951a917a51d8b1347b14674ad27}
+      \strng{authornamehash}{9e4b0951a917a51d8b1347b14674ad27}
+      \strng{authorfullhash}{9e4b0951a917a51d8b1347b14674ad27}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Advanced Manufacturing Technology}
+      \field{number}{1--4}
+      \field{title}{A multi-objective simulated annealing algorithm for cutting stock problems}
+      \field{volume}{70}
+      \field{year}{2014}
+      \field{pages}{313\bibrangedash 323}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/s00170-013-5202-4
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{gladkov2010}{book}{}
+      \name{author}{3}{}{%
+        {{hash=a69b038fd3d956923c524c27500b3af1}{%
+           family={Гладков},
+           familyi={Г\bibinitperiod},
+           given={Л.\bibnamedelimi А.},
+           giveni={Л\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+        {{hash=349f5ce8b14b729a84efebb1a8dd111b}{%
+           family={Курейчиков},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=70c06d2ff86382a16cdb21f8d6a868f2}{%
+           family={Курейчиков},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi М.},
+           giveni={В\bibinitperiod\bibinitdelim М\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Физматлит}%
+      }
+      \strng{namehash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \strng{fullhash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \strng{bibnamehash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \strng{authorbibnamehash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \strng{authornamehash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \strng{authorfullhash}{2bdb3c8d3f8a2ddd1af29459f7172fbd}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Генетические алгоритмы: учебник}
+      \field{year}{2010}
+      \field{pages}{368}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://elibrary.ru/item.asp?id=27280977
+      \endverb
+      \verb{url}
+      \verb https://elibrary.ru/item.asp?id=27280977
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{kureichik1998}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4da33344ed957348f06270794070aa58}{%
+           family={Курейчик},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi М.},
+           giveni={В\bibinitperiod\bibinitdelim М\bibinitperiod}}}%
+      }
+      \strng{namehash}{4da33344ed957348f06270794070aa58}
+      \strng{fullhash}{4da33344ed957348f06270794070aa58}
+      \strng{bibnamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authorbibnamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authornamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authorfullhash}{4da33344ed957348f06270794070aa58}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Известия Южного федерального университета. Технические науки}
+      \field{langid}{russian}
+      \field{number}{2}
+      \field{title}{Генетические алгоритмы}
+      \field{volume}{8}
+      \field{year}{1998}
+      \field{pages}{4\bibrangedash 7}
+      \range{pages}{4}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/geneticheskie-algoritmy.pdf
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/geneticheskie-algoritmy.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{semenkina2013}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b4f3c46d2008659ae1b5fd442bd1b733}{%
+           family={Семенкина},
+           familyi={С\bibinitperiod},
+           given={М.\bibnamedelimi Е.},
+           giveni={М\bibinitperiod\bibinitdelim Е\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{fullhash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{bibnamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authorbibnamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authornamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authorfullhash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Искусственный интеллект и принятие решений}
+      \field{langid}{russian}
+      \field{number}{1}
+      \field{title}{Самоадаптивные эволюционные алгоритмы проектирования информационных технологий интеллектуального анализа данных}
+      \field{year}{2013}
+      \field{pages}{13\bibrangedash 24}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://www.mathnet.ru/php/getFT.phtml?jrnid=iipr&paperid=385&what=fullt
+      \endverb
+      \verb{url}
+      \verb https://www.mathnet.ru/php/getFT.phtml?jrnid=iipr&paperid=385&what=fullt
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{diveev2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e3cf62dc03aeaa9a664fc3eceea5571a}{%
+           family={Дивеев},
+           familyi={Д\bibinitperiod},
+           given={А.\bibnamedelimi И.},
+           giveni={А\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+        {{hash=276a06621161cbaa3176b776814c629c}{%
+           family={Константинов},
+           familyi={К\bibinitperiod},
+           given={С.\bibnamedelimi В.},
+           giveni={С\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{fullhash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{bibnamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authorbibnamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authornamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authorfullhash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Вестник Российского университета дружбы народов. Серия: Инженерные исследования}
+      \field{langid}{russian}
+      \field{number}{2}
+      \field{title}{Эволюционные алгоритмы для решения задачи оптимального управления}
+      \field{volume}{18}
+      \field{year}{2017}
+      \field{pages}{254\bibrangedash 265}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/evolyutsionnye-algoritmy-dlya-resheniya-zadachi-optimalnogo-upravleniya.pdf
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/evolyutsionnye-algoritmy-dlya-resheniya-zadachi-optimalnogo-upravleniya.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{osipov2022}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5501cb6bfea8d092422bc74d0eaadbfc}{%
+           family={Осипов},
+           familyi={О\bibinitperiod},
+           given={Д.\bibnamedelimi А.},
+           giveni={Д\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+        {{hash=94ad0013c5f3285e1ccf68a3de9f81e5}{%
+           family={Юдин},
+           familyi={Ю\bibinitperiod},
+           given={А.\bibnamedelimi И.},
+           giveni={А\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+      }
+      \strng{namehash}{b5d0c062fc81a1d413caebb364a2342a}
+      \strng{fullhash}{b5d0c062fc81a1d413caebb364a2342a}
+      \strng{bibnamehash}{b5d0c062fc81a1d413caebb364a2342a}
+      \strng{authorbibnamehash}{b5d0c062fc81a1d413caebb364a2342a}
+      \strng{authornamehash}{b5d0c062fc81a1d413caebb364a2342a}
+      \strng{authorfullhash}{b5d0c062fc81a1d413caebb364a2342a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Известия Академии наук. Техническая серия}
+      \field{number}{7}
+      \field{title}{Эволюционные алгоритмы для многокритериальных задач раскроя}
+      \field{volume}{1}
+      \field{year}{2022}
+      \field{pages}{21\bibrangedash 28}
+      \range{pages}{8}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{hinxman1980trimloss}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ba05e7490487b6962287c3a822c34e81}{%
+           family={Hinxman},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi I.},
+           giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba05e7490487b6962287c3a822c34e81}
+      \strng{fullhash}{ba05e7490487b6962287c3a822c34e81}
+      \strng{bibnamehash}{ba05e7490487b6962287c3a822c34e81}
+      \strng{authorbibnamehash}{ba05e7490487b6962287c3a822c34e81}
+      \strng{authornamehash}{ba05e7490487b6962287c3a822c34e81}
+      \strng{authorfullhash}{ba05e7490487b6962287c3a822c34e81}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{title}{The trim-loss and assortment problems: a survey}
+      \field{volume}{5}
+      \field{year}{1980}
+      \field{pages}{8\bibrangedash 18}
+      \range{pages}{11}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{bobrov2016}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d16283de71edac0cab856b7cc3ece6e0}{%
+           family={Бобров},
+           familyi={Б\bibinitperiod},
+           given={В.\bibnamedelimi И.},
+           giveni={В\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+      }
+      \strng{namehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{fullhash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{bibnamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authorbibnamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authornamehash}{d16283de71edac0cab856b7cc3ece6e0}
+      \strng{authorfullhash}{d16283de71edac0cab856b7cc3ece6e0}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Вестник производственных технологий}
+      \field{langid}{russian}
+      \field{number}{2}
+      \field{title}{Исследование параметров ротационной высечки самоклеящихся этикеток}
+      \field{volume}{5}
+      \field{year}{2016}
+      \field{pages}{45\bibrangedash 52}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/issledovanie-parametrov-rotatsionnoy-vysechki-samokleyaschihsya-etiketok
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/issledovanie-parametrov-rotatsionnoy-vysechki-samokleyaschihsya-etiketok
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{giannelos2001parallel}{article}{}
+      \name{author}{2}{}{%
+        {{hash=902cecb20a8e00bad2d5e40d0278f410}{%
+           family={Giannelos},
+           familyi={G\bibinitperiod},
+           given={N.\bibnamedelimi F.},
+           giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=adb18e636ce60a7429c2a7776ffddeff}{%
+           family={Georgiadis},
+           familyi={G\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{c90d88c42ad068dac49f752bc4170e8d}
+      \strng{fullhash}{c90d88c42ad068dac49f752bc4170e8d}
+      \strng{bibnamehash}{c90d88c42ad068dac49f752bc4170e8d}
+      \strng{authorbibnamehash}{c90d88c42ad068dac49f752bc4170e8d}
+      \strng{authornamehash}{c90d88c42ad068dac49f752bc4170e8d}
+      \strng{authorfullhash}{c90d88c42ad068dac49f752bc4170e8d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chemical Engineering Research and Design}
+      \field{langid}{english}
+      \field{title}{Scheduling of cutting-stock processes on multiple parallel machines}
+      \field{volume}{79}
+      \field{year}{2001}
+      \field{pages}{747\bibrangedash 753}
+      \range{pages}{7}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{harjunkoski1996trimloss}{article}{}
+      \name{author}{4}{}{%
+        {{hash=248a20009be9f061a4df5ffe14a0b713}{%
+           family={Harjunkoski},
+           familyi={H\bibinitperiod},
+           given={Iiro},
+           giveni={I\bibinitperiod}}}%
+        {{hash=34bfa6e9086bc15f20d2c48b103e439e}{%
+           family={Westerlund},
+           familyi={W\bibinitperiod},
+           given={Tapio},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4e17438cc6c27269d9274b1e3adc348a}{%
+           family={Isaksson},
+           familyi={I\bibinitperiod},
+           given={Johnny},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d982d2e7bbc9ad3301b0e0c779e67863}{%
+           family={Skrifvars},
+           familyi={S\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{692bc9ed519ebe287b047b650e78855d}
+      \strng{fullhash}{226a54a5b7b500dcb5a3c51a18e6c9c1}
+      \strng{bibnamehash}{692bc9ed519ebe287b047b650e78855d}
+      \strng{authorbibnamehash}{692bc9ed519ebe287b047b650e78855d}
+      \strng{authornamehash}{692bc9ed519ebe287b047b650e78855d}
+      \strng{authorfullhash}{226a54a5b7b500dcb5a3c51a18e6c9c1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Chemical Engineering}
+      \field{langid}{english}
+      \field{number}{SUPPL.1}
+      \field{title}{Different formulations for solving trim loss problems in a paper-converting mill with ILP}
+      \field{volume}{20}
+      \field{year}{1996}
+      \field{pages}{S915\bibrangedash S920}
+      \range{pages}{-1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{westerlund1998trimloss_scheduling}{article}{}
+      \name{author}{2}{}{%
+        {{hash=34bfa6e9086bc15f20d2c48b103e439e}{%
+           family={Westerlund},
+           familyi={W\bibinitperiod},
+           given={Tapio},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4e17438cc6c27269d9274b1e3adc348a}{%
+           family={Isaksson},
+           familyi={I\bibinitperiod},
+           given={Johnny},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{71a96c00839a89452cf799dc6eb81731}
+      \strng{fullhash}{71a96c00839a89452cf799dc6eb81731}
+      \strng{bibnamehash}{71a96c00839a89452cf799dc6eb81731}
+      \strng{authorbibnamehash}{71a96c00839a89452cf799dc6eb81731}
+      \strng{authornamehash}{71a96c00839a89452cf799dc6eb81731}
+      \strng{authorfullhash}{71a96c00839a89452cf799dc6eb81731}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Trans IChemE, Part A}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{title}{Some efficient formulations for the simultaneous solution of trim-loss and scheduling problems in the paper-converting industry}
+      \field{volume}{76}
+      \field{year}{1998}
+      \field{pages}{677\bibrangedash 684}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1205/026387698525388
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{yanasse2007integrated}{article}{}
+      \name{author}{2}{}{%
+        {{hash=64f77478e763d4fa407e24dd957e5ed8}{%
+           family={Yanasse},
+           familyi={Y\bibinitperiod},
+           given={Horacio\bibnamedelima Hideki},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=c7ee5ffaf7ac8e865b6a8d7ecbe8d56c}{%
+           family={Pinto\bibnamedelima Lamosa},
+           familyi={P\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Maria\bibnamedelima Jose},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{7998308f277f81eb171f5c621d6c7a89}
+      \strng{fullhash}{7998308f277f81eb171f5c621d6c7a89}
+      \strng{bibnamehash}{7998308f277f81eb171f5c621d6c7a89}
+      \strng{authorbibnamehash}{7998308f277f81eb171f5c621d6c7a89}
+      \strng{authornamehash}{7998308f277f81eb171f5c621d6c7a89}
+      \strng{authorfullhash}{7998308f277f81eb171f5c621d6c7a89}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{title}{An integrated cutting stock and sequencing problem}
+      \field{volume}{183}
+      \field{year}{2007}
+      \field{pages}{1353\bibrangedash 1370}
+      \range{pages}{18}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{nonas2000combined}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f3782634ed13844f282ffb328b6a846a}{%
+           family={Non{å}s},
+           familyi={N\bibinitperiod},
+           given={Sigrid\bibnamedelima Lise},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=344cec1e21cf8d52033d05a036a42558}{%
+           family={Thorstenson},
+           familyi={T\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \strng{fullhash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \strng{bibnamehash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \strng{authorbibnamehash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \strng{authornamehash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \strng{authorfullhash}{c7efaf10625d38d15bcdc337e6d842f7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{2}
+      \field{title}{A combined cutting-stock and lot-sizing problem}
+      \field{volume}{120}
+      \field{year}{2000}
+      \field{pages}{327\bibrangedash 342}
+      \range{pages}{16}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{melega2018review}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bbd1db6e7f47bb9c819be1650187b3c6}{%
+           family={Melega},
+           familyi={M\bibinitperiod},
+           given={Gislaine\bibnamedelima Mara},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=cf655e4028a8a0c5a692534b47598379}{%
+           family={Araujo},
+           familyi={A\bibinitperiod},
+           given={Silvio\bibnamedelima Alexandre},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=2ef6ff266c862c76ad7398d0302685f9}{%
+           family={Jans},
+           familyi={J\bibinitperiod},
+           given={Raf},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \strng{fullhash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \strng{bibnamehash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \strng{authorbibnamehash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \strng{authornamehash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \strng{authorfullhash}{512b78e62bca21e15a15cf7f7d45bcbb}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{title}{Classification and literature review of integrated lot-sizing and cutting stock problems}
+      \field{volume}{271}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 19}
+      \range{pages}{19}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{poltroniere2016tema}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f788ea3e66f1d71f526979a3a71c112b}{%
+           family={Poltroniere},
+           familyi={P\bibinitperiod},
+           given={Silvio\bibnamedelima C.},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=53b096b1259b91dd2df3627f49139720}{%
+           family={Araujo},
+           familyi={A\bibinitperiod},
+           given={Silvio\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=4207211b72ba3dc7df961b0cabe9ff79}{%
+           family={Poldi},
+           familyi={P\bibinitperiod},
+           given={Kelly\bibnamedelima C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{886d263dde3272c763de69f4285f9d28}
+      \strng{fullhash}{886d263dde3272c763de69f4285f9d28}
+      \strng{bibnamehash}{886d263dde3272c763de69f4285f9d28}
+      \strng{authorbibnamehash}{886d263dde3272c763de69f4285f9d28}
+      \strng{authornamehash}{886d263dde3272c763de69f4285f9d28}
+      \strng{authorfullhash}{886d263dde3272c763de69f4285f9d28}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{TEMA (São Carlos)}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{title}{Optimization of an Integrated Lot Sizing and Cutting Stock Problem in the Paper Industry}
+      \field{volume}{17}
+      \field{year}{2016}
+      \field{pages}{305\bibrangedash 320}
+      \range{pages}{16}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{Gabasov2021}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b8456363189959fc47711de521dd95c6}{%
+           family={Габасов},
+           familyi={Г\bibinitperiod},
+           given={Р.Ф.},
+           giveni={Р\bibinitperiod}}}%
+        {{hash=11ca0e988e6d141f92ec904c61b59629}{%
+           family={Кириллова},
+           familyi={К\bibinitperiod},
+           given={Ф.М.},
+           giveni={Ф\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Ленанд}%
+      }
+      \strng{namehash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \strng{fullhash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \strng{bibnamehash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \strng{authorbibnamehash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \strng{authornamehash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \strng{authorfullhash}{3a17088e6e8367cf0c925b568ff51a7a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Основы динамического программирования}
+      \field{year}{2021}
+      \field{pages}{264}
+      \range{pages}{1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{Dovgalyuk2024}{book}{}
+      \name{author}{1}{}{%
+        {{hash=535d415412dc60dc0d4a60175928c3ad}{%
+           family={Довгалюк},
+           familyi={Д\bibinitperiod},
+           given={П.М.},
+           giveni={П\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Москва}%
+      }
+      \list{publisher}{1}{%
+        {Ленанд}%
+      }
+      \strng{namehash}{535d415412dc60dc0d4a60175928c3ad}
+      \strng{fullhash}{535d415412dc60dc0d4a60175928c3ad}
+      \strng{bibnamehash}{535d415412dc60dc0d4a60175928c3ad}
+      \strng{authorbibnamehash}{535d415412dc60dc0d4a60175928c3ad}
+      \strng{authornamehash}{535d415412dc60dc0d4a60175928c3ad}
+      \strng{authorfullhash}{535d415412dc60dc0d4a60175928c3ad}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Динамическое программирование и всё-всё-всё: Как решать олимпиадные и «жизненные» программистские задачи}
+      \field{year}{2024}
+      \field{pages}{200}
+      \range{pages}{1}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{genetics_1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4da33344ed957348f06270794070aa58}{%
+           family={Курейчик},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi М.},
+           giveni={В\bibinitperiod\bibinitdelim М\bibinitperiod}}}%
+      }
+      \strng{namehash}{4da33344ed957348f06270794070aa58}
+      \strng{fullhash}{4da33344ed957348f06270794070aa58}
+      \strng{bibnamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authorbibnamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authornamehash}{4da33344ed957348f06270794070aa58}
+      \strng{authorfullhash}{4da33344ed957348f06270794070aa58}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Известия Южного федерального университета. Технические науки. — 1998. — Т. 8. — №2. — С. 4–7.}
+      \field{title}{Генетические алгоритмы}
+      \field{year}{1998}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/geneticheskie-algoritmy.pdf
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/geneticheskie-algoritmy.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{genetics_2}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=a69b038fd3d956923c524c27500b3af1}{%
+           family={Гладков},
+           familyi={Г\bibinitperiod},
+           given={Л.\bibnamedelimi А.},
+           giveni={Л\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+        {{hash=20e154c507ff1ba4f1f51dd95f3fbfdc}{%
+           family={Курейчик},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=4da33344ed957348f06270794070aa58}{%
+           family={Курейчик},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi М.},
+           giveni={В\bibinitperiod\bibinitdelim М\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \strng{fullhash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \strng{bibnamehash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \strng{authorbibnamehash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \strng{authornamehash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \strng{authorfullhash}{5a407d25ab6cf704c48e1ef887cd9900}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{— Москва : Физматлит, 2010. — 368 с.}
+      \field{title}{Генетические алгоритмы : учебник}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://elibrary.ru/item.asp?id=27280977
+      \endverb
+      \verb{url}
+      \verb https://elibrary.ru/item.asp?id=27280977
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{evolution_1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=e3cf62dc03aeaa9a664fc3eceea5571a}{%
+           family={Дивеев},
+           familyi={Д\bibinitperiod},
+           given={А.\bibnamedelimi И.},
+           giveni={А\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+        {{hash=276a06621161cbaa3176b776814c629c}{%
+           family={Константинов},
+           familyi={К\bibinitperiod},
+           given={С.\bibnamedelimi В.},
+           giveni={С\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{fullhash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{bibnamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authorbibnamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authornamehash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \strng{authorfullhash}{a685ef3ecdc189b3ead65fc1cf0b9f39}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Вестник Российского университета дружбы народов. Серия: Инженерные исследования. — 2017. — Т. 18. — №2. — С. 254–265.}
+      \field{title}{Эволюционные алгоритмы для решения задачи оптимального управления}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://cyberleninka.ru/article/n/evolyutsionnye-algoritmy-dlya-resheniya-zadachi-optimalnogo-upravleniya.pdf
+      \endverb
+      \verb{url}
+      \verb https://cyberleninka.ru/article/n/evolyutsionnye-algoritmy-dlya-resheniya-zadachi-optimalnogo-upravleniya.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{evolution_2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b4f3c46d2008659ae1b5fd442bd1b733}{%
+           family={Семенкина},
+           familyi={С\bibinitperiod},
+           given={М.\bibnamedelimi Е.},
+           giveni={М\bibinitperiod\bibinitdelim Е\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{fullhash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{bibnamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authorbibnamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authornamehash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \strng{authorfullhash}{b4f3c46d2008659ae1b5fd442bd1b733}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Искусственный интеллект и принятие решений. — 2013. — №1. — С. 13–24.}
+      \field{title}{Самоадаптивные эволюционные алгоритмы проектирования информационных технологий интеллектуального анализа данных}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://www.mathnet.ru/php/getFT.phtml?jrnid=iipr&paperid=385&what=fullt
+      \endverb
+      \verb{url}
+      \verb https://www.mathnet.ru/php/getFT.phtml?jrnid=iipr&paperid=385&what=fullt
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{klimenko2024moscow}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{fullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{bibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorbibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authornamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorfullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{СБОРНИК МАТЕРИАЛОВ IV МЕЖДУНАРОДНОЙ НАУЧНО-ПРАКТИЧЕСКОЙ КОНФЕРЕНЦИИ "СОВРЕМЕННЫЕ ИССЛЕДОВАНИЯ: ТЕОРИЯ, ПРАКТИКА, РЕЗУЛЬТАТЫ". - М, 2024. - С.70-75.}
+      \field{title}{Алгоритмы генерации случайных схем одномерного раскроя}
+      \field{year}{2024}
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2024_prin}{article}{}
+      \name{author}{3}{}{%
+        {{hash=150c0a7441d8df3448de9c3e838f0304}{%
+           family={Воронов},
+           familyi={В\bibinitperiod},
+           given={Р.\bibnamedelimi В.},
+           giveni={Р\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=ac9fb43650682c418326c7b3eacf174f}{%
+           family={Шабаев},
+           familyi={Ш\bibinitperiod},
+           given={А.\bibnamedelimi И.},
+           giveni={А\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{fullhash}{499cdeed2e55083637c5195038f58be1}
+      \strng{bibnamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authorbibnamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authornamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authorfullhash}{499cdeed2e55083637c5195038f58be1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Программная инженерия. — 2024. — Т. 15, №1. — С. 35–43.}
+      \field{title}{Генетический алгоритм для задачи линейного раскроя с допусками на объемы выпуска продукции}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.17587/prin.15.35-43
+      \endverb
+      \verb{urlraw}
+      \verb http://novtex.ru/prin/rus/10.17587/prin.15.35-43.html
+      \endverb
+      \verb{url}
+      \verb http://novtex.ru/prin/rus/10.17587/prin.15.35-43.html
+      \endverb
+      \keyw{,biblioauthorvak,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2025ivdon}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=e1e3fc29be291c433ffe149d9b64f1da}{%
+           family={Щеголева},
+           familyi={Щ\bibinitperiod},
+           given={Л.\bibnamedelimi В.},
+           giveni={Л\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{fullhash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{bibnamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authorbibnamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authornamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authorfullhash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Инженерный вестник Дона. — 2025. — №3.}
+      \field{title}{Методы решения задачи линейного раскроя с минимизацией числа отходов и перестановок ножей}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.ivdon.ru/uploads/article/pdf/IVD_24N2y25_klimenko_shchegoleva.pdf_36b084bc5f.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ivdon.ru/uploads/article/pdf/IVD_24N2y25_klimenko_shchegoleva.pdf_36b084bc5f.pdf
+      \endverb
+      \keyw{,biblioauthorvak,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2025fruct}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=9f4a399b50cfff1f732fbe08524d79fa}{%
+           family={Klimenko},
+           familyi={K\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=225f3fa7b8f63daaefcc1017abe75d48}{%
+           family={Shchegoleva},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{fullhash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{bibnamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authorbibnamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authornamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authorfullhash}{496d73ca722f2463eaf51f23433c374f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// 2025 37th Conference of Open Innovations Association (FRUCT). — IEEE, 2025. — P. 110–115.}
+      \field{title}{Methods for Solving the Linear Cutting-stock Problem on Several Slitting Machines with Minimizing the Number of Waste and Knife Rearrangements}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.fruct.org/files/publications/volume-37/fruct37/Kli.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.fruct.org/files/publications/volume-37/fruct37/Kli.pdf
+      \endverb
+      \keyw{,biblioauthorscopus,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{shavarshin2018}{article}{}
+      \name{author}{1}{}{%
+        {{hash=581bb4cee26d444130e27b8863bdb9a9}{%
+           family={Шаваршин},
+           familyi={Ш\bibinitperiod},
+           given={П.\bibnamedelimi А.},
+           giveni={П\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+      }
+      \strng{namehash}{581bb4cee26d444130e27b8863bdb9a9}
+      \strng{fullhash}{581bb4cee26d444130e27b8863bdb9a9}
+      \strng{bibnamehash}{581bb4cee26d444130e27b8863bdb9a9}
+      \strng{authorbibnamehash}{581bb4cee26d444130e27b8863bdb9a9}
+      \strng{authornamehash}{581bb4cee26d444130e27b8863bdb9a9}
+      \strng{authorfullhash}{581bb4cee26d444130e27b8863bdb9a9}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Металлопрокат и машиностроение}
+      \field{number}{1}
+      \field{title}{Задача одномерного раскроя при раскрое листового металла: методы и алгоритмы}
+      \field{volume}{10}
+      \field{year}{2018}
+      \field{pages}{5\bibrangedash 15}
+      \range{pages}{11}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{pavlov2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ce5fd6e8c934caf2615cb465a333097b}{%
+           family={Павлов},
+           familyi={П\bibinitperiod},
+           given={С.\bibnamedelimi Г.},
+           giveni={С\bibinitperiod\bibinitdelim Г\bibinitperiod}}}%
+        {{hash=428949b6a622b9594524f3a2704488af}{%
+           family={Иванова},
+           familyi={И\bibinitperiod},
+           given={Т.\bibnamedelimi В.},
+           giveni={Т\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \strng{fullhash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \strng{bibnamehash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \strng{authorbibnamehash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \strng{authornamehash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \strng{authorfullhash}{f88a5c05b221be4e5b87ef095ce447d3}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Управление производством}
+      \field{number}{2}
+      \field{title}{Математические методы оптимизации раскроя пиломатериалов}
+      \field{volume}{7}
+      \field{year}{2020}
+      \field{pages}{102\bibrangedash 110}
+      \range{pages}{9}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{bondarenko2019}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1ddffbb99428b53daadea3c5a544467c}{%
+           family={Бондаренко},
+           familyi={Б\bibinitperiod},
+           given={Е.\bibnamedelimi Н.},
+           giveni={Е\bibinitperiod\bibinitdelim Н\bibinitperiod}}}%
+        {{hash=8b91567b62976437e85c82e1048e60b5}{%
+           family={Кузнецов},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi А.},
+           giveni={В\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \strng{fullhash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \strng{bibnamehash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \strng{authorbibnamehash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \strng{authornamehash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \strng{authorfullhash}{1f245b239cd63429863dab6bb2e6b8b1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Деревообрабатывающее производство}
+      \field{number}{4}
+      \field{title}{Эффективные алгоритмы комбинированного раскроя древесины на основе эволюционного поиска}
+      \field{volume}{12}
+      \field{year}{2019}
+      \field{pages}{47\bibrangedash 54}
+      \range{pages}{8}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{sergeeva2021}{article}{}
+      \name{author}{2}{}{%
+        {{hash=67156db132badd5d8250e3578ca3816b}{%
+           family={Сергеева},
+           familyi={С\bibinitperiod},
+           given={Ю.\bibnamedelimi М.},
+           giveni={Ю\bibinitperiod\bibinitdelim М\bibinitperiod}}}%
+        {{hash=69a3e6699e3fde51d7ac1acc9b853f13}{%
+           family={Федоров},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi П.},
+           giveni={И\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \strng{fullhash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \strng{bibnamehash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \strng{authorbibnamehash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \strng{authornamehash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \strng{authorfullhash}{1f3a002709dc7fdd221a3bdabfb950de}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Системный анализ и информационные технологии}
+      \field{number}{6}
+      \field{title}{Генетический алгоритм для задачи двумерной упаковки}
+      \field{volume}{24}
+      \field{year}{2021}
+      \field{pages}{33\bibrangedash 41}
+      \range{pages}{9}
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+    \entry{gao_energy_2019}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b97a8d6f5ba2daeb8f70e931d744a7c4}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Kaizhou},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c056050f1a670f94d13b85d976205785}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=2eca8327051fb23aaed3486a493f41e7}{%
+           family={Sadollah},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5de94cdd2b4ff3e0eb435107f54862f4}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Ling},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{609a2324c4cd1fbd3b30c6f42d866fe3}
+      \strng{fullhash}{d531b6cbaedd069930ea4f0c8d3f50d9}
+      \strng{bibnamehash}{609a2324c4cd1fbd3b30c6f42d866fe3}
+      \strng{authorbibnamehash}{609a2324c4cd1fbd3b30c6f42d866fe3}
+      \strng{authornamehash}{609a2324c4cd1fbd3b30c6f42d866fe3}
+      \strng{authorfullhash}{d531b6cbaedd069930ea4f0c8d3f50d9}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Complex \& Intelligent Systems}
+      \field{langid}{english}
+      \field{number}{2}
+      \field{title}{A review of energy-efficient scheduling in intelligent production systems}
+      \field{volume}{6}
+      \field{year}{2020}
+      \field{pages}{237\bibrangedash 249}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s40747-019-00122-6
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{none/global//global/global}
+    \entry{klimenko2024moscow}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{fullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{bibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorbibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authornamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorfullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{СБОРНИК МАТЕРИАЛОВ IV МЕЖДУНАРОДНОЙ НАУЧНО-ПРАКТИЧЕСКОЙ КОНФЕРЕНЦИИ "СОВРЕМЕННЫЕ ИССЛЕДОВАНИЯ: ТЕОРИЯ, ПРАКТИКА, РЕЗУЛЬТАТЫ". - М, 2024. - С.70-75.}
+      \field{title}{Алгоритмы генерации случайных схем одномерного раскроя}
+      \field{year}{2024}
+      \true{nocite}
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2024_prin}{article}{}
+      \name{author}{3}{}{%
+        {{hash=150c0a7441d8df3448de9c3e838f0304}{%
+           family={Воронов},
+           familyi={В\bibinitperiod},
+           given={Р.\bibnamedelimi В.},
+           giveni={Р\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=ac9fb43650682c418326c7b3eacf174f}{%
+           family={Шабаев},
+           familyi={Ш\bibinitperiod},
+           given={А.\bibnamedelimi И.},
+           giveni={А\bibinitperiod\bibinitdelim И\bibinitperiod}}}%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{fullhash}{499cdeed2e55083637c5195038f58be1}
+      \strng{bibnamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authorbibnamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authornamehash}{499cdeed2e55083637c5195038f58be1}
+      \strng{authorfullhash}{499cdeed2e55083637c5195038f58be1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Программная инженерия. — 2024. — Т. 15, №1. — С. 35–43.}
+      \field{title}{Генетический алгоритм для задачи линейного раскроя с допусками на объемы выпуска продукции}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.17587/prin.15.35-43
+      \endverb
+      \verb{urlraw}
+      \verb http://novtex.ru/prin/rus/10.17587/prin.15.35-43.html
+      \endverb
+      \verb{url}
+      \verb http://novtex.ru/prin/rus/10.17587/prin.15.35-43.html
+      \endverb
+      \keyw{,biblioauthorvak,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2025ivdon}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=e1e3fc29be291c433ffe149d9b64f1da}{%
+           family={Щеголева},
+           familyi={Щ\bibinitperiod},
+           given={Л.\bibnamedelimi В.},
+           giveni={Л\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{fullhash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{bibnamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authorbibnamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authornamehash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \strng{authorfullhash}{7c8cf32b9dabb9af63475c49a8832c6a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{// Инженерный вестник Дона. — 2025. — №3.}
+      \field{title}{Методы решения задачи линейного раскроя с минимизацией числа отходов и перестановок ножей}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.ivdon.ru/uploads/article/pdf/IVD_24N2y25_klimenko_shchegoleva.pdf_36b084bc5f.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ivdon.ru/uploads/article/pdf/IVD_24N2y25_klimenko_shchegoleva.pdf_36b084bc5f.pdf
+      \endverb
+      \keyw{,biblioauthorvak,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2025fruct}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=9f4a399b50cfff1f732fbe08524d79fa}{%
+           family={Klimenko},
+           familyi={K\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=225f3fa7b8f63daaefcc1017abe75d48}{%
+           family={Shchegoleva},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{fullhash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{bibnamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authorbibnamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authornamehash}{496d73ca722f2463eaf51f23433c374f}
+      \strng{authorfullhash}{496d73ca722f2463eaf51f23433c374f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{// 2025 37th Conference of Open Innovations Association (FRUCT). — IEEE, 2025. — P. 110–115.}
+      \field{title}{Methods for Solving the Linear Cutting-stock Problem on Several Slitting Machines with Minimizing the Number of Waste and Knife Rearrangements}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.fruct.org/files/publications/volume-37/fruct37/Kli.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.fruct.org/files/publications/volume-37/fruct37/Kli.pdf
+      \endverb
+      \keyw{,biblioauthorscopus,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{klimenko2025itptz}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{fullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{bibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorbibnamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authornamehash}{3b0e0177936359a42c9233a12a5f019d}
+      \strng{authorfullhash}{3b0e0177936359a42c9233a12a5f019d}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{note}{Цифровые технологии в образовании, науке, обществе : материалы XIX Всероссийской научно-практической конференции (Петрозаводск, 9-12 декабря 2025 года). - Петрозаводск, 2025. - С.67-70.}
+      \field{title}{Программное обеспечение для оптимизации производственного процесса в целлюлозно-бумажной промышленности}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://it2025.petrsu.ru/files/pages/it2025.pdf
+      \endverb
+      \verb{url}
+      \verb https://it2025.petrsu.ru/files/pages/it2025.pdf
+      \endverb
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{Voronov_Klimenko_2024_patent}{patent}{}
+      \name{author}{2}{}{%
+        {{hash=150c0a7441d8df3448de9c3e838f0304}{%
+           family={Воронов},
+           familyi={В\bibinitperiod},
+           given={Р.\bibnamedelimi В.},
+           giveni={Р\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=3b0e0177936359a42c9233a12a5f019d}{%
+           family={Клименко},
+           familyi={К\bibinitperiod},
+           given={В.\bibnamedelimi В.},
+           giveni={В\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \name{holder}{1}{}{%
+        {{hash=d67ba68cc0a6ae6fa1deceb5c31a882a}{%
+           family={университет},
+           familyi={у\bibinitperiod},
+           given={Петрозаводский},
+           giveni={П\bibinitperiod},
+           prefix={государственный},
+           prefixi={г\bibinitperiod}}}%
+      }
+      \strng{namehash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{fullhash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{bibnamehash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{authorbibnamehash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{authornamehash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{authorfullhash}{59feb047853c0fa6e9001b08833af91f}
+      \strng{holderbibnamehash}{d67ba68cc0a6ae6fa1deceb5c31a882a}
+      \strng{holdernamehash}{d67ba68cc0a6ae6fa1deceb5c31a882a}
+      \strng{holderfullhash}{d67ba68cc0a6ae6fa1deceb5c31a882a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Программное обеспечение для составления оптимальных планов раскроя для целлюлозно-бумажного производства}
+      \true{nocite}
+      \keyw{,biblioauthorprogram,biblioregistered,bibliofull}
+      \warn{\item patent entry 'Voronov_Klimenko_2024_patent' (biblio/registered.bib): Invalid format '23.01.2024' of date field 'date' - ignoring}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
