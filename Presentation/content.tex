@@ -1,305 +1,424 @@
-\section{Списки}
-\begin{frame}[plain, noframenumbering]
-    \begin{center}
-        \Huge
-        Списки
-    \end{center}
-\end{frame}
-
-\subsection{Нумерованные}
+%=============================================================================
+% ВВЕДЕНИЕ
+%=============================================================================
+\section{Введение}
 
 \begin{frame}
-    \frametitle{Нумерованные списки}
-    \begin{enumerate}
-        \item один
-        \item два
-        \item три
-    \end{enumerate}
-\end{frame}
-\note{
-    Этот текст будет виден только если его отображение включено
-    в~файле \textbf{Presentation/setup}.
-    Для раздельного вывода презентации и заметок на~разные экраны (как
-    в~impress или powerpoint) можно использовать программу
-    \textit{pdf-presenter-console}.
-}
-
-\subsection{Не нумерованные}
-
-
-\begin{frame}
-    \frametitle{Перечисления}
+    \frametitle{Актуальность темы исследования}
     \begin{itemize}
-        \item Проблема 1
-        \item Проблема 2
-        \item Проблема 3
+        \item Задача раскроя рулонных материалов~--- ключевая в~операционном управлении целлюлозно-бумажными предприятиями
+        \item Неэффективный раскрой приводит к:
+              \begin{itemize}
+                  \item росту отходов материала (5--15\% стоимости сырья)
+                  \item увеличению времени переналадок оборудования
+                  \item разбалансировке загрузки производственных линий
+              \end{itemize}
+        \item Существующие модели не~учитывают одновременно:
+              \begin{itemize}
+                  \item многоуровневую структуру производства
+                  \item многокритериальность задачи
+                  \item динамику складских запасов
+              \end{itemize}
     \end{itemize}
 \end{frame}
-\note[itemize]{
-    \item Тезис 1
-    \item Тезис 2
-    \item Тезис 3
-}
-
-\subsection{Комбинированные}
 
 \begin{frame}
-    \frametitle{Комбинация списков}
+    \frametitle{Цель и задачи исследования}
+    \textbf{Цель:} разработка математической модели и~алгоритма решения задачи линейного раскроя рулонных материалов с~учётом многоуровневой структуры производства.
+    
+    \vspace{0.5cm}
+    \textbf{Задачи:}
     \begin{enumerate}
-        \item \textbf{Задача 1}
-              \begin{itemize}
-                  \item Подзадача 1-1
-                  \item Подзадача 1-2
-              \end{itemize}
-        \item \textbf{Задача 2}
-              \begin{itemize}
-                  \item Подзадача 2-1
-                  \item Подзадача 2-2
-                  \item Подзадача 2-3
-              \end{itemize}
-        \item \textbf{Задача 3}
-              \begin{itemize}
-                  \item Подзадача 3-1
-                  \item Подзадача 3-2
-                  \item Подзадача 3-3
-              \end{itemize}
+        \item Формализовать производственную задачу раскроя с~учётом технологических ограничений
+        \item Разработать многокритериальную математическую модель
+        \item Разработать алгоритм решения на~основе генетического поиска
+        \item Реализовать программный комплекс
+        \item Провести экспериментальное исследование
     \end{enumerate}
 \end{frame}
-\note[itemize]{
-    \item Задача 1
-    \item Задача 2
-    \item Задача 3
-}
 
-\begin{frame}[allowframebreaks]
-    \frametitle{Разделение слайда}
-    Поясняющий текст
-    \begin{itemize}
-        \item Один
-        \item Два
-        \item Три
-    \end{itemize}
-    \framebreak
-    Продолжение предыдущего слайда
-\end{frame}
-
-\section{Графика}
-\begin{frame}[plain, noframenumbering]
-    \begin{center}
-        \Huge
-        Графика
-    \end{center}
-\end{frame}
-
+%=============================================================================
+% ГЛАВА 1: ТЕОРЕТИЧЕСКАЯ ЧАСТЬ
+%=============================================================================
+\section{Постановка задачи}
 
 \begin{frame}
-    \frametitle{Одиночное изображение}
-    \centering
-    \includegraphics[width=0.8\linewidth]{latex} % окружение figure не требуется
-\end{frame}
-
-\begin{frame}
-    \frametitle{Векторная графика}
-    \begin{figure}
-        \centering
-        \ifdefmacro{\tikzsetnextfilename}{\tikzsetnextfilename{tikz_presentation}}{}% присваиваемое предкомпилированному pdf имя файла (не обязательно)
-        \input{Presentation/images/tikz_plot.tikz}
-    \end{figure}
-\end{frame}
-
-\subsection{Расположение}
-
-\begin{frame}
-    \frametitle{Изображения по-вертикали}
-    \centering
-    \vfill
-    \includegraphics[width=0.8\linewidth,height=0.1\textheight]{latex} \\
-    \TeX
-    \vfill
-    \includegraphics[width=0.8\linewidth,height=0.2\textheight]{latex} \\
-    \LaTeX
-    \vfill
-    \includegraphics[scale=0.2]{latex} \\
-    \vfill
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Изображения по-горизонтали}
-    \begin{minipage}[t]{0.47\linewidth}
-        \textbf{Составная \\ подпись 1}
-        \center{\includegraphics[width=1\linewidth]{knuth1}}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.47\linewidth}
-        \textbf{Составная \\ подпись 2}
-        \center{\includegraphics[width=1\linewidth]{knuth2}}
-    \end{minipage}
-\end{frame}
-
-\subsection{Линии}
-
-\begin{frame}
-    \frametitle{Разделяющие линии}
-    \begin{minipage}[c]{0.47\linewidth}
-        \center{\includegraphics[width=1\linewidth]{latex}}
-        \bigskip
-        \hrule{}
-        \bigskip
-        \textbf{Составная \\ подпись 1}
-    \end{minipage}
-    \hfill
-    \vrule{}
-    \hfill
-    \begin{minipage}[c]{0.47\linewidth}
-        \flushright
-        \textbf{Составная \\ подпись 2}
-        \center{\includegraphics[width=1\linewidth]{knuth2}}
-    \end{minipage}
-\end{frame}
-
-\section{Остальное}
-\begin{frame}[plain, noframenumbering]
-    \begin{center}
-        \Huge
-        Остальное
-    \end{center}
-\end{frame}
-
-\subsection{Формулы}
-
-\begin{frame}
-    \frametitle{Формулы}
+    \frametitle{Технологический контекст}
+    \textbf{Этапы производства:}
+    \begin{enumerate}
+        \item Подготовка целлюлозной массы
+        \item Формование бумажного полотна на~БДМ
+        \item Намотка полотна в~тамбуры (jumbo-рулоны)
+        \item \textbf{Продольная резка тамбуров на~ПРС}
+        \item Упаковка готовой продукции
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \textbf{Схема производственного потока:}
     \[
-    \left\{
-    \begin{array}{rl}
-        \dot x = & \sigma (y-x)  \\
-        \dot y = & x (r - z) - y \\
-        \dot z = & xy - bz
-    \end{array}
-    \right.
+    \text{БДМ} \xrightarrow{\text{тамбуры}} \text{Склад} \xrightarrow{\text{тамбуры}} \text{ПРС} \xrightarrow{\text{рулоны}} \text{Заказчик}
     \]
 \end{frame}
 
 \begin{frame}
-    \frametitle{amsmath}
-    \centering
-    \begin{minipage}[t]{0.5\linewidth}
-        \begin{multline*}
-            y = 1 x^1 + 2 x^2 + 3 x^3 + \\ + 4 x^4 + 5 x^5 + \dots
-        \end{multline*}
-    \end{minipage}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-    \frametitle{Уравнения Максвелла}
-    \centering{
-        \small
-        \def\arraystretch{1.8}%
-        \begin{tabular}{ll}
-            \toprule
-            Интегральная форма                                                                                                                                            & Дифференциальная форма                                                          \\ \midrule
-            \(Q_e(t) = \displaystyle\oiint_S \vec D(t) \cdot d\vec{s} = \displaystyle\iiint_V \rho_v(t) dv\)                                                              & \(\nabla \cdot \vec D(t) = \rho_v(t)\)                                          \\
-            \(\displaystyle\oiint_S \vec B(t) \cdot d\vec{s} = 0\)                                                                                                        & \(\nabla \cdot \vec B(t) = 0\)                                                  \\
-            \(V_{emf}(t) = \displaystyle\oint_L \vec E(t) \cdot d\vec{l}\) = \(- \displaystyle\iint_S \left[\frac{\partial\vec{B}(t)}{\partial t}\right] \cdot d\vec{s}\) & \(\nabla \times \vec E(t) = - \frac{\partial\vec{B}(t)}{\partial t}\)           \\
-            \(I(t) = \displaystyle\oint_L \vec H(t) \cdot d\vec{l} = \displaystyle\iint_S \left[\vec J(t) + \frac{\partial\vec{D}(t)}{\partial t}\right] \cdot d\vec{s}\) & \(\nabla \times \vec H(t) = \vec J(t) + \frac{\partial\vec{D}(t)}{\partial t}\) \\ \midrule
-            \(\displaystyle\oiint_S \vec J \cdot d\vec{s} = -\frac{\partial Q_e}{\partial t}\)                                                                            & \(\nabla \cdot \vec J = - \frac{\partial \rho_v}{\partial t}\)                  \\
-            \bottomrule
-            \multicolumn{2}{c}{\(\vec D(t) = \left[\varepsilon(t)\right] * \vec E(t)\)}                                                                                                                                                                     \\
-            \multicolumn{2}{c}{\(\vec B(t) = \left[\mu(t)\right] * \vec H(t)\)}                                                                                                                                                                             \\
-        \end{tabular}
-    }
-    \framebreak
-
-    \hspace{0.05\linewidth}
-    \centering{
-        \small
-        \def\arraystretch{1.8}%
-        \begin{tabular}{ll}
-            \toprule
-            Интегральная форма                                                                                                                & Дифференциальная форма                               \\ \midrule
-            \(Q_e = \displaystyle\oiint_S \vec D \cdot d\vec{s} = \displaystyle\iiint_V \rho_v dv\)                                           & \(\nabla \cdot \vec D = \rho_v\)                     \\
-            \(\displaystyle\oiint_S \vec B \cdot d\vec{s} = 0\)                                                                               & \(\nabla \cdot \vec B = 0\)                          \\
-            \(V_{emf} = \displaystyle\oint_L \vec E \cdot d\vec{l}\) = \(- \displaystyle\iint_S \left[j \omega \vec B\right] \cdot d\vec{s}\) & \(\nabla \times \vec E = - j \omega \vec B\)         \\
-            \(I = \displaystyle\oint_L \vec H \cdot d\vec{l} = \displaystyle\iint_S \left[\vec J + j \omega \vec D\right] \cdot d\vec{s}\)    & \(\nabla \times \vec H = \vec J + j \omega \vec{D}\) \\ \midrule
-            \(\displaystyle\oiint_S \vec J \cdot d\vec{s} = - j \omega Q_e\)                                                                  & \(\nabla \cdot \vec J = - j \omega \rho_v\)          \\
-            \bottomrule
-            \multicolumn{2}{c}{\(\vec D(t) = \left[\varepsilon\right] \vec E(t)\)}                                                                                                                   \\
-            \multicolumn{2}{c}{\(\vec B(t) = \left[\mu\right] \vec H(t)\)}                                                                                                                           \\
-        \end{tabular}
-    }
-\end{frame}
-
-\subsection{Таблицы}
-
-\begin{frame}
-    \frametitle{Таблица}
-    \centering
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Заголовок 1} & \textbf{Заголовок 2} \\
-        \hline
-        Сумма                & \(b+a\)              \\
-        \hline
-        Разность             & \(a-b\)              \\
-        \hline
-        Произведение         & \(a*b\)              \\
-        \hline
-    \end{tabular}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Другая таблица}
-    \centering
-    \begin{tabular}{lc}
-        \toprule
-        \multicolumn{1}{c}{\textbf{Заголовок 1}} & \textbf{Заголовок 2} \\ \midrule
-        Сумма                                    & \(b+a\)              \\
-        Разность                                 & \(a-b\)              \\
-        Произведение                             & \(a*b\)              \\
-        \bottomrule
-    \end{tabular}
-\end{frame}
-
-
-\subsection{Разное}
-
-\begin{frame}
-    \frametitle{Большой многоуровневый список}
+    \frametitle{Основные понятия}
     \begin{itemize}
-        \item \textbf{Пункт 1}
+        \item \textbf{Заказ}~--- запрос на~рулоны определённой марки, ширины и~количества
+        \item \textbf{Тамбур}~--- полуфабрикат фиксированной ширины (jumbo-рулон)
+        \item \textbf{Раскрой}~--- схема продольной резки тамбура на~рулоны
+        \item \textbf{Переналадка}~--- перестановка ножей на~ПРС при~смене раскроя
+        \item \textbf{Глобальный план}~--- совокупность:
               \begin{itemize}
-                  \itemi Подпункт 1-1
-                  \itemi Подпункт 1-2
-              \end{itemize}
-        \item \textbf{Пункт 2}
-              \begin{itemize}
-                  \itemi Подпункт 2-1
-              \end{itemize}
-        \item \textbf{Пункт 3}
-              \begin{itemize}
-                  \itemi Подпункт 3-1
-                  \itemi Подпункт 3-2
-              \end{itemize}
-        \item \textbf{Пункт 4}
-              \begin{itemize}
-                  \itemi Подпункт 4-1
-              \end{itemize}
-        \item \textbf{Пункт 5}
-              \begin{itemize}
-                  \itemi Подпункт 5-1
-                  \itemi Подпункт 5-2
-                  \itemi Подпункт 5-3
+                  \item планов производства тамбуров на~БДМ
+                  \item планов раскроя на~ПРС
+                  \item календарного расписания операций
               \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Четыре изображения}
+    \frametitle{Критерии качества плана}
+    \textbf{Векторная целевая функция:}
+    \[
+    \mu(G) = \langle \omega(G),\,\varphi(G),\,\tau(\overline{\overline{Y}}) \rangle \rightarrow \min
+    \]
+    
+    \vspace{0.3cm}
+    \textbf{Критерии (в порядке приоритета):}
+    \begin{enumerate}
+        \item $\omega(G)$~--- суммарная ширина отходов
+        \item $\varphi(G)$~--- максимальное число раскроев на~одном ПРС
+        \item $\tau(\overline{\overline{Y}})$~--- общее количество перестановок ножей
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \textbf{Подход к~многокритериальности:} лексикографическая минимизация
+\end{frame}
+
+\begin{frame}
+    \frametitle{Формальная постановка задачи}
+    \textbf{Обозначения:}
+    \begin{itemize}
+        \item $M = \{1, \ldots, m\}$~--- множество БДМ
+        \item $S = \{1, \ldots, s\}$~--- множество ПРС
+        \item $O = \{1, \ldots, n\}$~--- множество заказов
+        \item $W_j$~--- ширина тамбуров марки $j$
+        \item $N_i$~--- максимальное число ножей на~ПРС $i$
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Глобальный план:}
+    \[
+    G = (\overline{\overline{X}}, \overline{\overline{Y}}, \overline{\overline{Z}})
+    \]
+    \begin{itemize}
+        \item $\overline{\overline{X}}$~--- планы производства тамбуров
+        \item $\overline{\overline{Y}}$~--- планы раскроя
+        \item $\overline{\overline{Z}}$~--- очередь событий (расписание)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ограничения задачи}
+    \begin{enumerate}
+        \item \textbf{Порядок марок:} на~БДМ марки производятся в~технологическом порядке
+        \item \textbf{Допустимость раскроев:}
+              \begin{itemize}
+                  \item сумма ширин $\le$ ширина тамбура
+                  \item число рулонов $\le$ число ножей
+              \end{itemize}
+        \item \textbf{Выполнение заказов:} все~рулоны должны быть нарезаны
+        \item \textbf{Соблюдение сроков:} дедлайны заказов
+        \item \textbf{Наличие тамбуров:} раскрой после производства
+        \item \textbf{Вместимость складов:} ограничения буферов
+    \end{enumerate}
+\end{frame}
+
+%=============================================================================
+% ГЛАВА 2: АЛГОРИТМ РЕШЕНИЯ
+%=============================================================================
+\section{Алгоритм решения}
+
+\begin{frame}
+    \frametitle{Выбор метода решения}
+    \textbf{Задача является NP-трудной:}
+    \begin{itemize}
+        \item Число раскроев: $O(n^{k_{\max}})$, где $k_{\max} = \lfloor W / w_{\min} \rfloor$
+        \item При $n=50$, $k_{\max}=6$: $\approx 1.5 \cdot 10^{10}$ вариантов
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Выбор: генетический алгоритм}
+    \begin{itemize}
+        \item Хорошо работает для~комбинаторных задач
+        \item Естественное кодирование решений
+        \item Гибкая настройка качество/время
+        \item Учёт сложной структуры ограничений
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Представление решений}
+    \textbf{Особь популяции} = глобальный план $G$
+    
+    \vspace{0.3cm}
+    \textbf{Компоненты взаимосвязаны:}
+    \begin{itemize}
+        \item Изменение плана раскроя $\overline{\overline{Y}}$ требует:
+              \begin{itemize}
+                  \item пересчёта плана производства $\overline{\overline{X}}$
+                  \item перегенерации расписания $\overline{\overline{Z}}$
+              \end{itemize}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{План раскроя $Y_i$:} упорядоченный список раскроев
+    
+    \textbf{Раскрой:} мультимножество ширин рулонов
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генетические операторы}
+    \textbf{1. Мутация (Mutate):}
+    \begin{itemize}
+        \item Внутренняя перестановка рулонов в~раскроях
+        \item Внешняя перестановка раскроев
+        \item Сохраняет допустимость решения
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{2. Глобальная мутация (GlobalMutate):}
+    \begin{itemize}
+        \item Применение Mutate ко~всем планам раскроя
+        \item Пересборка $\overline{\overline{X}}$ и $\overline{\overline{Z}}$
+        \item Принятие только при~улучшении $\mu(G)$
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{3. Кроссинговер:} парный отбор лучшей особи
+\end{frame}
+
+\begin{frame}
+    \frametitle{Алгоритм GeneticSearch}
+    \begin{enumerate}
+        \item \textbf{Инициализация:} генерация популяции $S_0$ размера $P$
+        \item \textbf{Итерации:} пока $|S| > 1$:
+              \begin{itemize}
+                  \item разбить популяцию на~пары
+                  \item к~каждой паре применить кроссинговер
+                  \item сформировать новую популяцию из~победителей
+              \end{itemize}
+        \item \textbf{Результат:} лучшее найденное решение
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \textbf{Сложность:} $O(P \log P \cdot Q \cdot q_{\max})$
+    
+    \textbf{Число поколений:} $\lceil \log_2 P \rceil$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Алгоритм генерации расписания}
+    \textbf{GenerateEventQueue} моделирует динамику производства:
+    
+    \begin{enumerate}
+        \item Инициализация: машины свободны, склады пусты, $t=0$
+        \item Пока не~все операции выполнены:
+              \begin{itemize}
+                  \item определить доступные операции
+                  \item выбрать по~приоритету (раскрой важнее производства)
+                  \item запланировать, обновить состояние
+              \end{itemize}
+        \item Вернуть очередь событий
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \textbf{Гарантирует:} соблюдение ограничений вместимости складов
+\end{frame}
+
+%=============================================================================
+% ГЛАВА 3: ПРОГРАММНАЯ РЕАЛИЗАЦИЯ
+%=============================================================================
+\section{Программная реализация}
+
+\begin{frame}
+    \frametitle{Архитектура программного комплекса}
+    \textbf{Технологический стек:}
+    \begin{itemize}
+        \item Python 3.10+
+        \item Pandas~--- обработка данных
+        \item OpenPyXL~--- работа с~Excel
+        \item Tkinter~--- графический интерфейс
+        \item pytest~--- тестирование
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Модули:}
+    \begin{itemize}
+        \item CLI~--- интерфейс командной строки
+        \item GUI~--- графический интерфейс
+        \item Алгоритмический модуль
+        \item Модельный слой
+        \item Модуль ввода/вывода (CSV, Excel)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Реализованные методы}
+    \textbf{1. Полный перебор (Brute Force):}
+    \begin{itemize}
+        \item Гарантирует оптимальное решение
+        \item Применим для $Q \le 20$--$30$ заказов
+        \item Используется как эталон
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \textbf{2. Генетический алгоритм:}
+    \begin{itemize}
+        \item Основной метод для реальных задач
+        \item Параметры по умолчанию: $P = 100$
+        \item Решает задачи с сотнями заказов
+    \end{itemize}
+\end{frame}
+
+%=============================================================================
+% РЕЗУЛЬТАТЫ
+%=============================================================================
+\section{Результаты}
+
+\begin{frame}
+    \frametitle{Сравнение методов}
     \centering
-    \includegraphics[width=0.35\linewidth,angle=35]{latex}
-    \includegraphics[width=0.35\linewidth,angle=135]{latex}\\
-    \includegraphics[width=0.35\linewidth,angle=15]{latex}
-    \includegraphics[width=0.35\linewidth,angle=-15]{latex}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Заказов} & \textbf{Полный перебор} & \textbf{ГА} & \textbf{Отклонение} \\
+        \midrule
+        20  & 12 сек     & 0,1 сек  & 0\%  \\
+        30  & 8 мин      & 0,3 сек  & 2\%  \\
+        40  & 14 часов   & 0,8 сек  & 3\%  \\
+        60  & ---        & 2 сек    & ---  \\
+        100 & ---        & 8 сек    & ---  \\
+        300 & ---        & 3 мин    & ---  \\
+        500 & ---        & 12 мин   & ---  \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Влияние размера популяции}
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Размер $P$} & \textbf{Качество} & \textbf{Время} \\
+        \midrule
+        10   & нестабильное & быстро \\
+        50   & хорошее      & умеренно \\
+        \textbf{100}  & \textbf{оптимальный баланс} & \textbf{оптимально} \\
+        200  & незначительно лучше & медленно \\
+        500  & незначительно лучше & очень медленно \\
+        \bottomrule
+    \end{tabular}
+    
+    \vspace{0.5cm}
+    \textbf{Рекомендация:} $P = 100$ для большинства задач
+\end{frame}
+
+\begin{frame}
+    \frametitle{Пример работы алгоритма}
+    \textbf{Исходные данные:}
+    \begin{itemize}
+        \item 5 заказов: ширины 200--400~мм, всего 33 рулона
+        \item 2 БДМ (ширина 1200 и 1500~мм)
+        \item 3 ПРС (до 5--6 ножей)
+        \item 2 склада (вместимость 8--10)
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Результат ($P=10$, время 0,2 сек):}
+    \[
+    \mu(G) = \langle 104,\, 5,\, 10 \rangle
+    \]
+    \begin{itemize}
+        \item Отход: 104~мм ($<$1\% ширины)
+        \item Макс. раскроев на ПРС: 5
+        \item Перестановок ножей: 10
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Практические результаты внедрения}
+    \textbf{Программный комплекс внедрён в~опытную эксплуатацию:}
+    
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Сокращение времени планирования: \textbf{часы $\rightarrow$ минуты}
+        \item Снижение отходов материала: \textbf{5--8\%}
+        \item Повышение равномерности загрузки оборудования
+        \item Уменьшение числа переналадок: \textbf{10--15\%}
+    \end{itemize}
+\end{frame}
+
+%=============================================================================
+% ЗАКЛЮЧЕНИЕ
+%=============================================================================
+\section{Заключение}
+
+\begin{frame}
+    \frametitle{Основные результаты работы}
+    \begin{enumerate}
+        \item Разработана \textbf{математическая модель} задачи линейного раскроя с~учётом многоуровневой структуры производства
+        \item Предложена \textbf{многокритериальная постановка} с~лексикографической минимизацией
+        \item Разработан \textbf{генетический алгоритм} с~операторами мутации, глобальной мутации и~парного отбора
+        \item Создан \textbf{программный комплекс} с~CLI и GUI интерфейсами
+        \item Проведено \textbf{экспериментальное исследование}, подтвердившее эффективность подхода
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Научная новизна}
+    \begin{enumerate}
+        \item Комплексная модель, учитывающая:
+              \begin{itemize}
+                  \item многоуровневую структуру (БДМ~$\rightarrow$ склад~$\rightarrow$ ПРС)
+                  \item многокритериальность (отходы, загрузка, переналадки)
+                  \item динамику складских запасов
+              \end{itemize}
+        \item Модификация генетического алгоритма с~кроссинговером на~основе парного отбора
+        \item Алгоритм построения расписания с~учётом ограничений вместимости
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Публикации по теме диссертации}
+    \textbf{Статьи в рецензируемых журналах (ВАК):}
+    \begin{itemize}
+        \item Клименко~В.А. Математическая модель задачи линейного раскроя... // Известия высших учебных заведений. Приборостроение, 2024
+        \item Клименко~В.А. Генетический алгоритм решения задачи раскроя... // Инженерный вестник Дона, 2025
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Конференции:}
+    \begin{itemize}
+        \item FRUCT-2025 (Scopus)
+        \item Научная сессия ГУАП, Москва, 2024
+        \item ИТНОП-2025, ПетрГУ
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Свидетельство о регистрации программы:}
+    \begin{itemize}
+        \item Программа оптимизации раскроя рулонных материалов, 2024
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{}
+    \centering
+    \Huge
+    Спасибо за внимание!
+    
+    \vspace{1cm}
+    \large
+    Вопросы?
 \end{frame}
 
