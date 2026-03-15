@@ -6,419 +6,449 @@
 \begin{frame}
     \frametitle{Актуальность темы исследования}
     \begin{itemize}
-        \item Задача раскроя рулонных материалов~--- ключевая в~операционном управлении целлюлозно-бумажными предприятиями
-        \item Неэффективный раскрой приводит к:
+        \item Задача раскроя рулонных материалов~--- ключевая в~целлюлозно-бумажном производстве
+        \item Существующие модели, как правило, не~учитывают одновременно:
               \begin{itemize}
-                  \item росту отходов материала (5--15\% стоимости сырья)
-                  \item увеличению времени переналадок оборудования
-                  \item разбалансировке загрузки производственных линий
+                  \item многомашинную структуру (БДМ~$\to$ склад~$\to$ ПРС/БРС)
+                  \item многокритериальность (отходы, загрузка, переналадки)
+                  \item динамику складских запасов и сроки заказов
               \end{itemize}
-        \item Существующие модели не~учитывают одновременно:
-              \begin{itemize}
-                  \item многоуровневую структуру производства
-                  \item многокритериальность задачи
-                  \item динамику складских запасов
-              \end{itemize}
+        \item Задача NP-трудна; добавление складов, переналадок и расписаний дополнительно увеличивает сложность
     \end{itemize}
+    \vspace{0.3cm}
+    \[
+    \text{БДМ} \xrightarrow[\overline{\overline{X}}]{\text{тамбуры}} \text{Склад}\ (\overline{T}) \xrightarrow[\overline{\overline{Y}}]{\text{раскрой}} \text{ПРС/БРС} \xrightarrow{\text{рулоны}} \text{Заказчик}
+    \]
 \end{frame}
 
 \begin{frame}
     \frametitle{Цель и задачи исследования}
-    \textbf{Цель:} разработка математической модели и~алгоритма решения задачи линейного раскроя рулонных материалов с~учётом многоуровневой структуры производства.
-    
-    \vspace{0.5cm}
+    \textbf{Цель:} разработка математической модели, численных методов и~комплекса программ для задачи раскроя и~формирования производственного расписания в~многомашинной системе.
+
+    \vspace{0.4cm}
     \textbf{Задачи:}
     \begin{enumerate}
-        \item Формализовать производственную задачу раскроя с~учётом технологических ограничений
-        \item Разработать многокритериальную математическую модель
-        \item Разработать алгоритм решения на~основе генетического поиска
-        \item Реализовать программный комплекс
-        \item Провести экспериментальное исследование
+        \item Провести анализ существующих подходов к~моделированию и~решению задач раскроя
+        \item Построить математическую модель с~учётом технологических, временных и~складских ограничений
+        \item Разработать численный метод решения на~основе генетического алгоритма
+        \item Реализовать комплекс программ
+        \item Провести вычислительный эксперимент
     \end{enumerate}
 \end{frame}
 
 %=============================================================================
-% ГЛАВА 1: ТЕОРЕТИЧЕСКАЯ ЧАСТЬ
+% ГЛАВА 2: МАТЕМАТИЧЕСКАЯ МОДЕЛЬ
 %=============================================================================
-\section{Постановка задачи}
+\section{Математическая модель}
 
 \begin{frame}
-    \frametitle{Технологический контекст}
-    \textbf{Этапы производства:}
-    \begin{enumerate}
-        \item Подготовка целлюлозной массы
-        \item Формование бумажного полотна на~БДМ
-        \item Намотка полотна в~тамбуры (jumbo-рулоны)
-        \item \textbf{Продольная резка тамбуров на~ПРС}
-        \item Упаковка готовой продукции
-    \end{enumerate}
-    
-    \vspace{0.3cm}
-    \textbf{Схема производственного потока:}
+    \frametitle{Входные параметры модели}
+    \small
+    \textbf{Заказы и~технологические константы:}
+    \vspace{-0.1cm}
+    \begin{align*}
+        O &= \{o_1,\ldots,o_Q\},\quad o_i=(w_i,\,q_i,\,h_i,\,f_i,\,p_i,\,l_i,\,g_i) \\
+        B &= \{b_1,\ldots,b_U\} \text{~--- времена установки марок},\quad V \text{~--- кромка}
+    \end{align*}
+    \vspace{-0.3cm}
+    \textbf{Оборудование:}
+    \vspace{-0.1cm}
+    \begin{align*}
+        M &= \{m_1,\ldots,m_I\},\quad m_i=({w^m}_i,\,{v^m}_i,\,{g^m}_i) &\text{--- БДМ}\\
+        C &= \{c_1,\ldots,c_J\},\quad c_i=({w^c}_i,\,{n^c}_i,\,{v^c}_i,\,{k^c}_i,\,{g^c}_i) &\text{--- ПРС}\\
+        T &= \{t_1,\ldots,t_K\},\quad t_i=({r^T}_i,\,{u^T}_i) &\text{--- склады}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Глобальный план~--- переменные решения}
     \[
-    \text{БДМ} \xrightarrow{\text{тамбуры}} \text{Склад} \xrightarrow{\text{тамбуры}} \text{ПРС} \xrightarrow{\text{рулоны}} \text{Заказчик}
+    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) }
     \]
-\end{frame}
 
-\begin{frame}
-    \frametitle{Основные понятия}
     \begin{itemize}
-        \item \textbf{Заказ}~--- запрос на~рулоны определённой марки, ширины и~количества
-        \item \textbf{Тамбур}~--- полуфабрикат фиксированной ширины (jumbo-рулон)
-        \item \textbf{Раскрой}~--- схема продольной резки тамбура на~рулоны
-        \item \textbf{Переналадка}~--- перестановка ножей на~ПРС при~смене раскроя
-        \item \textbf{Глобальный план}~--- совокупность:
-              \begin{itemize}
-                  \item планов производства тамбуров на~БДМ
-                  \item планов раскроя на~ПРС
-                  \item календарного расписания операций
-              \end{itemize}
+        \item $\overline{\overline{X}} = \{\overline{X}_1,\ldots,\overline{X}_I\}$~--- план производства тамбуров на~БДМ
+            \[X_{i,j} = ({w^X}_{i,j},\,{f^X}_{i,j},\,{p^X}_{i,j}),\quad {w^X}_{i,j}={w^m}_i\]
+        \item $\overline{\overline{Y}} = \{\overline{Y}_1,\ldots,\overline{Y}_J\}$~--- план нарезки на~ПРС
+            \[Y_{i,j} = ({y^Y}_{i,j},\,{f^Y}_{i,j},\,{p^Y}_{i,j},\,{l^Y}_{i,j})\]
+        \item $\overline{\overline{Z}}$~--- очередь событий, связывающая выпуск и~нарезку во времени
     \end{itemize}
+    \vspace{0.2cm}
+    \centering
+    \textbf{Задача:} найти $G$ такое, что $\mu(G)\to\min$
 \end{frame}
 
 \begin{frame}
-    \frametitle{Критерии качества плана}
-    \textbf{Векторная целевая функция:}
+    \frametitle{Целевая функция}
     \[
-    \mu(G) = \langle \omega(G),\,\varphi(G),\,\tau(\overline{\overline{Y}}) \rangle \rightarrow \min
+    \mu(G) = \Bigl\langle \omega(G),\;\varphi(G),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
     \]
-    
-    \vspace{0.3cm}
-    \textbf{Критерии (в порядке приоритета):}
-    \begin{enumerate}
-        \item $\omega(G)$~--- суммарная ширина отходов
-        \item $\varphi(G)$~--- максимальное число раскроев на~одном ПРС
-        \item $\tau(\overline{\overline{Y}})$~--- общее количество перестановок ножей
-    \end{enumerate}
-    
-    \vspace{0.3cm}
-    \textbf{Подход к~многокритериальности:} лексикографическая минимизация
-\end{frame}
-
-\begin{frame}
-    \frametitle{Формальная постановка задачи}
-    \textbf{Обозначения:}
-    \begin{itemize}
-        \item $M = \{1, \ldots, m\}$~--- множество БДМ
-        \item $S = \{1, \ldots, s\}$~--- множество ПРС
-        \item $O = \{1, \ldots, n\}$~--- множество заказов
-        \item $W_j$~--- ширина тамбуров марки $j$
-        \item $N_i$~--- максимальное число ножей на~ПРС $i$
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Глобальный план:}
+    \vspace{0.1cm}
+    \textbf{1. Суммарные отходы:}
     \[
-    G = (\overline{\overline{X}}, \overline{\overline{Y}}, \overline{\overline{Z}})
+    \omega(G)=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
+    \Biggl(\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i - \sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}\Biggr)
     \]
+    \textbf{2. Максимальное число раскроев на одной ПРС:}
+    \[
+    \varphi(G)=\max_{\overline{Z}\in\overline{\overline{Z}}:\,e=1} z
+    \]
+    \textbf{3. Общее количество перестановок ножей:}
+    \[
+    \tau\bigl(\overline{\overline{Y}}\bigr)=\sum_{i=1}^{J}\sigma\bigl(i,\,|\overline{Y}_i|\bigr)
+    \]
+    Минимизация~--- \textbf{лексикографическая} (приоритет: $\omega \succ \varphi \succ \tau$)
+\end{frame}
+
+\begin{frame}
+    \frametitle{Подсчёт перестановок ножей $\sigma(i,j)$}
+    Первый раскрой на $i$-й ПРС:
+    \[
+    \sigma(i,1) = |y_{i,1}| + 1
+    \]
+    Последующие раскрои ($j>1$):
+    \[
+    \sigma(i,j) = \sigma(i,j{-}1) + |y_{i,j}| - \max_n\!\Bigl\{0\le n \le \min\bigl\{|y_{i,j-1}|,\,|y_{i,j}|\bigr\} : \forall k{\le}n\;\; r^Y_{i,j-1,k}=r^Y_{i,j,k}\Bigr\}
+    \]
+    \vspace{0.2cm}
     \begin{itemize}
-        \item $\overline{\overline{X}}$~--- планы производства тамбуров
-        \item $\overline{\overline{Y}}$~--- планы раскроя
-        \item $\overline{\overline{Z}}$~--- очередь событий (расписание)
+        \item Учитывается совпадение начальных форматов текущего и~предыдущего раскроев
+        \item Совпадающие позиции не~требуют перестановки ножей
+        \item Порядок форматов в~раскрое влияет на~значение $\tau(\overline{\overline{Y}})$
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Ограничения задачи}
-    \begin{enumerate}
-        \item \textbf{Порядок марок:} на~БДМ марки производятся в~технологическом порядке
-        \item \textbf{Допустимость раскроев:}
-              \begin{itemize}
-                  \item сумма ширин $\le$ ширина тамбура
-                  \item число рулонов $\le$ число ножей
-              \end{itemize}
-        \item \textbf{Выполнение заказов:} все~рулоны должны быть нарезаны
-        \item \textbf{Соблюдение сроков:} дедлайны заказов
-        \item \textbf{Наличие тамбуров:} раскрой после производства
-        \item \textbf{Вместимость складов:} ограничения буферов
-    \end{enumerate}
+    \frametitle{Многослойные заказы и~БРС}
+    \textbf{Слои} ($l_i$)~--- число тамбуров, одновременно подаваемых на~ПРС:
+    \begin{itemize}
+        \item Для нарезки раскроя $Y_{i,j}$ со~слоями ${l^Y}_{i,j}$ требуется ${l^Y}_{i,j}$ совместимых тамбуров на~складе
+        \item Время нарезки пропорционально числу слоёв:
+        \[
+        \overline{h}= h+{v^c}_d\cdot\mathbf{{l^Y}_{d,z}}+{k^c}_d\bigl(\sigma(d,z)-\sigma(d,z{-}1)\bigr)
+        \]
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{БРС} ($g_i{=}1$, ${g^c}_j{=}1$)~--- бобино-резательные станки:
+    \begin{itemize}
+        \item Нарезают не~тамбуры с~БДМ, а~рулоны с~других ПРС
+        \item Формат с~${g^Y}_{i,j,k}{=}0$~--- промежуточный рулон для~БРС
+        \item Добавляет дополнительный этап в~производственную цепочку
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Основные ограничения (1/3)}
+    \small
+    \textbf{1. Порядок марок:}
+    \[
+    \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
+    \]
+    \textbf{2. Допустимость раскроя по ширине и~выполнение заказов:}
+    \[
+    V + \sum_{k=1}^{|y_{i,j}|}{r^Y}_{i,j,k} \le {w^c}_i
+    \qquad
+    \forall n\in[1,Q]:\;\sum I\bigl({g^Y}_{i,j,k}=n\bigr)=q_n
+    \]
+    \textbf{3. Полнота расписания:}
+    \[
+    |\overline{\overline{Z}}| = \sum_{i=1}^{I}|\overline{X}_i| + \sum_{i=1}^{J}|\overline{Y}_i|
+    \]
+    \textbf{4. Соблюдение сроков:}
+    $\forall\overline{Z},\;\forall i\in[1,Q]:\;\overline{h}\le h_i$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Основные ограничения (2/3)}
+    \small
+    \textbf{5--6. Каждой операции выпуска/нарезки соответствует событие:}
+    \[
+    \forall X_{i,j}\;\exists\;\overline{Z}:\;e{=}0,\,d{=}i,\,z{=}j
+    \qquad
+    \forall Y_{i,j}\;\exists\;\overline{Z}:\;e{=}1,\,d{=}i,\,z{=}j
+    \]
+    \textbf{7. Наличие тамбуров на складе для нарезки (с~учётом слоёв):}
+    \[
+    \forall\overline{Z}(e{=}1):\;\sum_{i,j} I\!\bigl(\textstyle\sum_k r^Y_{d,z,k}+V\le\overline{w^T}_{i,j}\;\wedge\;{f^Y}_{d,z}=\overline{f^T}_{i,j}\;\wedge\;{p^Y}_{d,z}=\overline{p^T}_{i,j}\bigr)=\mathbf{{l^Y}_{d,z}}
+    \]
+    Число совместимых тамбуров на~складе $=$ числу слоёв ${l^Y}_{d,z}$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Основные ограничения (3/3)}
+    \small
+    \textbf{8--9. Вместимость складов} (текущее $\overline{T}$ и~планируемое $\overline{\overline{T}}$):
+    \[
+    \overline{w^T}_{i,j}\le{r^T}_i,\quad |\overline{t}_i|\le{u^T}_i
+    \qquad
+    \overline{\overline{w^T}}_{i,j}\le{r^T}_i,\quad |\overline{\overline{t}}_i|\le{u^T}_i
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Взаимосвязь ограничений:}
+    \begin{itemize}
+        \item Ограничения 1--2 определяют \textbf{допустимость планов} $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$
+        \item Ограничения 3--6 обеспечивают \textbf{полноту расписания} $\overline{\overline{Z}}$
+        \item Ограничение 7 связывает \textbf{нарезку со~складом}:
+              многослойные заказы ($l_i>1$) усиливают эту зависимость
+        \item Ограничения 8--9 обеспечивают \textbf{логистическую реализуемость}
+    \end{itemize}
 \end{frame}
 
 %=============================================================================
-% ГЛАВА 2: АЛГОРИТМ РЕШЕНИЯ
+% ГЛАВА 3: ЧИСЛЕННЫЕ МЕТОДЫ
 %=============================================================================
-\section{Алгоритм решения}
+\section{Численные методы}
 
 \begin{frame}
-    \frametitle{Выбор метода решения}
-    \textbf{Задача является NP-трудной:}
+    \frametitle{Сложность задачи и~выбор метода}
+    \textbf{Полный перебор:}
+    \[
+    T(Q,J) \le J^Q \quad\text{--- экспоненциальный рост}
+    \]
+    Пригоден только для задач малой размерности (эталон).
+
+    \vspace{0.4cm}
+    \textbf{Генетический алгоритм:}
     \begin{itemize}
-        \item Число раскроев: $O(n^{k_{\max}})$, где $k_{\max} = \lfloor W / w_{\min} \rfloor$
-        \item При $n=50$, $k_{\max}=6$: $\approx 1.5 \cdot 10^{10}$ вариантов
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Выбор: генетический алгоритм}
-    \begin{itemize}
-        \item Хорошо работает для~комбинаторных задач
-        \item Естественное кодирование решений
-        \item Гибкая настройка качество/время
-        \item Учёт сложной структуры ограничений
+        \item Особь~= глобальный план $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$
+        \item Каждая итерация не~ухудшает решение
+        \item Число поколений: $\lceil\log_2 P\rceil$
+        \item Гибкое управление временем/качеством через размер популяции $P$
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Представление решений}
-    \textbf{Особь популяции} = глобальный план $G$
-    
-    \vspace{0.3cm}
-    \textbf{Компоненты взаимосвязаны:}
+    \frametitle{Связь компонент плана $\overline{\overline{X}}$, $\overline{\overline{Y}}$, $\overline{\overline{Z}}$}
+    Компоненты глобального плана \textbf{взаимозависимы}:
+
+    \vspace{0.2cm}
+    \[
+    \overline{\overline{Y}} \;\xrightarrow{\text{определяет потребность}}\; \overline{\overline{X}} \;\xrightarrow[\text{согласование}]{\text{склад }\overline{T}}\; \overline{\overline{Z}}
+    \]
+
     \begin{itemize}
-        \item Изменение плана раскроя $\overline{\overline{Y}}$ требует:
-              \begin{itemize}
-                  \item пересчёта плана производства $\overline{\overline{X}}$
-                  \item перегенерации расписания $\overline{\overline{Z}}$
-              \end{itemize}
+        \item Каждый раскрой $Y_{i,j}$ требует тамбур совместимой ширины, марки и~плотности
+        \item Число тамбуров для $j$-го ПРС: $\sum_k |Y_{j,k}.\text{master\_rolls}|$
+        \item План $\overline{\overline{X}}$ строится так, чтобы суммарный выпуск по~каждой ширине покрывал потребности $\overline{\overline{Y}}$
+        \item Расписание $\overline{\overline{Z}}$ учитывает доступность тамбуров на~складе $\overline{T}$
     \end{itemize}
-    
+
+    \vspace{0.2cm}
+    $\Rightarrow$ Изменение $\overline{\overline{Y}}$ при мутации требует пересчёта $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генерация плана раскроя $\overline{\overline{Y}}$}
+    \small
+    \textbf{Шаги формирования случайного плана:}
+    \begin{enumerate}
+        \item Инициализировать пустые планы $\overline{Y}_1,\ldots,\overline{Y}_J$
+        \item Выделить \textbf{малые заказы} ($g_i{=}1$), перемешать по~маркам
+        \item Для каждого рулона малого заказа:
+            \begin{itemize}
+                \item Выбрать случайный БРС ($g^c_j{=}1$)
+                \item Если $V + \sum_k r^Y_{j,\text{last},k} + w_i \le {w^c}_j$~--- добавить в~текущий раскрой
+                \item Иначе~--- создать новый раскрой $Y_{j,\text{new}}$
+            \end{itemize}
+        \item Аналогично распределить \textbf{обычные заказы} ($g_i{=}0$) по~ПРС
+        \item Проверить: $\forall n\in[1,Q]:\;\sum I(g^Y_{i,j,k}{=}n)=q_n$
+    \end{enumerate}
+
+    \vspace{0.2cm}
+    Каждый сгенерированный план удовлетворяет ограничениям по~ширине и~ножам
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генерация плана производства $\overline{\overline{X}}$}
+    По~сформированному $\overline{\overline{Y}}$ строится $\overline{\overline{X}}$:
+
     \vspace{0.3cm}
-    \textbf{План раскроя $Y_i$:} упорядоченный список раскроев
-    
-    \textbf{Раскрой:} мультимножество ширин рулонов
+    \begin{enumerate}
+        \item Для каждого ПРС $j$ подсчитать потребность в~тамбурах по~каждой комбинации (ширина, марка, плотность)
+        \item Распределить тамбуры между БДМ с~учётом ${w^X}_{i,j}={w^m}_i$
+        \item Упорядочить тамбуры на~каждой БДМ по~маркам:
+        \[
+        \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
+        \]
+    \end{enumerate}
+
+    \vspace{0.3cm}
+    \textbf{Результат:} для каждой БДМ~--- последовательность $\overline{X}_i=(X_{i,1},X_{i,2},\ldots)$, где каждый тамбур $X_{i,j}=({w^X}_{i,j},{f^X}_{i,j},{p^X}_{i,j})$
 \end{frame}
 
 \begin{frame}
     \frametitle{Генетические операторы}
-    \textbf{1. Мутация (Mutate):}
-    \begin{itemize}
-        \item Внутренняя перестановка рулонов в~раскроях
-        \item Внешняя перестановка раскроев
-        \item Сохраняет допустимость решения
-    \end{itemize}
-    
+    \textbf{Мутация} (\textsc{Mutate}) плана $\overline{Y}_j$:
+    \begin{enumerate}
+        \item Перемешать форматы $y_{i,j,k}$ внутри каждого раскроя
+        \item Перемешать порядок раскроев $Y_{i,j}$
+    \end{enumerate}
+    $\Rightarrow$ изменяет $\sigma(i,j)$ и~$\tau(\overline{\overline{Y}})$, не~нарушая ограничений по ширине
+
     \vspace{0.3cm}
-    \textbf{2. Глобальная мутация (GlobalMutate):}
-    \begin{itemize}
-        \item Применение Mutate ко~всем планам раскроя
-        \item Пересборка $\overline{\overline{X}}$ и $\overline{\overline{Z}}$
-        \item Принятие только при~улучшении $\mu(G)$
-    \end{itemize}
-    
+    \textbf{Глобальная мутация} (\textsc{GlobalMutate}):
+    \begin{enumerate}
+        \item Для каждого ПРС $j=1,\ldots,J$: $\overline{Y}'_j=\textsc{Mutate}(\overline{Y}_j)$
+        \item Если $\mu(G')<\mu(G)$, принять; иначе~--- отклонить
+        \item Пересчитать $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
+    \end{enumerate}
+
     \vspace{0.3cm}
-    \textbf{3. Кроссинговер:} парный отбор лучшей особи
+    \textbf{Кроссинговер}~--- парный отбор:
+    \[
+    \textsc{Crossingover}(G_1,G_2) = \begin{cases} G_1, & \mu(G_1)\le\mu(G_2)\\ G_2, & \text{иначе} \end{cases}
+    \]
 \end{frame}
 
 \begin{frame}
-    \frametitle{Алгоритм GeneticSearch}
-    \begin{enumerate}
-        \item \textbf{Инициализация:} генерация популяции $S_0$ размера $P$
-        \item \textbf{Итерации:} пока $|S| > 1$:
-              \begin{itemize}
-                  \item разбить популяцию на~пары
-                  \item к~каждой паре применить кроссинговер
-                  \item сформировать новую популяцию из~победителей
-              \end{itemize}
-        \item \textbf{Результат:} лучшее найденное решение
-    \end{enumerate}
-    
-    \vspace{0.3cm}
-    \textbf{Сложность:} $O(P \log P \cdot Q \cdot q_{\max})$
-    
-    \textbf{Число поколений:} $\lceil \log_2 P \rceil$
+    \frametitle{Пример мутации}
+    \small
+    Исходный план на~одном ПРС: $\overline{Y}_1=(\lambda_1,\lambda_2)$
+    \[
+    \lambda_1=\{100,\,150,\,100\},\quad \lambda_2=\{120,\,120,\,80\}
+    \]
+    После \textsc{Mutate}~--- перестановка форматов и~раскроев:
+    \[
+    \lambda'_1=\{150,\,100,\,100\},\quad \lambda'_2=\{120,\,80,\,120\},\quad \overline{Y}'_1=(\lambda'_2,\,\lambda'_1)
+    \]
+
+    \vspace{0.2cm}
+    \textbf{Эффект:}
+    \begin{itemize}
+        \item Набор заказов не~изменился $\Rightarrow$ ограничения по~ширине сохраняются
+        \item Изменился порядок форматов $\Rightarrow$ может измениться $\sigma(i,j)$
+        \item Изменился порядок раскроев $\Rightarrow$ переход $\lambda'_2\to\lambda'_1$ может дать другое число перестановок ножей
+    \end{itemize}
+    Принимается только при $\mu(G')<\mu(G)$
 \end{frame}
 
 \begin{frame}
-    \frametitle{Алгоритм генерации расписания}
-    \textbf{GenerateEventQueue} моделирует динамику производства:
-    
+    \frametitle{Схема генетического алгоритма}
+    \textbf{Вход:} задача, размер популяции $P$
+
+    \vspace{0.2cm}
     \begin{enumerate}
-        \item Инициализация: машины свободны, склады пусты, $t=0$
-        \item Пока не~все операции выполнены:
-              \begin{itemize}
-                  \item определить доступные операции
-                  \item выбрать по~приоритету (раскрой важнее производства)
-                  \item запланировать, обновить состояние
-              \end{itemize}
-        \item Вернуть очередь событий
+        \item Сформировать $S_0=\{G_1,\ldots,G_P\}$ (случайные допустимые планы)
+        \item \textbf{Пока} $|S|>1$:
+        \begin{enumerate}
+            \item[$2.1$] Для каждого $G\in S$: $G\leftarrow\textsc{GlobalMutate}(G)$
+            \item[$2.2$] Разбить $S$ на пары $(G_{2i-1},G_{2i})$
+            \item[$2.3$] $S'\leftarrow\bigl\{\textsc{Crossingover}(G_{2i-1},G_{2i})\bigr\}$
+            \item[$2.4$] $S\leftarrow S'$\quad ($|S|$ уменьшается вдвое)
+        \end{enumerate}
+        \item Вернуть $G^*$~--- оставшуюся особь
     \end{enumerate}
-    
     \vspace{0.3cm}
-    \textbf{Гарантирует:} соблюдение ограничений вместимости складов
+    $G^*$ не~хуже любого $G\in S_0$; число итераций $\lceil\log_2 P\rceil$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генерация расписания (очередь событий)}
+    Каждое событие $\overline{Z}=(h,\overline{h},e,d,z,\overline{T},\overline{\overline{T}},\overline{t'})$
+
+    \vspace{0.2cm}
+    \textbf{Время окончания выпуска тамбура} ($e{=}0$):
+    \[
+    \overline{h}= h+{v^m}_d+{g^m}_d({p^X}_{d,z}-{p^X}_{d,z-1})+b_f\cdot I(f\ne{f^X}_{d,z-1})
+    \]
+    \textbf{Время окончания нарезки} ($e{=}1$):
+    \[
+    \overline{h}= h+{v^c}_d\cdot{l^Y}_{d,z}+{k^c}_d\bigl(\sigma(d,z)-\sigma(d,z{-}1)\bigr)
+    \]
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item Склад $\overline{T}$ обновляется при каждом событии
+        \item Нарезка возможна только при наличии тамбуров на складе
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Динамика склада при формировании расписания}
+    \small
+    При каждом событии $\overline{Z}$ склад обновляется:
+
+    \vspace{0.2cm}
+    \textbf{Выпуск тамбура} ($e{=}0$): тамбур попадает в~$\overline{\overline{T}}$ (запланированное содержимое); станет доступен в~$\overline{T}$ (текущее содержимое), когда $h_{\text{след}} \ge \overline{h}_{\text{тек}}$
+
+    \vspace{0.2cm}
+    \textbf{Нарезка} ($e{=}1$): из~$\overline{T}$ изымаются ${l^Y}_{d,z}$ тамбуров, совместимых по:
+    \[
+    \sum_k r^Y_{d,z,k}+V\le\overline{w^T}_{i,j}\;\wedge\;{f^Y}_{d,z}=\overline{f^T}_{i,j}\;\wedge\;{p^Y}_{d,z}=\overline{p^T}_{i,j}
+    \]
+
+    \vspace{0.2cm}
+    \textbf{Контроль вместимости:}
+    \[
+    |\overline{t}_i|\le{u^T}_i,\quad |\overline{\overline{t}}_i|\le{u^T}_i \quad\text{--- на каждом шаге}
+    \]
+
+    $\Rightarrow$ расписание строится последовательно с~проверкой доступности ресурсов
+\end{frame}
+
+\begin{frame}
+    \frametitle{Параметры алгоритма}
+    \centering
+    \small
+    \begin{tabular}{p{0.30\linewidth}p{0.20\linewidth}p{0.40\linewidth}}
+        \textbf{Параметр} & \textbf{Значение} & \textbf{Обоснование} \\
+        \hline
+        Размер популяции $P$ & $50$--$200$ & Компромисс качество/время; $P{=}100$ рекомендуемое \\[0.2cm]
+        Число поколений & $\lceil\log_2 P\rceil$ & Определяется $P$; для $P{=}100$: 6--7 итераций \\[0.2cm]
+        Вероятность мутации & $1.0$ & Применяется к~каждой особи на каждом шаге \\[0.2cm]
+        Кроссинговер & Парный отбор & Сохраняет допустимость; $\mu(G_1)\le\mu(G_2)\Rightarrow G_1$
+    \end{tabular}
+
+    \vspace{0.4cm}
+    Для малых задач ($Q\le50$): $P=50$
+
+    Для средних ($50<Q\le200$): $P\approx100$
+
+    Для больших ($Q>200$): $P=150$--$200$
 \end{frame}
 
 %=============================================================================
-% ГЛАВА 3: ПРОГРАММНАЯ РЕАЛИЗАЦИЯ
+% ГЛАВА 4: КОМПЛЕКС ПРОГРАММ
 %=============================================================================
-\section{Программная реализация}
+\section{Комплекс программ}
 
 \begin{frame}
-    \frametitle{Архитектура программного комплекса}
-    \textbf{Технологический стек:}
+    \frametitle{Архитектура комплекса программ}
     \begin{itemize}
-        \item Python 3.10+
-        \item Pandas~--- обработка данных
-        \item OpenPyXL~--- работа с~Excel
-        \item Tkinter~--- графический интерфейс
-        \item pytest~--- тестирование
+        \item \textbf{Модельный слой:} структуры данных для $O$, $M$, $C$, $T$, $G$
+        \item \textbf{Алгоритмический модуль:}
+        \begin{itemize}
+            \item Полный перебор ($T(Q,J)\le J^Q$)
+            \item Генетический алгоритм ($P$, \textsc{Mutate}, \textsc{GlobalMutate}, \textsc{Crossingover})
+            \item Генератор расписания $\overline{\overline{Z}}$
+        \end{itemize}
+        \item \textbf{Модуль ввода/вывода:} CSV/XLSX
+        \item \textbf{Интерфейсы:} CLI и~GUI
     \end{itemize}
-    
+
     \vspace{0.3cm}
-    \textbf{Модули:}
-    \begin{itemize}
-        \item CLI~--- интерфейс командной строки
-        \item GUI~--- графический интерфейс
-        \item Алгоритмический модуль
-        \item Модельный слой
-        \item Модуль ввода/вывода (CSV, Excel)
-    \end{itemize}
+    \textbf{Свидетельство о~регистрации:} \textnumero\,2024611544
 \end{frame}
 
 \begin{frame}
-    \frametitle{Реализованные методы}
-    \textbf{1. Полный перебор (Brute Force):}
+    \frametitle{Режимы работы комплекса программ}
+    \textbf{1. Полный перебор:}
     \begin{itemize}
-        \item Гарантирует оптимальное решение
-        \item Применим для $Q \le 20$--$30$ заказов
-        \item Используется как эталон
+        \item Гарантирует оптимальное $G^*$: $\mu(G^*)=\min$
+        \item Сложность $O(J^Q)$~--- эталон для~малых $Q$
     \end{itemize}
-    
-    \vspace{0.5cm}
+
+    \vspace{0.3cm}
     \textbf{2. Генетический алгоритм:}
     \begin{itemize}
-        \item Основной метод для реальных задач
-        \item Параметры по умолчанию: $P = 100$
-        \item Решает задачи с сотнями заказов
+        \item Основной режим для~реальных задач ($Q>30$)
+        \item Формирует $P$ случайных допустимых $G$
+        \item За $\lceil\log_2 P\rceil$ итераций получает $G^*$
     \end{itemize}
-\end{frame}
 
-%=============================================================================
-% РЕЗУЛЬТАТЫ
-%=============================================================================
-\section{Результаты}
-
-\begin{frame}
-    \frametitle{Сравнение методов}
-    \centering
-    \begin{tabular}{lccc}
-        \toprule
-        \textbf{Заказов} & \textbf{Полный перебор} & \textbf{ГА} & \textbf{Отклонение} \\
-        \midrule
-        20  & 12 сек     & 0,1 сек  & 0\%  \\
-        30  & 8 мин      & 0,3 сек  & 2\%  \\
-        40  & 14 часов   & 0,8 сек  & 3\%  \\
-        60  & ---        & 2 сек    & ---  \\
-        100 & ---        & 8 сек    & ---  \\
-        300 & ---        & 3 мин    & ---  \\
-        500 & ---        & 12 мин   & ---  \\
-        \bottomrule
-    \end{tabular}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Влияние размера популяции}
-    \centering
-    \begin{tabular}{lcc}
-        \toprule
-        \textbf{Размер $P$} & \textbf{Качество} & \textbf{Время} \\
-        \midrule
-        10   & нестабильное & быстро \\
-        50   & хорошее      & умеренно \\
-        \textbf{100}  & \textbf{оптимальный баланс} & \textbf{оптимально} \\
-        200  & незначительно лучше & медленно \\
-        500  & незначительно лучше & очень медленно \\
-        \bottomrule
-    \end{tabular}
-    
-    \vspace{0.5cm}
-    \textbf{Рекомендация:} $P = 100$ для большинства задач
-\end{frame}
-
-\begin{frame}
-    \frametitle{Пример работы алгоритма}
-    \textbf{Исходные данные:}
-    \begin{itemize}
-        \item 5 заказов: ширины 200--400~мм, всего 33 рулона
-        \item 2 БДМ (ширина 1200 и 1500~мм)
-        \item 3 ПРС (до 5--6 ножей)
-        \item 2 склада (вместимость 8--10)
-    \end{itemize}
-    
     \vspace{0.3cm}
-    \textbf{Результат ($P=10$, время 0,2 сек):}
-    \[
-    \mu(G) = \langle 104,\, 5,\, 10 \rangle
-    \]
-    \begin{itemize}
-        \item Отход: 104~мм ($<$1\% ширины)
-        \item Макс. раскроев на ПРС: 5
-        \item Перестановок ножей: 10
-    \end{itemize}
+    \textbf{Вывод:} планы $\overline{\overline{X}}$, $\overline{\overline{Y}}$, расписание $\overline{\overline{Z}}$, значение $\mu(G^*)=\langle\omega,\varphi,\tau\rangle$
 \end{frame}
 
-\begin{frame}
-    \frametitle{Практические результаты внедрения}
-    \textbf{Программный комплекс внедрён в~опытную эксплуатацию:}
-    
-    \vspace{0.5cm}
-    \begin{itemize}
-        \item Сокращение времени планирования: \textbf{часы $\rightarrow$ минуты}
-        \item Снижение отходов материала: \textbf{5--8\%}
-        \item Повышение равномерности загрузки оборудования
-        \item Уменьшение числа переналадок: \textbf{10--15\%}
-    \end{itemize}
-\end{frame}
-
-%=============================================================================
-% ЗАКЛЮЧЕНИЕ
-%=============================================================================
-\section{Заключение}
-
-\begin{frame}
-    \frametitle{Основные результаты работы}
-    \begin{enumerate}
-        \item Разработана \textbf{математическая модель} задачи линейного раскроя с~учётом многоуровневой структуры производства
-        \item Предложена \textbf{многокритериальная постановка} с~лексикографической минимизацией
-        \item Разработан \textbf{генетический алгоритм} с~операторами мутации, глобальной мутации и~парного отбора
-        \item Создан \textbf{программный комплекс} с~CLI и GUI интерфейсами
-        \item Проведено \textbf{экспериментальное исследование}, подтвердившее эффективность подхода
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Научная новизна}
-    \begin{enumerate}
-        \item Комплексная модель, учитывающая:
-              \begin{itemize}
-                  \item многоуровневую структуру (БДМ~$\rightarrow$ склад~$\rightarrow$ ПРС)
-                  \item многокритериальность (отходы, загрузка, переналадки)
-                  \item динамику складских запасов
-              \end{itemize}
-        \item Модификация генетического алгоритма с~кроссинговером на~основе парного отбора
-        \item Алгоритм построения расписания с~учётом ограничений вместимости
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Публикации по теме диссертации}
-    \textbf{Статьи в рецензируемых журналах (ВАК):}
-    \begin{itemize}
-        \item Клименко~В.А. Математическая модель задачи линейного раскроя... // Известия высших учебных заведений. Приборостроение, 2024
-        \item Клименко~В.А. Генетический алгоритм решения задачи раскроя... // Инженерный вестник Дона, 2025
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Конференции:}
-    \begin{itemize}
-        \item FRUCT-2025 (Scopus)
-        \item Научная сессия ГУАП, Москва, 2024
-        \item ИТНОП-2025, ПетрГУ
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Свидетельство о регистрации программы:}
-    \begin{itemize}
-        \item Программа оптимизации раскроя рулонных материалов, 2024
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{}
-    \centering
-    \Huge
-    Спасибо за внимание!
-    
-    \vspace{1cm}
-    \large
-    Вопросы?
-\end{frame}
 
