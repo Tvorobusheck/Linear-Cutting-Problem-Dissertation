@@ -240,45 +240,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Генерация плана производства $\overline{\overline{X}}$}
-    По~сформированному $\overline{\overline{Y}}$ строится $\overline{\overline{X}}$:
-
-    \vspace{0.3cm}
-    \begin{enumerate}
-        \item Для каждого ПРС $j$ подсчитать потребность в~тамбурах по~каждой комбинации (ширина, марка, плотность)
-        \item Распределить тамбуры между БДМ с~учётом ${w^X}_{i,j}={w^m}_i$
-        \item Упорядочить тамбуры на~каждой БДМ по~маркам:
-        \[
-        \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
-        \]
-    \end{enumerate}
-
-    \vspace{0.3cm}
-    \textbf{Результат:} для каждой БДМ~--- последовательность $\overline{X}_i=(X_{i,1},X_{i,2},\ldots)$, где каждый тамбур $X_{i,j}=({w^X}_{i,j},{f^X}_{i,j},{p^X}_{i,j})$
-\end{frame}
-
-\begin{frame}
-    \frametitle{Генерация плана раскроя $\overline{\overline{Y}}$}
-    \small
-    \textbf{Шаги формирования случайного плана:}
-    \begin{enumerate}
-        \item Инициализировать пустые планы $\overline{Y}_1,\ldots,\overline{Y}_J$
-        \item Выделить \textbf{малые заказы} ($g_i{=}1$), перемешать по~маркам
-        \item Для каждого рулона малого заказа:
-            \begin{itemize}
-                \item Выбрать случайный БРС ($g^c_j{=}1$)
-                \item Если $V + \sum_k r^Y_{j,\text{last},k} + w_i \le {w^c}_j$~--- добавить в~текущий раскрой
-                \item Иначе~--- создать новый раскрой $Y_{j,\text{new}}$
-            \end{itemize}
-        \item Аналогично распределить \textbf{обычные заказы} ($g_i{=}0$) по~ПРС
-        \item Проверить: $\forall n\in[1,Q]:\;\sum I(g^Y_{i,j,k}{=}n)=q_n$
-    \end{enumerate}
-
-    \vspace{0.2cm}
-    Каждый сгенерированный план удовлетворяет ограничениям по~ширине и~ножам
-\end{frame}
-
-\begin{frame}
     \frametitle{Генетические операторы}
     \textbf{Мутация} (\textsc{Mutate}) плана $\overline{Y}_j$:
     \begin{enumerate}
@@ -342,6 +303,45 @@
     \end{enumerate}
     \vspace{0.3cm}
     $G^*$ не~хуже любого $G\in S_0$; число итераций $\lceil\log_2 P\rceil$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генерация плана производства $\overline{\overline{X}}$}
+    По~сформированному $\overline{\overline{Y}}$ строится $\overline{\overline{X}}$:
+
+    \vspace{0.3cm}
+    \begin{enumerate}
+        \item Для каждого ПРС $j$ подсчитать потребность в~тамбурах по~каждой комбинации (ширина, марка, плотность)
+        \item Распределить тамбуры между БДМ с~учётом ${w^X}_{i,j}={w^m}_i$
+        \item Упорядочить тамбуры на~каждой БДМ по~маркам:
+        \[
+        \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
+        \]
+    \end{enumerate}
+
+    \vspace{0.3cm}
+    \textbf{Результат:} для каждой БДМ~--- последовательность $\overline{X}_i=(X_{i,1},X_{i,2},\ldots)$, где каждый тамбур $X_{i,j}=({w^X}_{i,j},{f^X}_{i,j},{p^X}_{i,j})$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Генерация плана раскроя $\overline{\overline{Y}}$}
+    \small
+    \textbf{Шаги формирования случайного плана:}
+    \begin{enumerate}
+        \item Инициализировать пустые планы $\overline{Y}_1,\ldots,\overline{Y}_J$
+        \item Выделить \textbf{малые заказы} ($g_i{=}1$), перемешать по~маркам
+        \item Для каждого рулона малого заказа:
+            \begin{itemize}
+                \item Выбрать случайный БРС ($g^c_j{=}1$)
+                \item Если $V + \sum_k r^Y_{j,\text{last},k} + w_i \le {w^c}_j$~--- добавить в~текущий раскрой
+                \item Иначе~--- создать новый раскрой $Y_{j,\text{new}}$
+            \end{itemize}
+        \item Аналогично распределить \textbf{обычные заказы} ($g_i{=}0$) по~ПРС
+        \item Проверить: $\forall n\in[1,Q]:\;\sum I(g^Y_{i,j,k}{=}n)=q_n$
+    \end{enumerate}
+
+    \vspace{0.2cm}
+    Каждый сгенерированный план удовлетворяет ограничениям по~ширине и~ножам
 \end{frame}
 
 \begin{frame}
@@ -422,8 +422,6 @@
         \item \textbf{Интерфейсы:} CLI и~GUI
     \end{itemize}
 
-    \vspace{0.3cm}
-    \textbf{Свидетельство о~регистрации:} \textnumero\,2024611544
 \end{frame}
 
 \begin{frame}
