@@ -4,21 +4,51 @@
 \section{Введение}
 
 \begin{frame}
-    \frametitle{Актуальность темы исследования}
-    \begin{itemize}
-        \item Задача раскроя рулонных материалов~--- ключевая в~целлюлозно-бумажном производстве
-        \item Существующие модели, как правило, не~учитывают одновременно:
-              \begin{itemize}
-                  \item многомашинную структуру (БДМ~$\to$ склад~$\to$ ПРС/БРС)
-                  \item многокритериальность (отходы, загрузка, переналадки)
-                  \item динамику складских запасов и сроки заказов
-              \end{itemize}
-        \item Задача NP-трудна; добавление складов, переналадок и расписаний дополнительно увеличивает сложность
-    \end{itemize}
+    \frametitle{Описание производственной задачи}
+    \centering
+    \begin{tikzpicture}[
+        node distance=6mm and 8mm,
+        box/.style={draw, rounded corners, align=center, minimum width=2cm, minimum height=0.85cm, font=\scriptsize},
+        arrow/.style={-Latex, semithick}
+    ]
+    \node[box, fill=blue!10] (bdm) {БДМ ${\times}\, I$\\(тамбуры)};
+    \node[box, fill=yellow!15, right=of bdm] (sklad) {Склады ${\times}\, K$\\($\overline{T}$)};
+    \node[box, fill=green!10, right=of sklad] (prs) {ПРС ${\times}\, J$\\(нарезка)};
+    \node[box, fill=gray!10, below=of prs] (brs) {БРС};
+    \node[box, fill=orange!10, right=of prs] (order) {Заказы $O$};
+
+    \draw[arrow] (bdm) -- node[above, font=\tiny] {$\overline{\overline{X}}$} (sklad);
+    \draw[arrow] (sklad) -- node[above, font=\tiny] {$\overline{\overline{Y}}$} (prs);
+    \draw[arrow] (prs) -- (order);
+    \draw[arrow] (prs.south) -- node[right, font=\tiny] {рулоны} (brs.north);
+    \draw[arrow] (brs.east) -| (order.south);
+    \end{tikzpicture}
+
     \vspace{0.3cm}
-    \[
-    \text{БДМ} \xrightarrow[\overline{\overline{X}}]{\text{тамбуры}} \text{Склад}\ (\overline{T}) \xrightarrow[\overline{\overline{Y}}]{\text{раскрой}} \text{ПРС/БРС} \xrightarrow{\text{рулоны}} \text{Заказчик}
-    \]
+    \small
+    \begin{itemize}
+        \item \textbf{Заказ} $o_i=(w_i,q_i,h_i,f_i,p_i,l_i,g_i)$~--- ширина, объём, срок, марка, плотность, слои
+        \item Критерии: минимизация отходов, числа раскроев, переналадок
+        \item Ограничения: порядок марок, вместимость складов, наличие тамбуров, сроки
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Актуальность темы исследования}
+    \small
+    \textbf{Задача линейного раскроя}~--- одна из~ключевых в~планировании ЦБП.
+
+    \vspace{0.15cm}
+    \textbf{Классические работы:} П.\,Гилмор, Р.\,Гомори~--- модели ЦЛП и~генерация столбцов; Ф.\,Вандербек~--- метод ветвей и~цен; Х.\,Дикхофф~--- типология задач раскроя.
+
+    \vspace{0.15cm}
+    \textbf{Раскрой в~ЦБП:} А.\,В.\,Воронин, В.\,А.\,Кузнецов~--- модели планирования для~ЦБК; И.\,Харьюнкоски и~др.~--- потери при~продольной резке; Т.\,Вестерлунд~--- совместное планирование раскроя и~расписания.
+
+    \vspace{0.15cm}
+    \textbf{Переналадки и~расписание:} Ф.\,Вандербек~--- минимизация переналадок; Х.\,Янассе~--- интеграция раскроя с~очерёдностью; П.\,Кескиноджак~--- планирование в~ЦБП.
+
+    \vspace{0.15cm}
+    Существующие модели, как правило, \textbf{не~учитывают одновременно} многомашинную структуру, многокритериальность, динамику складов и~сроки заказов.
 \end{frame}
 
 \begin{frame}
@@ -42,40 +72,122 @@
 \section{Математическая модель}
 
 \begin{frame}
-    \frametitle{Входные параметры модели}
-    \small
-    \textbf{Заказы и~технологические константы:}
-    \vspace{-0.1cm}
-    \begin{align*}
-        O &= \{o_1,\ldots,o_Q\},\quad o_i=(w_i,\,q_i,\,h_i,\,f_i,\,p_i,\,l_i,\,g_i) \\
-        B &= \{b_1,\ldots,b_U\} \text{~--- времена установки марок},\quad V \text{~--- кромка}
-    \end{align*}
-    \vspace{-0.3cm}
-    \textbf{Оборудование:}
-    \vspace{-0.1cm}
-    \begin{align*}
-        M &= \{m_1,\ldots,m_I\},\quad m_i=({w^m}_i,\,{v^m}_i,\,{g^m}_i) &\text{--- БДМ}\\
-        C &= \{c_1,\ldots,c_J\},\quad c_i=({w^c}_i,\,{n^c}_i,\,{v^c}_i,\,{k^c}_i,\,{g^c}_i) &\text{--- ПРС}\\
-        T &= \{t_1,\ldots,t_K\},\quad t_i=({r^T}_i,\,{u^T}_i) &\text{--- склады}
-    \end{align*}
+    \frametitle{Искомое решение~--- глобальный план $G$}
+    \[
+    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) \quad\longrightarrow\quad \mu(G)\to\min}
+    \]
+
+    \vspace{0.2cm}
+    \textbf{План производства} $\overline{\overline{X}} = \{\overline{X}_1,\ldots,\overline{X}_I\}$~--- для каждой из~$I$ БДМ:
+    \[
+    X_{i,j} = \bigl(\,{w^X}_{i,j},\;\;{f^X}_{i,j},\;\;{p^X}_{i,j}\,\bigr)
+    \]
+    \begin{itemize}
+        \item ${w^X}_{i,j}$~--- ширина тамбура, совпадает с~шириной БДМ: ${w^X}_{i,j}={w^m}_i$
+        \item ${f^X}_{i,j} \in [1,U]$~--- номер марки бумаги
+        \item ${p^X}_{i,j}$~--- плотность бумаги (г/м$^2$)
+    \end{itemize}
+    \vspace{0.1cm}
+    Порядок тамбуров в~$\overline{X}_i$ определяет последовательность выпуска на~$i$-й БДМ
 \end{frame}
 
 \begin{frame}
-    \frametitle{Глобальный план~--- переменные решения}
+    \frametitle{План нарезки $\overline{\overline{Y}}$}
+    $\overline{\overline{Y}} = \{\overline{Y}_1,\ldots,\overline{Y}_J\}$~--- для каждого из~$J$ ПРС:
     \[
-    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) }
+    Y_{i,j} = \bigl(\,{y^Y}_{i,j},\;\;{f^Y}_{i,j},\;\;{p^Y}_{i,j},\;\;{l^Y}_{i,j}\,\bigr)
     \]
-
     \begin{itemize}
-        \item $\overline{\overline{X}} = \{\overline{X}_1,\ldots,\overline{X}_I\}$~--- план производства тамбуров на~БДМ
-            \[X_{i,j} = ({w^X}_{i,j},\,{f^X}_{i,j},\,{p^X}_{i,j}),\quad {w^X}_{i,j}={w^m}_i\]
-        \item $\overline{\overline{Y}} = \{\overline{Y}_1,\ldots,\overline{Y}_J\}$~--- план нарезки на~ПРС
-            \[Y_{i,j} = ({y^Y}_{i,j},\,{f^Y}_{i,j},\,{p^Y}_{i,j},\,{l^Y}_{i,j})\]
-        \item $\overline{\overline{Z}}$~--- очередь событий, связывающая выпуск и~нарезку во времени
+        \item ${y^Y}_{i,j} = \{y_{i,j,1},\ldots,y_{i,j,|{y^Y}_{i,j}|}\}$~--- упорядоченный набор форматов
+        \item Каждый формат $y_{i,j,k} = ({r^Y}_{i,j,k},\;{g^Y}_{i,j,k})$:
+        \begin{itemize}
+            \item ${r^Y}_{i,j,k}$~--- ширина формата
+            \item ${g^Y}_{i,j,k} \in \{0\}\cup[1,Q]$~--- номер заказа ($0$~--- промежуточный рулон для~БРС)
+        \end{itemize}
+        \item ${f^Y}_{i,j}\in[1,U]$~--- марка бумаги раскроя
+        \item ${p^Y}_{i,j}$~--- плотность бумаги раскроя
+        \item ${l^Y}_{i,j}$~--- количество слоёв (число одновременно подаваемых тамбуров)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Расписание~--- очередь событий $\overline{\overline{Z}}$}
+    \small
+    Каждое событие $\overline{Z}\in\overline{\overline{Z}}$:
+    \[
+    \overline{Z} = \bigl(\,h,\;\overline{h},\;e,\;d,\;z,\;\overline{T},\;\overline{\overline{T}},\;\overline{t'}\,\bigr)
+    \]
+    \begin{itemize}
+        \item $e\in\{0,1\}$~--- тип: $e{=}0$~--- выпуск тамбура, $e{=}1$~--- нарезка на~ПРС
+        \item $d$~--- номер машины (БДМ при $e{=}0$, ПРС при $e{=}1$)
+        \item $z$~--- номер операции в~плане $d$-й машины
+        \item $h$, $\overline{h}$~--- время начала и~окончания события
+        \item $\overline{T}$~--- текущее содержимое складов (доступные тамбуры)
+        \item $\overline{\overline{T}}$~--- запланированное содержимое (включая тамбуры в~производстве)
+        \item $\overline{t'}$~--- тамбуры, использованные при нарезке ($\varnothing$ при $e{=}0$)
+    \end{itemize}
+    \vspace{0.1cm}
+    Событие фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
+\end{frame}
+
+\begin{frame}
+    \frametitle{Входные параметры: заказы и~константы}
+    \textbf{Множество заказов} $O = \{o_1,\ldots,o_Q\}$, где каждый заказ:
+    \[
+    o_i = (w_i,\;q_i,\;h_i,\;f_i,\;p_i,\;l_i,\;g_i)
+    \]
+    \begin{itemize}
+        \item $w_i$~--- ширина рулона (определяет схему раскроя)
+        \item $q_i$~--- требуемое количество рулонов
+        \item $h_i$~--- срок исполнения (дата и~время)
+        \item $f_i\in[1,U]$~--- номер марки бумаги
+        \item $p_i$~--- плотность бумаги (г/м$^2$)
+        \item $l_i$~--- количество слоёв (число тамбуров на~ПРС одновременно)
+        \item $g_i\in\{0,1\}$~--- индикатор: $1$~--- заказ для~БРС (узкий формат)
+    \end{itemize}
+    \vspace{0.1cm}
+    \textbf{Константы:} $B=\{b_1,\ldots,b_U\}$~--- времена смены марок;\quad $V$~--- кромка;\quad $H$~--- начало производства
+\end{frame}
+
+\begin{frame}
+    \frametitle{Входные параметры: оборудование (БДМ и~ПРС)}
+    \small
+    \textbf{БДМ} $M=\{m_1,\ldots,m_I\}$, где $m_i=({w^m}_i,\,{v^m}_i,\,{g^m}_i)$:
+    \begin{itemize}
+        \item ${w^m}_i$~--- ширина выпускаемого тамбура (задаёт верхнюю границу раскроя)
+        \item ${v^m}_i$~--- время производства одного тамбура
+        \item ${g^m}_i$~--- время смены плотности на~1~г/м$^2$
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{ПРС} $C=\{c_1,\ldots,c_J\}$, где $c_i=({w^c}_i,\,{n^c}_i,\,{v^c}_i,\,{k^c}_i,\,{g^c}_i)$:
+    \begin{itemize}
+        \item ${w^c}_i$~--- максимальная ширина обрабатываемого тамбура
+        \item ${n^c}_i$~--- количество ножей (макс.\ число форматов в~раскрое)
+        \item ${v^c}_i$~--- время нарезки одного слоя
+        \item ${k^c}_i$~--- время перестановки одного ножа
+        \item ${g^c}_i\in\{0,1\}$~--- индикатор: $1$~--- это БРС
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Входные параметры: склады}
+    \textbf{Склады} $T=\{t_1,\ldots,t_K\}$, где $t_i=({r^T}_i,\,{u^T}_i)$:
+    \begin{itemize}
+        \item ${r^T}_i$~--- максимальная допустимая ширина тамбура на~складе
+        \item ${u^T}_i$~--- максимальное количество тамбуров (ёмкость)
+    \end{itemize}
+
+    \vspace{0.4cm}
+    \textbf{Роль склада в~модели:}
+    \begin{itemize}
+        \item Буфер между выпуском ($\overline{\overline{X}}$) и~нарезкой ($\overline{\overline{Y}}$)
+        \item Тамбур появляется на~складе по~окончании производства на~БДМ
+        \item При нарезке тамбуры изымаются со~склада
+        \item $\overline{T}$~--- текущее содержимое;\quad $\overline{\overline{T}}$~--- запланированное (включая тамбуры в~производстве)
     \end{itemize}
     \vspace{0.2cm}
-    \centering
-    \textbf{Задача:} найти $G$ такое, что $\mu(G)\to\min$
+    Ограничения $|\overline{t}_i|\le{u^T}_i$ и~$\overline{w^T}_{i,j}\le{r^T}_i$ проверяются на~каждом шаге расписания
 \end{frame}
 
 \begin{frame}
