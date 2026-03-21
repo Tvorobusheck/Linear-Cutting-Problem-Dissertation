@@ -146,7 +146,9 @@
         \item $g_i\in\{0,1\}$~--- индикатор: $1$~--- заказ для~БРС (узкий формат)
     \end{itemize}
     \vspace{0.1cm}
-    \textbf{Константы:} $B=\{b_1,\ldots,b_U\}$~--- времена смены марок;\quad $V$~--- кромка;\quad $H$~--- начало производства
+    $Q$~--- количество заказов;\ $U$~--- количество марок бумаги
+
+    \textbf{Константы:} $B=\{b_1,\ldots,b_U\}$~--- времена смены марок ($b_f$~--- время перехода на~марку~$f$);\quad $V$~--- кромка;\quad $H$~--- начало производства
 \end{frame}
 
 \begin{frame}
@@ -196,10 +198,10 @@
     \mu(G) = \Bigl\langle \omega(G),\;\varphi(G),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
     \]
     \vspace{0.1cm}
-    \textbf{1. Суммарные отходы:}
+    \textbf{1. Суммарные отходы} (разность ширин тамбуров и~форматов):
     \[
     \omega(G)=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
-    \Biggl(\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i - \sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}\Biggr)
+    \Biggl(\underbrace{\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i}_{\text{ширины тамбуров}} - \underbrace{\sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}}_{\text{ширины форматов}}\Biggr)
     \]
     \textbf{2. Максимальное число раскроев на одной ПРС:}
     \[
@@ -378,7 +380,7 @@
 \begin{frame}
     \frametitle{Пример мутации}
     \small
-    Исходный план на~одном ПРС: $\overline{Y}_1=(\lambda_1,\lambda_2)$
+    Исходный план на~одном ПРС: $\overline{Y}_1=(\lambda_1,\lambda_2)$, где $\lambda_k$~--- раскрой (набор ширин форматов)
     \[
     \lambda_1=\{100,\,150,\,100\},\quad \lambda_2=\{120,\,120,\,80\}
     \]
@@ -403,8 +405,8 @@
 
     \vspace{0.2cm}
     \begin{enumerate}
-        \item Сформировать $S_0=\{G_1,\ldots,G_P\}$ (случайные допустимые планы)
-        \item \textbf{Пока} $|S|>1$:
+        \item Сформировать начальную популяцию $S_0=\{G_1,\ldots,G_P\}$ ($P$ случайных допустимых планов)
+        \item \textbf{Пока} размер популяции $|S|>1$:
         \begin{enumerate}
             \item[$2.1$] Для каждого $G\in S$: $G\leftarrow\textsc{GlobalMutate}(G)$
             \item[$2.2$] Разбить $S$ на пары $(G_{2i-1},G_{2i})$
@@ -485,7 +487,7 @@
     \textbf{Выпуск тамбура} ($e{=}0$): тамбур попадает в~$\overline{\overline{T}}$ (запланированное содержимое); станет доступен в~$\overline{T}$ (текущее содержимое), когда $h_{\text{след}} \ge \overline{h}_{\text{тек}}$
 
     \vspace{0.2cm}
-    \textbf{Нарезка} ($e{=}1$): из~$\overline{T}$ изымаются ${l^Y}_{d,z}$ тамбуров, совместимых по:
+    \textbf{Нарезка} ($e{=}1$): из~$\overline{T}$ изымаются ${l^Y}_{d,z}$ тамбуров, совместимых по ширине ($\overline{w^T}_{i,j}$), марке ($\overline{f^T}_{i,j}$) и~плотности ($\overline{p^T}_{i,j}$):
     \[
     \sum_k r^Y_{d,z,k}+V\le\overline{w^T}_{i,j}\;\wedge\;{f^Y}_{d,z}=\overline{f^T}_{i,j}\;\wedge\;{p^Y}_{d,z}=\overline{p^T}_{i,j}
     \]
