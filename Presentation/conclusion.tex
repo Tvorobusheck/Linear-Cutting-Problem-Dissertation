@@ -76,9 +76,10 @@
 %    Получен акт о внедрении.
 %}
 
-\begin{frame}[t,allowframebreaks] % публикации на нескольких страницах
+
+\begin{frame}
+    % \begin{frame}[t,allowframebreaks] % публикации на нескольких страницах
     \frametitle{Основные публикации}
-    ВАК: 1--2, Scopus 3, РИНЦ: 4--5
     %% authorvak
     \nocite{klimenko2024_prin}%
     \nocite{klimenko2025ivdon}%
@@ -91,15 +92,33 @@
     %
     %% authorprogram
     % \nocite{Voronov_Klimenko_2024_patent}%
-    %
+    
+    \ifnumequal{\value{bibliosel}}{0}{
+        \insertbiblioauthor
+    }{
+        \textbf{ВАК:}\printbibliography[keyword=biblioauthorvak,resetnumbers=true]%
+        \textbf{Scopus:}\printbibliography[keyword=biblioauthorscopus,resetnumbers=true]%
+    }
+\end{frame}
+\note{
+    Результаты работы опубликованы в~6~печатных изданиях,
+    в~т.\:ч. 2~статьи в~журналах ВАК, 1~статья Scopus,
+    3~доклада на~конференциях, 1~свидетельство о~регистрации программы.
+}
+
+
+\begin{frame}
+    % \begin{frame}[t,allowframebreaks] % публикации на нескольких страницах
+    \frametitle{Публикации РИНЦ}
     %% authorconf
     \nocite{klimenko2024moscow}%
     \nocite{klimenko2025itptz}%
 
+    
     \ifnumequal{\value{bibliosel}}{0}{
         \insertbiblioauthor
     }{
-        \printbibliography%
+        \printbibliography[keyword=biblioauthorother,resetnumbers=true]%
     }
 \end{frame}
 \note{
