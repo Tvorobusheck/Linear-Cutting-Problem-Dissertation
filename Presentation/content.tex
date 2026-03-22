@@ -20,24 +20,24 @@
     %         |
     %         +--- рулоны -----------------------> Заказы
 
-    \node[box, fill=blue!10] at (0,1.5) (bdm) {Бумагоделательные\\машины};
-    \node[box, fill=yellow!15] at (0,0) (sklad) {Склады};
-    \node[box, fill=green!10] at (4,0) (prs) {Продольно-\\резательные станки};
-    \node[box, fill=orange!10] at (7.5,0) (order) {Заказы};
-    \node[box, fill=gray!10] at (0,-1.8) (brs) {Бобино-\\резательные станки};
+    \node[box, fill=blue!10, font=\scriptsize\bfseries] at (0,1.5) (bdm) {Бумагоделательные\\машины};
+    \node[box, fill=yellow!15, font=\scriptsize\bfseries] at (0,0) (sklad) {Склады};
+    \node[box, fill=green!10, font=\scriptsize\bfseries] at (4,0) (prs) {Продольно-\\резательные станки};
+    \node[box, fill=orange!10, font=\scriptsize\bfseries] at (7.5,0) (order) {Заказы};
+    \node[box, fill=gray!10, font=\scriptsize\bfseries] at (0,-1.8) (brs) {Бобино-\\резательные станки};
 
     % БДМ → Склады
-    \draw[arrow] (bdm) -- node[left, font=\tiny] {тамбуры} (sklad);
+    \draw[arrow] (bdm) -- node[left, font=\scriptsize\bfseries] {тамбуры} (sklad);
     % Склады → ПРС
-    \draw[arrow] (sklad) -- node[above, font=\tiny] {тамбуры} (prs);
+    \draw[arrow] (sklad) -- node[above, font=\scriptsize\bfseries] {тамбуры} (prs);
     % ПРС → Заказы
-    \draw[arrow] (prs) -- node[above, font=\tiny] {рулоны} (order);
+    \draw[arrow] (prs) -- node[above, font=\scriptsize\bfseries] {рулоны} (order);
     % ПРС → Склады (возврат рулонов для БРС, дуга снизу)
-    \draw[arrow] (prs.south) -- ++(0,-0.6) -| node[below, font=\tiny, pos=0.25] {рулоны для БРС} (sklad.south east);
+    \draw[arrow] (prs.south) -- ++(0,-0.6) -| node[below, font=\scriptsize\bfseries, pos=0.25] {рулоны для БРС} (sklad.south east);
     % Склады → БРС
-    \draw[arrow] (sklad) -- node[left, font=\tiny] {рулоны для БРС} (brs);
+    \draw[arrow] (sklad) -- node[left, font=\scriptsize\bfseries] {рулоны для БРС} (brs);
     % БРС → Заказы
-    \draw[arrow] (brs.east) -| node[below, font=\tiny, pos=0.2] {рулоны} (order.south);
+    \draw[arrow] (brs.east) -| node[below, font=\scriptsize\bfseries, pos=0.2] {рулоны} (order.south);
     \end{tikzpicture}
 
     \vspace{0.3cm}
