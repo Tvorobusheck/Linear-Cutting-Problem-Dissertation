@@ -1,0 +1,17 @@
+\begin{frame}
+    \frametitle{Подсчёт перестановок ножей $\sigma(i,j)$}
+    Первый раскрой на $i$-й ПРС:
+    \[
+    \sigma(i,1) = |y_{i,1}| + 1
+    \]
+    Последующие раскрои ($j>1$):
+    \[
+    \sigma(i,j) = \sigma(i,j{-}1) + |y_{i,j}| - \max_n\!\Bigl\{0\le n \le \min\bigl\{|y_{i,j-1}|,\,|y_{i,j}|\bigr\} : \forall k{\le}n\;\; r^Y_{i,j-1,k}=r^Y_{i,j,k}\Bigr\}
+    \]
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item Учитывается совпадение начальных форматов текущего и~предыдущего раскроев
+        \item Совпадающие позиции не~требуют перестановки ножей
+        \item Порядок форматов в~раскрое влияет на~значение $\tau(\overline{\overline{Y}})$
+    \end{itemize}
+\end{frame}
