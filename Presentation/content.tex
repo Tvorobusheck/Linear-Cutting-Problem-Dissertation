@@ -598,3 +598,112 @@
 \end{frame}
 
 
+\begin{frame}
+    \frametitle{Вычислительные эксперементы}
+
+    \begin{figure}[h!]
+    % --- 1. Отходы
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.45\textwidth,
+        height=0.35\textwidth,
+        xlabel={Размер популяции},
+        ylabel={$\omega(G)$},
+        xmin=0, xmax=10000,
+        ymin=0, ymax=150,
+        xmode=log,
+        log basis x=10,
+        grid=both,
+        xtick={10,100,1000,10000},
+        xticklabels={10,100,1000,10000}
+    ]
+    \addplot[
+        mark=*,
+        orange,
+        thick
+    ] coordinates {
+        (5, 124) (10,104) (20, 104) (100,65) (1000,65) (10000,65)
+    };
+    \end{axis}
+    \end{tikzpicture}
+    \hfill
+    % --- 2. Раскрои
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.45\textwidth,
+        height=0.35\textwidth,
+        xlabel={Размер популяции},
+        ylabel={$\varphi(G)$},
+        xmin=0, xmax=10000,
+        ymin=0, ymax=7,
+        xmode=log,
+        log basis x=10,
+        grid=both,
+        xtick={10,100,1000,10000},
+        xticklabels={10,100,1000,10000}
+    ]
+    \addplot[
+        mark=square*,
+        blue,
+        thick
+    ] coordinates {
+        (5, 5) (10,4) (20, 4) (100,4) (1000,4) (10000,4)
+    };
+    \end{axis}
+    \end{tikzpicture}
+
+    \vspace{0.5cm}
+
+    % --- 3. Перестановки
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.45\textwidth,
+        height=0.35\textwidth,
+        xlabel={Размер популяции},
+        ylabel={$\tau(\overline{\overline{Y}})$},
+        xmin=0, xmax=10000,
+        ymin=0, ymax=11,
+        xmode=log,
+        log basis x=10,
+        grid=both,
+        xtick={10,100,1000,10000},
+        xticklabels={10,100,1000,10000}
+    ]
+    \addplot[
+        mark=triangle*,
+        green!60!black,
+        thick
+    ] coordinates {
+        (5, 10) (10,10) (20, 8) (100,9) (1000,9) (10000,9)
+    };
+    \end{axis}
+    \end{tikzpicture}
+    \hfill
+    % --- 4. Время
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.45\textwidth,
+        height=0.35\textwidth,
+        xlabel={Размер популяции},
+        ylabel={$t$, сек},
+        xmin=0, xmax=10000,
+        ymin=0, ymax=100,
+        xmode=log,
+        log basis x=10,
+        grid=both,
+        xtick={10,100,1000,10000},
+        xticklabels={10,100,1000,10000}
+    ]
+    \addplot[
+        mark=o,
+        red,
+        thick
+    ] coordinates {
+        (5, 0.04) (10,0.2) (20, 0.2) (100,0.7) (1000,20.4) (10000,81.8)
+    };
+    \end{axis}
+    \end{tikzpicture}
+
+    \end{figure}
+    
+\end{frame}
