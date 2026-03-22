@@ -110,66 +110,6 @@
 \section{Математическая модель}
 
 \begin{frame}
-    \frametitle{Искомое решение~--- глобальный план $G$}
-    Требуется найти план, объединяющий выпуск тамбуров, схемы раскроя и~расписание операций, при минимизации критериев целевой функции:
-    \[
-    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) \quad\longrightarrow\quad \mu(G)\to\min}
-    \]
-
-    \vspace{0.2cm}
-    \textbf{План производства} $\overline{\overline{X}} = \{\overline{X}_1,\ldots,\overline{X}_I\}$~--- для каждой из~$I$ БДМ:
-    \[
-    X_{i,j} = \bigl(\,{w^X}_{i,j},\;\;{f^X}_{i,j},\;\;{p^X}_{i,j}\,\bigr)
-    \]
-    \begin{itemize}
-        \item ${w^X}_{i,j}$~--- ширина тамбура, совпадает с~шириной БДМ: ${w^X}_{i,j}={w^m}_i$
-        \item ${f^X}_{i,j} \in [1,U]$~--- номер марки бумаги
-        \item ${p^X}_{i,j}$~--- плотность бумаги (г/м$^2$)
-    \end{itemize}
-    \vspace{0.1cm}
-    Порядок тамбуров в~$\overline{X}_i$ определяет последовательность выпуска на~$i$-й БДМ
-\end{frame}
-
-\begin{frame}
-    \frametitle{План нарезки $\overline{\overline{Y}}$}
-    $\overline{\overline{Y}} = \{\overline{Y}_1,\ldots,\overline{Y}_J\}$~--- для каждого из~$J$ ПРС:
-    \[
-    Y_{i,j} = \bigl(\,{y^Y}_{i,j},\;\;{f^Y}_{i,j},\;\;{p^Y}_{i,j},\;\;{l^Y}_{i,j}\,\bigr)
-    \]
-    \begin{itemize}
-        \item ${y^Y}_{i,j} = \{y_{i,j,1},\ldots,y_{i,j,|{y^Y}_{i,j}|}\}$~--- упорядоченный набор форматов
-        \item Каждый формат $y_{i,j,k} = ({r^Y}_{i,j,k},\;{g^Y}_{i,j,k})$:
-        \begin{itemize}
-            \item ${r^Y}_{i,j,k}$~--- ширина формата
-            \item ${g^Y}_{i,j,k} \in \{0\}\cup[1,Q]$~--- номер заказа ($0$~--- промежуточный рулон для~БРС)
-        \end{itemize}
-        \item ${f^Y}_{i,j}\in[1,U]$~--- марка бумаги раскроя
-        \item ${p^Y}_{i,j}$~--- плотность бумаги раскроя
-        \item ${l^Y}_{i,j}$~--- количество слоёв (число одновременно подаваемых тамбуров)
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Расписание~--- очередь событий $\overline{\overline{Z}}$}
-    \small
-    Каждое событие $\overline{Z}\in\overline{\overline{Z}}$:
-    \[
-    \overline{Z} = \bigl(\,h,\;\overline{h},\;e,\;d,\;z,\;\overline{T},\;\overline{\overline{T}},\;\overline{t'}\,\bigr)
-    \]
-    \begin{itemize}
-        \item $e\in\{0,1\}$~--- тип: $e{=}0$~--- выпуск тамбура, $e{=}1$~--- нарезка на~ПРС
-        \item $d$~--- номер машины (БДМ при $e{=}0$, ПРС при $e{=}1$)
-        \item $z$~--- номер операции в~плане $d$-й машины
-        \item $h$, $\overline{h}$~--- время начала и~окончания события
-        \item $\overline{T}$~--- текущее содержимое складов (доступные тамбуры)
-        \item $\overline{\overline{T}}$~--- запланированное содержимое (включая тамбуры в~производстве)
-        \item $\overline{t'}$~--- тамбуры, использованные при нарезке ($\varnothing$ при $e{=}0$)
-    \end{itemize}
-    \vspace{0.1cm}
-    Событие фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
-\end{frame}
-
-\begin{frame}
     \frametitle{Входные параметры: заказы и~константы}
     \textbf{Множество заказов} $O = \{o_1,\ldots,o_Q\}$, где каждый заказ:
     \[
@@ -229,6 +169,66 @@
     \end{itemize}
     \vspace{0.2cm}
     Ограничения $|\overline{t}_i|\le{u^T}_i$ и~$\overline{w^T}_{i,j}\le{r^T}_i$ проверяются на~каждом шаге расписания
+\end{frame}
+
+\begin{frame}
+    \frametitle{Искомое решение~--- глобальный план $G$}
+    Требуется найти план, объединяющий выпуск тамбуров, схемы раскроя и~расписание операций, при минимизации критериев целевой функции:
+    \[
+    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) \quad\longrightarrow\quad \mu(G)\to\min}
+    \]
+
+    \vspace{0.2cm}
+    \textbf{План производства} $\overline{\overline{X}} = \{\overline{X}_1,\ldots,\overline{X}_I\}$~--- для каждой из~$I$ БДМ:
+    \[
+    X_{i,j} = \bigl(\,{w^X}_{i,j},\;\;{f^X}_{i,j},\;\;{p^X}_{i,j}\,\bigr)
+    \]
+    \begin{itemize}
+        \item ${w^X}_{i,j}$~--- ширина тамбура, совпадает с~шириной БДМ: ${w^X}_{i,j}={w^m}_i$
+        \item ${f^X}_{i,j} \in [1,U]$~--- номер марки бумаги
+        \item ${p^X}_{i,j}$~--- плотность бумаги (г/м$^2$)
+    \end{itemize}
+    \vspace{0.1cm}
+    Порядок тамбуров в~$\overline{X}_i$ определяет последовательность выпуска на~$i$-й БДМ
+\end{frame}
+
+\begin{frame}
+    \frametitle{План нарезки $\overline{\overline{Y}}$}
+    $\overline{\overline{Y}} = \{\overline{Y}_1,\ldots,\overline{Y}_J\}$~--- для каждого из~$J$ ПРС:
+    \[
+    Y_{i,j} = \bigl(\,{y^Y}_{i,j},\;\;{f^Y}_{i,j},\;\;{p^Y}_{i,j},\;\;{l^Y}_{i,j}\,\bigr)
+    \]
+    \begin{itemize}
+        \item ${y^Y}_{i,j} = \{y_{i,j,1},\ldots,y_{i,j,|{y^Y}_{i,j}|}\}$~--- упорядоченный набор форматов
+        \item Каждый формат $y_{i,j,k} = ({r^Y}_{i,j,k},\;{g^Y}_{i,j,k})$:
+        \begin{itemize}
+            \item ${r^Y}_{i,j,k}$~--- ширина формата
+            \item ${g^Y}_{i,j,k} \in \{0\}\cup[1,Q]$~--- номер заказа ($0$~--- промежуточный рулон для~БРС)
+        \end{itemize}
+        \item ${f^Y}_{i,j}\in[1,U]$~--- марка бумаги раскроя
+        \item ${p^Y}_{i,j}$~--- плотность бумаги раскроя
+        \item ${l^Y}_{i,j}$~--- количество слоёв (число одновременно подаваемых тамбуров)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Расписание~--- очередь событий $\overline{\overline{Z}}$}
+    \small
+    Каждое событие $\overline{Z}\in\overline{\overline{Z}}$:
+    \[
+    \overline{Z} = \bigl(\,h,\;\overline{h},\;e,\;d,\;z,\;\overline{T},\;\overline{\overline{T}},\;\overline{t'}\,\bigr)
+    \]
+    \begin{itemize}
+        \item $e\in\{0,1\}$~--- тип: $e{=}0$~--- выпуск тамбура, $e{=}1$~--- нарезка на~ПРС
+        \item $d$~--- номер машины (БДМ при $e{=}0$, ПРС при $e{=}1$)
+        \item $z$~--- номер операции в~плане $d$-й машины
+        \item $h$, $\overline{h}$~--- время начала и~окончания события
+        \item $\overline{T}$~--- текущее содержимое складов (доступные тамбуры)
+        \item $\overline{\overline{T}}$~--- запланированное содержимое (включая тамбуры в~производстве)
+        \item $\overline{t'}$~--- тамбуры, использованные при нарезке ($\varnothing$ при $e{=}0$)
+    \end{itemize}
+    \vspace{0.1cm}
+    Событие фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
 \end{frame}
 
 \begin{frame}
@@ -349,29 +349,6 @@
     \end{itemize}
 \end{frame}
 
-%=============================================================================
-% ГЛАВА 3: ЧИСЛЕННЫЕ МЕТОДЫ
-%=============================================================================
-\section{Численные методы}
-
-\begin{frame}
-    \frametitle{Сложность задачи и~выбор метода}
-    \textbf{Полный перебор:}
-    % \[
-    % T(Q,J) \le J^Q \quad\text{--- экспоненциальный рост}
-    % \]
-    Пригоден только для задач малой размерности (экспоненциальная сложность).
-
-    \vspace{0.4cm}
-    \textbf{Генетический алгоритм:}
-    \begin{itemize}
-        \item Особь~= глобальный план $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$
-        \item Каждая итерация не~ухудшает решение
-        \item Число поколений: $\lceil\log_2 P\rceil$
-        \item Гибкое управление временем/качеством через размер популяции $P$
-    \end{itemize}
-\end{frame}
-
 \begin{frame}
     \frametitle{Связь компонент плана $\overline{\overline{X}}$, $\overline{\overline{Y}}$, $\overline{\overline{Z}}$}
     Компоненты глобального плана \textbf{взаимозависимы}:
@@ -391,6 +368,30 @@
     \vspace{0.2cm}
     $\Rightarrow$ Изменение $\overline{\overline{Y}}$ при мутации требует пересчёта $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
 \end{frame}
+
+%=============================================================================
+% ГЛАВА 3: ЧИСЛЕННЫЕ МЕТОДЫ
+%=============================================================================
+\section{Численные методы}
+
+\begin{frame}
+    \frametitle{Методы решения}
+    \textbf{Полный перебор:}
+    % \[
+    % T(Q,J) \le J^Q \quad\text{--- экспоненциальный рост}
+    % \]
+    Пригоден только для задач малой размерности (экспоненциальная сложность).
+
+    \vspace{0.4cm}
+    \textbf{Генетический алгоритм:}
+    \begin{itemize}
+        \item Особь~= глобальный план $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$
+        \item Каждая итерация не~ухудшает решение
+        \item Число поколений: $\lceil\log_2 P\rceil$
+        \item Гибкое управление временем/качеством через размер популяции $P$
+    \end{itemize}
+\end{frame}
+
 
 \begin{frame}
     \frametitle{Генетические операторы}
@@ -416,27 +417,27 @@
     \]
 \end{frame}
 
-\begin{frame}
-    \frametitle{Пример мутации}
-    \small
-    Исходный план на~одном ПРС: $\overline{Y}_1=(\lambda_1,\lambda_2)$, где $\lambda_k$~--- раскрой (набор ширин форматов)
-    \[
-    \lambda_1=\{100,\,150,\,100\},\quad \lambda_2=\{120,\,120,\,80\}
-    \]
-    После \textsc{Mutate}~--- перестановка форматов и~раскроев:
-    \[
-    \lambda'_1=\{150,\,100,\,100\},\quad \lambda'_2=\{120,\,80,\,120\},\quad \overline{Y}'_1=(\lambda'_2,\,\lambda'_1)
-    \]
+% \begin{frame}
+%     \frametitle{Пример мутации}
+%     \small
+%     Исходный план на~одном ПРС: $\overline{Y}_1=(\lambda_1,\lambda_2)$, где $\lambda_k$~--- раскрой (набор ширин форматов)
+%     \[
+%     \lambda_1=\{100,\,150,\,100\},\quad \lambda_2=\{120,\,120,\,80\}
+%     \]
+%     После \textsc{Mutate}~--- перестановка форматов и~раскроев:
+%     \[
+%     \lambda'_1=\{150,\,100,\,100\},\quad \lambda'_2=\{120,\,80,\,120\},\quad \overline{Y}'_1=(\lambda'_2,\,\lambda'_1)
+%     \]
 
-    \vspace{0.2cm}
-    \textbf{Эффект:}
-    \begin{itemize}
-        \item Набор заказов не~изменился $\Rightarrow$ ограничения по~ширине сохраняются
-        \item Изменился порядок форматов $\Rightarrow$ может измениться $\sigma(i,j)$
-        \item Изменился порядок раскроев $\Rightarrow$ переход $\lambda'_2\to\lambda'_1$ может дать другое число перестановок ножей
-    \end{itemize}
-    Принимается только при $\mu(G')<\mu(G)$
-\end{frame}
+%     \vspace{0.2cm}
+%     \textbf{Эффект:}
+%     \begin{itemize}
+%         \item Набор заказов не~изменился $\Rightarrow$ ограничения по~ширине сохраняются
+%         \item Изменился порядок форматов $\Rightarrow$ может измениться $\sigma(i,j)$
+%         \item Изменился порядок раскроев $\Rightarrow$ переход $\lambda'_2\to\lambda'_1$ может дать другое число перестановок ножей
+%     \end{itemize}
+%     Принимается только при $\mu(G')<\mu(G)$
+% \end{frame}
 
 \begin{frame}
     \frametitle{Схема генетического алгоритма}
@@ -458,87 +459,87 @@
     $G^*$ не~хуже любого $G\in S_0$; число итераций $\lceil\log_2 P\rceil$
 \end{frame}
 
-\begin{frame}
-    \frametitle{Генерация плана производства $\overline{\overline{X}}$}
-    По~сформированному $\overline{\overline{Y}}$ строится $\overline{\overline{X}}$:
+% \begin{frame}
+%     \frametitle{Генерация плана производства $\overline{\overline{X}}$}
+%     По~сформированному $\overline{\overline{Y}}$ строится $\overline{\overline{X}}$:
 
-    \vspace{0.3cm}
-    \begin{enumerate}
-        \item Для каждого ПРС $j$ подсчитать потребность в~тамбурах по~каждой комбинации (ширина, марка, плотность)
-        \item Распределить тамбуры между БДМ с~учётом ${w^X}_{i,j}={w^m}_i$
-        \item Упорядочить тамбуры на~каждой БДМ по~маркам:
-        \[
-        \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
-        \]
-    \end{enumerate}
+%     \vspace{0.3cm}
+%     \begin{enumerate}
+%         \item Для каждого ПРС $j$ подсчитать потребность в~тамбурах по~каждой комбинации (ширина, марка, плотность)
+%         \item Распределить тамбуры между БДМ с~учётом ${w^X}_{i,j}={w^m}_i$
+%         \item Упорядочить тамбуры на~каждой БДМ по~маркам:
+%         \[
+%         \forall i,j:\quad {f^X}_{i,j} \le {f^X}_{i,j+1}
+%         \]
+%     \end{enumerate}
 
-    \vspace{0.3cm}
-    \textbf{Результат:} для каждой БДМ~--- последовательность $\overline{X}_i=(X_{i,1},X_{i,2},\ldots)$, где каждый тамбур $X_{i,j}=({w^X}_{i,j},{f^X}_{i,j},{p^X}_{i,j})$
-\end{frame}
+%     \vspace{0.3cm}
+%     \textbf{Результат:} для каждой БДМ~--- последовательность $\overline{X}_i=(X_{i,1},X_{i,2},\ldots)$, где каждый тамбур $X_{i,j}=({w^X}_{i,j},{f^X}_{i,j},{p^X}_{i,j})$
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Генерация плана раскроя $\overline{\overline{Y}}$}
-    \small
-    \textbf{Шаги формирования случайного плана:}
-    \begin{enumerate}
-        \item Инициализировать пустые планы $\overline{Y}_1,\ldots,\overline{Y}_J$
-        \item Выделить \textbf{малые заказы} ($g_i{=}1$), перемешать по~маркам
-        \item Для каждого рулона малого заказа:
-            \begin{itemize}
-                \item Выбрать случайный БРС ($g^c_j{=}1$)
-                \item Если $V + \sum_k r^Y_{j,\text{last},k} + w_i \le {w^c}_j$~--- добавить в~текущий раскрой
-                \item Иначе~--- создать новый раскрой $Y_{j,\text{new}}$
-            \end{itemize}
-        \item Аналогично распределить \textbf{обычные заказы} ($g_i{=}0$) по~ПРС
-        \item Проверить: $\forall n\in[1,Q]:\;\sum I(g^Y_{i,j,k}{=}n)=q_n$
-    \end{enumerate}
+% \begin{frame}
+%     \frametitle{Генерация плана раскроя $\overline{\overline{Y}}$}
+%     \small
+%     \textbf{Шаги формирования случайного плана:}
+%     \begin{enumerate}
+%         \item Инициализировать пустые планы $\overline{Y}_1,\ldots,\overline{Y}_J$
+%         \item Выделить \textbf{малые заказы} ($g_i{=}1$), перемешать по~маркам
+%         \item Для каждого рулона малого заказа:
+%             \begin{itemize}
+%                 \item Выбрать случайный БРС ($g^c_j{=}1$)
+%                 \item Если $V + \sum_k r^Y_{j,\text{last},k} + w_i \le {w^c}_j$~--- добавить в~текущий раскрой
+%                 \item Иначе~--- создать новый раскрой $Y_{j,\text{new}}$
+%             \end{itemize}
+%         \item Аналогично распределить \textbf{обычные заказы} ($g_i{=}0$) по~ПРС
+%         \item Проверить: $\forall n\in[1,Q]:\;\sum I(g^Y_{i,j,k}{=}n)=q_n$
+%     \end{enumerate}
 
-    \vspace{0.2cm}
-    Каждый сгенерированный план удовлетворяет ограничениям по~ширине и~ножам
-\end{frame}
+%     \vspace{0.2cm}
+%     Каждый сгенерированный план удовлетворяет ограничениям по~ширине и~ножам
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Генерация расписания (очередь событий)}
-    Каждое событие $\overline{Z}=(h,\overline{h},e,d,z,\overline{T},\overline{\overline{T}},\overline{t'})$
+% \begin{frame}
+%     \frametitle{Генерация расписания (очередь событий)}
+%     Каждое событие $\overline{Z}=(h,\overline{h},e,d,z,\overline{T},\overline{\overline{T}},\overline{t'})$
 
-    \vspace{0.2cm}
-    \textbf{Время окончания выпуска тамбура} ($e{=}0$):
-    \[
-    \overline{h}= h+{v^m}_d+{g^m}_d({p^X}_{d,z}-{p^X}_{d,z-1})+b_f\cdot I(f\ne{f^X}_{d,z-1})
-    \]
-    \textbf{Время окончания нарезки} ($e{=}1$):
-    \[
-    \overline{h}= h+{v^c}_d\cdot{l^Y}_{d,z}+{k^c}_d\bigl(\sigma(d,z)-\sigma(d,z{-}1)\bigr)
-    \]
-    \vspace{0.2cm}
-    \begin{itemize}
-        \item Склад $\overline{T}$ обновляется при каждом событии
-        \item Нарезка возможна только при наличии тамбуров на складе
-    \end{itemize}
-\end{frame}
+%     \vspace{0.2cm}
+%     \textbf{Время окончания выпуска тамбура} ($e{=}0$):
+%     \[
+%     \overline{h}= h+{v^m}_d+{g^m}_d({p^X}_{d,z}-{p^X}_{d,z-1})+b_f\cdot I(f\ne{f^X}_{d,z-1})
+%     \]
+%     \textbf{Время окончания нарезки} ($e{=}1$):
+%     \[
+%     \overline{h}= h+{v^c}_d\cdot{l^Y}_{d,z}+{k^c}_d\bigl(\sigma(d,z)-\sigma(d,z{-}1)\bigr)
+%     \]
+%     \vspace{0.2cm}
+%     \begin{itemize}
+%         \item Склад $\overline{T}$ обновляется при каждом событии
+%         \item Нарезка возможна только при наличии тамбуров на складе
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Динамика склада при формировании расписания}
-    \small
-    При каждом событии $\overline{Z}$ склад обновляется:
+% \begin{frame}
+%     \frametitle{Динамика склада при формировании расписания}
+%     \small
+%     При каждом событии $\overline{Z}$ склад обновляется:
 
-    \vspace{0.2cm}
-    \textbf{Выпуск тамбура} ($e{=}0$): тамбур попадает в~$\overline{\overline{T}}$ (запланированное содержимое); станет доступен в~$\overline{T}$ (текущее содержимое), когда $h_{\text{след}} \ge \overline{h}_{\text{тек}}$
+%     \vspace{0.2cm}
+%     \textbf{Выпуск тамбура} ($e{=}0$): тамбур попадает в~$\overline{\overline{T}}$ (запланированное содержимое); станет доступен в~$\overline{T}$ (текущее содержимое), когда $h_{\text{след}} \ge \overline{h}_{\text{тек}}$
 
-    \vspace{0.2cm}
-    \textbf{Нарезка} ($e{=}1$): из~$\overline{T}$ изымаются ${l^Y}_{d,z}$ тамбуров, совместимых по ширине ($\overline{w^T}_{i,j}$), марке ($\overline{f^T}_{i,j}$) и~плотности ($\overline{p^T}_{i,j}$):
-    \[
-    \sum_k r^Y_{d,z,k}+V\le\overline{w^T}_{i,j}\;\wedge\;{f^Y}_{d,z}=\overline{f^T}_{i,j}\;\wedge\;{p^Y}_{d,z}=\overline{p^T}_{i,j}
-    \]
+%     \vspace{0.2cm}
+%     \textbf{Нарезка} ($e{=}1$): из~$\overline{T}$ изымаются ${l^Y}_{d,z}$ тамбуров, совместимых по ширине ($\overline{w^T}_{i,j}$), марке ($\overline{f^T}_{i,j}$) и~плотности ($\overline{p^T}_{i,j}$):
+%     \[
+%     \sum_k r^Y_{d,z,k}+V\le\overline{w^T}_{i,j}\;\wedge\;{f^Y}_{d,z}=\overline{f^T}_{i,j}\;\wedge\;{p^Y}_{d,z}=\overline{p^T}_{i,j}
+%     \]
 
-    \vspace{0.2cm}
-    \textbf{Контроль вместимости:}
-    \[
-    |\overline{t}_i|\le{u^T}_i,\quad |\overline{\overline{t}}_i|\le{u^T}_i \quad\text{--- на каждом шаге}
-    \]
+%     \vspace{0.2cm}
+%     \textbf{Контроль вместимости:}
+%     \[
+%     |\overline{t}_i|\le{u^T}_i,\quad |\overline{\overline{t}}_i|\le{u^T}_i \quad\text{--- на каждом шаге}
+%     \]
 
-    $\Rightarrow$ расписание строится последовательно с~проверкой доступности ресурсов
-\end{frame}
+%     $\Rightarrow$ расписание строится последовательно с~проверкой доступности ресурсов
+% \end{frame}
 
 \begin{frame}
     \frametitle{Параметры алгоритма}
