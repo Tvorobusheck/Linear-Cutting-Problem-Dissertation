@@ -321,14 +321,13 @@
     \]
 
     \begin{itemize}
-        \item Каждый раскрой $Y_{i,j}$ требует тамбур совместимой ширины, марки и~плотности
-        \item Число тамбуров для $j$-го ПРС: $\sum_k |Y_{j,k}.\text{master\_rolls}|$
-        \item План $\overline{\overline{X}}$ строится так, чтобы суммарный выпуск по~каждой ширине покрывал потребности $\overline{\overline{Y}}$
-        \item Расписание $\overline{\overline{Z}}$ учитывает доступность тамбуров на~складе $\overline{T}$
+        \item Каждый раскрой $Y_{i,j}$ требует тамбуры совместимой ширины, марки, плотности. Количество определяется слоями раскроя
+        \item План $\overline{\overline{X}}$ строится так, чтобы суммарный выпуск покрывал потребности $\overline{\overline{Y}}$
+        \item Расписание $\overline{\overline{Z}}$ учитывает доступность тамбуров на~складе $\overline{T}$ для нарезки $\overline{\overline{Y}}$ и доступность места на складе $\overline{\overline{T}}$ при производстве $\overline{\overline{X}}$
     \end{itemize}
 
     \vspace{0.2cm}
-    $\Rightarrow$ Изменение $\overline{\overline{Y}}$ при мутации требует пересчёта $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
+    $\Rightarrow$ Изменение $\overline{\overline{Y}}$ требует пересчёта $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
 \end{frame}
 
 %=============================================================================
@@ -435,7 +434,7 @@
     \vspace{0.3cm}
     \textbf{2. Генетический алгоритм:}
     \begin{itemize}
-        \item Основной режим для~реальных задач ($Q>30$)
+        \item Основной режим для~реальных задач
         \item Формирует $P$ случайных допустимых $G$
         \item За $\lceil\log_2 P\rceil$ итераций получает $G^*$
     \end{itemize}
