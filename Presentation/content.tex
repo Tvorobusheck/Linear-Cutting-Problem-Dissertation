@@ -212,9 +212,9 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Расписание~--- очередь событий $\overline{\overline{Z}}$}
+    \frametitle{Расписание~--- расписание $\overline{\overline{Z}}$}
     \small
-    Каждое событие $\overline{Z}\in\overline{\overline{Z}}$:
+    Каждая операция $\overline{Z}\in\overline{\overline{Z}}$:
     \[
     \overline{Z} = \bigl(\,h,\;\overline{h},\;e,\;d,\;z,\;\overline{T},\;\overline{\overline{T}},\;\overline{t'}\,\bigr)
     \]
@@ -222,13 +222,13 @@
         \item $e\in\{0,1\}$~--- тип: $e{=}0$~--- выпуск тамбура, $e{=}1$~--- нарезка на~ПРС
         \item $d$~--- номер машины (БДМ при $e{=}0$, ПРС при $e{=}1$)
         \item $z$~--- номер операции в~плане $d$-й машины
-        \item $h$, $\overline{h}$~--- время начала и~окончания события
+        \item $h$, $\overline{h}$~--- время начала и~окончания операции
         \item $\overline{T}$~--- текущее содержимое складов (доступные тамбуры)
         \item $\overline{\overline{T}}$~--- запланированное содержимое (включая тамбуры в~производстве)
         \item $\overline{t'}$~--- тамбуры, использованные при нарезке ($\varnothing$ при $e{=}0$)
     \end{itemize}
     \vspace{0.1cm}
-    Событие фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
+    Операция фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
 \end{frame}
 
 \begin{frame}
@@ -277,7 +277,7 @@
 \begin{frame}
     \frametitle{Основные ограничения (2/3)}
     \small
-    \textbf{5--6. Каждой операции выпуска/нарезки соответствует событие:}
+    \textbf{5--6. Каждой операции выпуска/нарезки соответствует операция:}
     \[
     \forall X_{i,j}\;\exists\;\overline{Z}:\;e{=}0,\,d{=}i,\,z{=}j
     \qquad
