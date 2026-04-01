@@ -1,0 +1,25 @@
+\begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
+  \node[flowstart] (s) {Старт\\GeneticSearch$(S_0)$};
+  \node[flowproc, below=of s] (init) {Инициализировать $t\leftarrow 0$};
+  \node[flowdec, below=of init] (whileq) {$|S_t|>1$?};
+  \node[flowproc, below left=18mm and 28mm of whileq] (n) {Вычислить $n=|S_t|$};
+  \node[flowproc, below=of n] (mut) {Для $i=1,\ldots,n$\\выполнить\\$S_{t,i}=\mathrm{GlobalMutate}(S_{t,i})$};
+  \node[flowproc, below=of mut] (cross) {Для $i=1,\ldots,\lfloor n/2\rfloor$\\выполнить\\$S_{t+1,i}=\mathrm{Crossingover}(S_{t,2i-1},S_{t,2i})$};
+  \node[flowdec, below=of cross] (odd) {$n \bmod 2 = 1$?};
+  \node[flowproc, below left=16mm and 22mm of odd] (copylast) {Перенести последний план:\\$S_{t+1,\lceil n/2\rceil}=S_{t,n}$};
+  \node[flowproc, below=of copylast] (inc2) {$t\leftarrow t+1$};
+  \node[flowproc, below right=16mm and 22mm of odd] (inc1) {$t\leftarrow t+1$};
+  \node[flowstop, right=50mm of whileq] (ret) {Вернуть $S_{t,1}$};
+
+  \draw[flowline] (s) -- (init) -- (whileq);
+  \draw[flowline] (whileq) -- node[flowlbl, above left]{да} (n);
+  \draw[flowline] (n) -- (mut) -- (cross) -- (odd);
+  \draw[flowline] (odd) -- node[flowlbl, above left]{да} (copylast);
+  \draw[flowline] (copylast) -- (inc2);
+  \draw[flowline] (odd) -- node[flowlbl, above right]{нет} (inc1);
+  % inc1 -> whileq: обратная связь через правую сторону
+  \draw[flowline] (inc1.east) -- ++(20mm,0) |- (whileq.east);
+  % inc2 -> whileq: обратная связь через левую сторону (не пересекает блоки)
+  \draw[flowline] (inc2.west) -- ++(-14mm,0) |- (whileq.west);
+  \draw[flowline] (whileq) -- node[flowlbl, above]{нет} (ret);
+\end{tikzpicture}%

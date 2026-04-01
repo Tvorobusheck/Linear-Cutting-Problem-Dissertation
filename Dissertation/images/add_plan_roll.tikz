@@ -1,0 +1,47 @@
+\begin{tikzpicture}[node distance=8mm and 10mm, font=\small]
+  % Левая схема: AddPlanRoll
+  \node[flowstart] (ap_s) at (0,0) {Старт\\AddPlanRoll$(j,o)$};
+  \node[flowdec, below=of ap_s] (ap_has) {$|\overline Y_j|>0$?};
+  \node[flowproc, below left=18mm and 22mm of ap_has] (ap_last) {Попытаться добавить\\$o$ в последний раскрой\\$Y_{j,|\overline Y_j|}$\\через AddLayoutRoll};
+  \node[flowproc, below right=18mm and 22mm of ap_has] (ap_new) {Создать новый раскрой\\$L_{\mathrm{new}}$ и добавить\\его в конец $\overline Y_j$};
+  \node[flowdec, below=of ap_last] (ap_ok1) {Успех?};
+  \node[flowdec, below=of ap_new] (ap_ok2) {Успех\\в $L_{\mathrm{new}}$?};
+  \node[flowstop, below=of ap_ok1] (ap_true1) {Вернуть True};
+  \node[flowproc, below=of ap_ok2] (ap_del) {Удалить $L_{\mathrm{new}}$\\из $\overline Y_j$};
+  \node[flowstop, below=of ap_del] (ap_false) {Вернуть False};
+  \node[flowstop, right=30mm of ap_true1] (ap_true2) {Вернуть True};
+
+  \draw[flowline] (ap_s) -- (ap_has);
+  \draw[flowline] (ap_has) -- node[flowlbl, above left]{да} (ap_last);
+  \draw[flowline] (ap_has) -- node[flowlbl, above right]{нет} (ap_new);
+  \draw[flowline] (ap_last) -- (ap_ok1);
+  \draw[flowline] (ap_ok1) -- node[flowlbl, right]{да} (ap_true1);
+  \draw[flowline] (ap_ok1.east) -| node[flowlbl, above]{нет} (ap_new.west);
+  \draw[flowline] (ap_new) -- (ap_ok2);
+  \draw[flowline] (ap_ok2) -- node[flowlbl, right]{да} (ap_true2);
+  \draw[flowline] (ap_ok2) -- node[flowlbl, right]{нет} (ap_del);
+  \draw[flowline] (ap_del) -- (ap_false);
+
+  % Правая схема: AddLayoutRoll
+  \node[flowstart] (al_s) at (130mm,0) {Старт\\AddLayoutRoll$(L,o,c_j)$};
+  \node[flowdec, below=of al_s] (al_empty) {$|L.\mathrm{rolls}|=0$?};
+  \node[flowdec, below left=18mm and 22mm of al_empty] (al_w) {$w_o\leq w^c_j$?};
+  \node[flowproc, below=of al_w] (al_init) {Создать мастер-рулоны:\\если $g_o=1$ --- SlittedMasterRoll,\\иначе --- MasterRoll;\\число рулонов равно $l_o$};
+  \node[flowproc, below right=18mm and 22mm of al_empty] (al_add) {Добавить $o$ в $L.\mathrm{rolls}$};
+  \node[flowdec, below=of al_add] (al_lim) {$V+\sum r^Y_{j,k}\leq w^c_j$\\и $|L.\mathrm{rolls}|\leq n^c_j$?};
+  \node[flowstop, below left=18mm and 14mm of al_lim] (al_true) {Вернуть True};
+  \node[flowproc, below right=18mm and 14mm of al_lim] (al_rem) {Удалить $o$ из\\$L.\mathrm{rolls}$};
+  \node[flowstop, below=of al_rem] (al_false) {Вернуть False};
+  \node[flowstop, left=26mm of al_init] (al_falsew) {Вернуть False};
+
+  \draw[flowline] (al_s) -- (al_empty);
+  \draw[flowline] (al_empty) -- node[flowlbl, above left]{да} (al_w);
+  \draw[flowline] (al_empty) -- node[flowlbl, above right]{нет} (al_add);
+  \draw[flowline] (al_w) -- node[flowlbl, right]{да} (al_init);
+  \draw[flowline] (al_w.west) -- ++(-12mm,0) |- node[flowlbl, left]{нет} (al_falsew.west);
+  \draw[flowline] (al_init.east) -| (al_add.west);
+  \draw[flowline] (al_add) -- (al_lim);
+  \draw[flowline] (al_lim) -- node[flowlbl, above left]{да} (al_true);
+  \draw[flowline] (al_lim) -- node[flowlbl, above right]{нет} (al_rem);
+  \draw[flowline] (al_rem) -- (al_false);
+\end{tikzpicture}%

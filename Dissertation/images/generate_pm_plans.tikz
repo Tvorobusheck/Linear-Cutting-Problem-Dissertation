@@ -1,0 +1,14 @@
+
+\begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
+  \node[flowstart] (s) {Старт\\GenerateProductionPlan$(Y,M)$};
+  \node[flowproc, below=of s] (init) {Инициализировать\\$\overline X_i=\emptyset$\\для всех $m_i\in M$};
+  \node[flowproc, below=of init] (loop1) {Для каждого станка $c_j$\\с ${g^c}_j=0$};
+  \node[flowproc, below=of loop1] (loop2) {Для каждого раскроя\\$L\in\overline Y_j$};
+  \node[flowproc, below=of loop2] (loop3) {Для каждого мастер-рулона\\$u\in L.\mathrm{master\_rolls}$};
+  \node[flowproc, below=of loop3] (comp) {Построить множество\\$M_{\mathrm{comp}}(u)=\{m_i\in M:\, |w^m_i-w_u|<\varepsilon\}$};
+  \node[flowproc, below=of comp] (choose) {Случайно выбрать\\$m_i\in M_{\mathrm{comp}}(u)$};
+  \node[flowproc, below=of choose] (add) {Добавить $u$ в\\план $\overline X_i$};
+  \node[flowstop, below=of add] (ret) {Вернуть $(\overline X_1,\ldots,\overline X_I)$};
+
+  \draw[flowline] (s) -- (init) -- (loop1) -- (loop2) -- (loop3) -- (comp) -- (choose) -- (add) -- (ret);
+\end{tikzpicture}

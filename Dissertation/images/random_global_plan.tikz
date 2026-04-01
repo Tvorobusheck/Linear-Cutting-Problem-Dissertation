@@ -1,0 +1,18 @@
+\begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
+  \node[flowstart] (s) {Старт\\RandomGlobalPlan$(O,C,M)$};
+  \node[flowproc, below=of s] (init) {Инициализировать\\пустые планы нарезки\\$\overline Y_j=\emptyset$};
+  \node[flowproc, below=of init] (small) {Выделить $O^{\mathrm{small}}$\\и перемешать их\\через ShuffleByBrand};
+  \node[flowproc, below=of small] (addsmall) {Для каждого $o\in O^{\mathrm{small}}$\\и каждого из $q_o$ рулонов\\вызвать AddRollRandomly};
+  \node[flowproc, below=of addsmall] (collect) {Собрать слитые мастер-рулоны\\$\mathcal S$ из раскроев БРС};
+  \node[flowproc, below=of collect] (ostar) {Сформировать $O^*=O^{\mathrm{norm}}\cup\mathcal S$\\и перемешать через ShuffleByBrand};
+  \node[flowproc, below=of ostar] (addrest) {Для каждого элемента $o\in O^*$:\\если это слитый мастер-рулон ---\\вызвать AddRollRandomly один раз,\\иначе выполнить $q_o$ вызовов};
+  \node[flowproc, below=of addrest] (prod) {Сформировать\\$\overline{\overline X}=\mathrm{GenerateProductionPlan}(\overline{\overline Y},M)$};
+  \node[flowdec, below=of prod] (timeq) {Задан временной\\горизонт?};
+  \node[flowproc, below left=16mm and 22mm of timeq] (sched) {Сформировать\\$\overline{\overline Z}=\mathrm{GenerateEventQueue}(G)$};
+  \node[flowstop, below right=16mm and 22mm of timeq] (ret) {Вернуть\\$G=(\overline{\overline X},\overline{\overline Y},\overline{\overline Z})$};
+
+  \draw[flowline] (s) -- (init) -- (small) -- (addsmall) -- (collect) -- (ostar) -- (addrest) -- (prod) -- (timeq);
+  \draw[flowline] (timeq) -- node[flowlbl, above left]{да} (sched);
+  \draw[flowline] (sched.east) -| (ret.west);
+  \draw[flowline] (timeq) -- node[flowlbl, above right]{нет} (ret);
+\end{tikzpicture}
