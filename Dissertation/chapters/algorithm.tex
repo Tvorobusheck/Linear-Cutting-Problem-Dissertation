@@ -75,9 +75,10 @@
 \resizebox{\textwidth}{!}{%
     \input{Dissertation/images/add_plan_roll.tikz}
 }
-\caption{Блок-схемы процедур AddPlanRoll и AddLayoutRoll}
+\caption{Блок-схемы процедур AddPlanRoll}
 \label{alg:add_plan_roll}
 \end{figure}
+
 
 Пошаговое описание алгоритма $\mathrm{AddPlanRoll}(j, o)$:
 \begin{enumerate}
@@ -87,6 +88,15 @@
   \item Попытаться добавить рулон~$o$ в~$L_{\mathrm{new}}$ вызовом $\mathrm{AddLayoutRoll}$.
   \item Если успешно, вернуть $\mathrm{True}$; иначе удалить $L_{\mathrm{new}}$ из~$\overline{Y}_j$ и~вернуть $\mathrm{False}$.
 \end{enumerate}
+
+\begin{figure}[!htb]
+\centering
+\resizebox{\textwidth}{!}{%
+    \input{Dissertation/images/add_layout_roll.tikz}
+}
+\caption{Блок-схемы процедур AddLayoutRoll}
+\label{alg:add_layout_roll}
+\end{figure}
 
 Пошаговое описание алгоритма $\mathrm{AddLayoutRoll}(L, o, c_j)$:
 \begin{enumerate}

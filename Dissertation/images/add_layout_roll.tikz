@@ -1,0 +1,22 @@
+\begin{tikzpicture}[node distance=8mm and 10mm, font=\small]
+  \node[flowstart] (al_s) at (0,0) {Старт\\AddLayoutRoll$(L,o,c_j)$};
+  \node[flowdec, below=of al_s] (al_empty) {$|L.\mathrm{rolls}|=0$?};
+  \node[flowdec, below left=18mm and 22mm of al_empty] (al_w) {$w_o\leq w^c_j$?};
+  \node[flowproc, below=of al_w] (al_init) {Создать мастер-рулоны:\\если $g_o=1$ --- SlittedMasterRoll,\\иначе --- MasterRoll;\\число рулонов равно $l_o$};
+  \node[flowproc, below right=18mm and 22mm of al_empty] (al_add) {Добавить $o$ в $L.\mathrm{rolls}$};
+  \node[flowdec, below=of al_add] (al_lim) {$V+\sum r^Y_{j,k}\leq w^c_j$\\и $|L.\mathrm{rolls}|\leq n^c_j$?};
+  \node[flowstop, below left=18mm and 14mm of al_lim] (al_true) {Вернуть True};
+  \node[flowproc, below right=18mm and 14mm of al_lim] (al_rem) {Удалить $o$ из\\$L.\mathrm{rolls}$};
+  \node[flowstop, below=of al_rem] (al_false) {Вернуть False};
+
+  \draw[flowline] (al_s) -- (al_empty);
+  \draw[flowline] (al_empty) -- node[flowlbl, above left]{да} (al_w);
+  \draw[flowline] (al_empty) -- node[flowlbl, above right]{нет} (al_add);
+  \draw[flowline] (al_w) -- node[flowlbl, right]{да} (al_init);
+  \draw[flowline] (al_w.west) -- ++(-12mm,0) |- node[flowlbl, right]{нет} (al_false);
+  \draw[flowline] (al_init.east) -- ++(12mm,0) |- (al_add.west);
+  \draw[flowline] (al_add) -- (al_lim);
+  \draw[flowline] (al_lim) -- node[flowlbl, above left]{да} (al_true);
+  \draw[flowline] (al_lim) -- node[flowlbl, above right]{нет} (al_rem);
+  \draw[flowline] (al_rem) -- (al_false);
+\end{tikzpicture}
