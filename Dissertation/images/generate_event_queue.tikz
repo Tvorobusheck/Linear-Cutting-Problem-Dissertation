@@ -33,34 +33,34 @@
   \draw[flowline] (peq) -- node[flowlbl, above right]{нет} (addr);
 
   % Опорные X-координаты для внешних обратных дуг
-  \coordinate (loopLoutX) at ([xshift=-18mm]slit.west);
-  \coordinate (loopLinX)  at ([xshift=-10mm]slit.west);
-  \coordinate (loopRinX)  at ([xshift=10mm]addr.east);
-  \coordinate (loopRoutX) at ([xshift=18mm]addr.east);
+  \coordinate (loopLoutX) at ([xshift=-10mm]slit.west);
+  \coordinate (loopLinX)  at ([xshift=-18mm]slit.west);
+  \coordinate (loopRinX)  at ([xshift=20mm]addr.east);
+  \coordinate (loopRoutX) at ([xshift=15mm]addr.east);
 
   % slit -> whileq: внешняя левая дуга
   \draw[flowline]
     (slit.south) -- ++(0,-7mm) coordinate (slit_ret)
     -| (loopLoutX |- slit_ret)
-    |- ([yshift=3mm]whileq.west);
+    |- (whileq.west);
 
   % make -> whileq: внутренняя левая дуга
   \draw[flowline]
-    (make.south) -- ++(0,-7mm) coordinate (make_ret)
+    (make.south) -- ++(0,-17mm) coordinate (make_ret)
     -| (loopLinX |- make_ret)
-    |- ([yshift=-3mm]whileq.west);
+    |- ([yshift=6mm]whileq.west);
 
   % move -> whileq: внутренняя правая дуга
   \draw[flowline]
-    (move.south) -- ++(0,-7mm) coordinate (move_ret)
+    (move.south) -- ++(0,-17mm) coordinate (move_ret)
     -| (loopRinX |- move_ret)
-    |- ([yshift=-3mm]whileq.east);
+    |- ([yshift=6mm]whileq.east);
 
   % addr -> whileq: внешняя правая дуга
   \draw[flowline]
     (addr.south) -- ++(0,-7mm) coordinate (addr_ret)
     -| (loopRoutX |- addr_ret)
-    |- ([yshift=3mm]whileq.east);
+    |- (whileq.east);
 
   % Выход из цикла
   \draw[flowline]
