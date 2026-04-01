@@ -12,7 +12,7 @@
   \node[flowdec, below=of small_try] (small_ok) {AddPlanRoll\\успешен?};
   \node[flowproc, below=of small_ok] (small_rec) {Рекурсивно вызвать\\EnumerateSmall$(G')$\\и обновить лучший план};
 
-  \node[flowdec, below=42mm of enumnorm0] (norm_done) {Все обычные заказы\\выполнены и\\$\mathcal S=\emptyset$?};
+  \node[flowdec, below=62mm of enumnorm0] (norm_done) {Все обычные заказы\\выполнены и\\$\mathcal S=\emptyset$?};
   \node[flowproc, below left=18mm and 28mm of norm_done] (norm_try_o) {Выбрать невыполненный\\$o\in O^{\mathrm{norm}}$ и\\совместимый $c_j$,\\создать $G'$,\\вызвать AddPlanRoll};
   \node[flowproc, below right=18mm and 28mm of norm_done] (norm_try_s) {Выбрать $s\in\mathcal S$\\и совместимый $c_j$,\\создать $G'$,\\вызвать AddPlanRoll};
   \node[flowdec, below=of norm_try_o] (norm_ok_o) {AddPlanRoll\\для $o$\\успешен?};
@@ -23,26 +23,31 @@
   \node[flowproc, below=80mm of norm_done] (finalize) {Finalize$(G)$:\\сформировать $\overline{\overline X}$, $\overline{\overline Z}$\\и проверить допустимость};
   \node[flowstop, below=of finalize] (ret) {Вернуть лучший\\допустимый план};
 
+  % Основной поток
   \draw[flowline] (s) -- (init);
   \draw[flowline] (init) -- (smallq);
   \draw[flowline] (smallq) -- node[flowlbl, above left]{да} (enumsmall);
   \draw[flowline] (smallq) -- node[flowlbl, above right]{нет} (enumnorm0);
 
+  % Фаза 1: малые заказы
   \draw[flowline] (enumsmall) -- (small_done);
   \draw[flowline] (small_done) -- node[flowlbl, above left]{нет} (small_try);
   \draw[flowline] (small_done) -- node[flowlbl, above right]{да} (collects);
   \draw[flowline] (small_try) -- (small_ok);
   \draw[flowline] (small_ok) -- node[flowlbl, right]{да} (small_rec);
-  % Обратная связь small_rec -> small_done (внешняя дуга, offset -18mm)
-  \draw[flowline] (small_rec.west) -- ++(-18mm,0) |- (small_done.west);
-  % "нет" от small_ok -> small_done (внутренняя дуга, offset -12mm)
-  \draw[flowline] (small_ok.west) -- ++(-12mm,0) node[flowlbl, above right]{нет} |- ([yshift=-2mm]small_done.south west);
-  \draw[flowline] (collects.east) -| ([xshift=22mm]norm_done.east) |- (norm_done.east);
 
+  % Обратная связь small_rec -> small_done
+  \draw[flowline] (small_rec.west) -- ++(-18mm,0) |- (small_done.west);
+
+  % "нет" от small_ok -> small_done
+  \draw[flowline] (small_ok.west) -- ++(-12mm,0) node[flowlbl, above right]{нет} |- ([yshift=-2mm]small_done.south west);
+
+  % Переход к фазе 2 после сбора S
+  \draw[flowline] (collects.east) -- (enumnorm0);
+
+  % Фаза 2: обычные заказы и слитые мастер-рулоны
   \draw[flowline] (enumnorm0) -- (norm_done);
   \draw[flowline] (norm_done.south) -- (finalize.north) node[flowlbl, pos=0.05, right]{да};
-
-  \draw[flowline] (finalize) -- (ret);
 
   \draw[flowline] (norm_done) -- node[flowlbl, above left]{нет, есть $o$} (norm_try_o);
   \draw[flowline] (norm_done) -- node[flowlbl, above right]{нет, есть $s$} (norm_try_s);
@@ -50,12 +55,35 @@
   \draw[flowline] (norm_try_s) -- (norm_ok_s);
   \draw[flowline] (norm_ok_o) -- node[flowlbl, right]{да} (norm_rec_o);
   \draw[flowline] (norm_ok_s) -- node[flowlbl, right]{да} (norm_rec_s);
-  % Обратная связь norm_rec_o -> norm_done (внешняя дуга, offset -22mm)
-  \draw[flowline] (norm_rec_o.west) -- ++(-22mm,0) |- (norm_done.west);
-  % "нет" от norm_ok_o (внутренняя дуга, offset -14mm)
-  \draw[flowline] (norm_ok_o.west) -- ++(-14mm,0) node[flowlbl, above right]{нет} |- ([yshift=-2mm]norm_done.south west);
-  % Обратная связь norm_rec_s -> norm_done (внешняя дуга, offset +22mm)
-  \draw[flowline] (norm_rec_s.east) -- ++(22mm,0) |- (norm_done.east);
-  % "нет" от norm_ok_s (внутренняя дуга, offset +14mm)
-  \draw[flowline] (norm_ok_s.east) -- ++(14mm,0) node[flowlbl, above left]{нет} |- ([yshift=2mm]norm_done.south east);
+
+  % Вспомогательные координаты для чистой трассировки обратных дуг
+  \coordinate (norm_fail_L) at ([xshift=-8mm]norm_try_o.west);
+  \coordinate (norm_loop_L) at ([xshift=-18mm]norm_try_o.west);
+  \coordinate (norm_fail_R) at ([xshift=8mm]norm_try_s.east);
+  \coordinate (norm_loop_R) at ([xshift=18mm]norm_try_s.east);
+
+  % Обратная связь norm_rec_o -> norm_done (внешняя левая дуга)
+  \draw[flowline]
+    (norm_rec_o.west) -- (norm_loop_L |- norm_rec_o.west)
+    |- ([yshift=2mm]norm_done.west);
+
+  % "нет" от norm_ok_o -> norm_done (внутренняя левая дуга)
+  \draw[flowline]
+    (norm_ok_o.west) -- (norm_fail_L |- norm_ok_o.west)
+    node[flowlbl, above left]{нет}
+    |- ([yshift=-2mm]norm_done.south west);
+
+  % Обратная связь norm_rec_s -> norm_done (внешняя правая дуга)
+  \draw[flowline]
+    (norm_rec_s.east) -- (norm_loop_R |- norm_rec_s.east)
+    |- ([yshift=2mm]norm_done.east);
+
+  % "нет" от norm_ok_s -> norm_done (внутренняя правая дуга)
+  \draw[flowline]
+    (norm_ok_s.east) -- (norm_fail_R |- norm_ok_s.east)
+    node[flowlbl, above right]{нет}
+    |- ([yshift=-2mm]norm_done.south east);
+
+  % Завершение
+  \draw[flowline] (finalize) -- (ret);
 \end{tikzpicture}%

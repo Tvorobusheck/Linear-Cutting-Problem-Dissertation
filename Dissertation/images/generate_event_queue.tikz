@@ -15,8 +15,10 @@
   \node[flowproc, below left=16mm and 18mm of peq] (move) {Переместить тамбур\\из $\overline{\overline T}$ в $\overline T$};
   \node[flowproc, below right=16mm and 18mm of peq] (addr) {Добавить произведённые\\рулоны в $\overline T$ и $\overline{\overline T}$};
 
-  \node[flowstop, below=40mm of freeq] (ret) {Вернуть Hist};
+  % ret перенесён ниже и правее whileq
+  \node[flowstop, below right=16mm and 34mm of whileq] (ret) {Вернуть Hist};
 
+  % Основной поток
   \draw[flowline] (s) -- (init) -- (whileq);
   \draw[flowline] (whileq) -- node[flowlbl, right]{да} (avail);
   \draw[flowline] (avail) -- (freeq);
@@ -24,20 +26,44 @@
   \draw[flowline] (choose1) -- (typeq);
   \draw[flowline] (typeq) -- node[flowlbl, above left]{да} (slit);
   \draw[flowline] (typeq) -- node[flowlbl, above right]{нет} (make);
-  % slit -> whileq: внешняя левая дуга (offset -22mm)
-  \draw[flowline] (slit.south) -- ++(0,-6mm) -| ([xshift=-22mm]whileq.west) |- (whileq.west);
-  % make -> whileq: внутренняя левая дуга (offset -14mm)
-  \draw[flowline] (make.south) -- ++(0,-6mm) -| ([xshift=-14mm]whileq.west) |- ([yshift=-3mm]whileq.west);
 
   \draw[flowline] (freeq) -- node[flowlbl, above]{нет} (pop);
   \draw[flowline] (pop) -- (peq);
   \draw[flowline] (peq) -- node[flowlbl, above left]{да} (move);
   \draw[flowline] (peq) -- node[flowlbl, above right]{нет} (addr);
-  % move -> whileq: внутренняя правая дуга (offset +20mm)
-  \draw[flowline] (move.south) -- ++(0,-6mm) -| ([xshift=20mm]whileq.east) |- ([yshift=-3mm]whileq.east);
-  % addr -> whileq: внешняя правая дуга (offset +28mm)
-  \draw[flowline] (addr.south) -- ++(0,-6mm) -| ([xshift=28mm]whileq.east) |- (whileq.east);
 
-  % "нет" от whileq -> ret: выход через правую сторону с большим offset, чтобы не пересекать обратные дуги
-  \draw[flowline] (whileq.east) -- ++(34mm,0) node[flowlbl, above left]{нет} |- (ret.east);
+  % Опорные X-координаты для внешних обратных дуг
+  \coordinate (loopLoutX) at ([xshift=-18mm]slit.west);
+  \coordinate (loopLinX)  at ([xshift=-10mm]slit.west);
+  \coordinate (loopRinX)  at ([xshift=10mm]addr.east);
+  \coordinate (loopRoutX) at ([xshift=18mm]addr.east);
+
+  % slit -> whileq: внешняя левая дуга
+  \draw[flowline]
+    (slit.south) -- ++(0,-7mm) coordinate (slit_ret)
+    -| (loopLoutX |- slit_ret)
+    |- ([yshift=3mm]whileq.west);
+
+  % make -> whileq: внутренняя левая дуга
+  \draw[flowline]
+    (make.south) -- ++(0,-7mm) coordinate (make_ret)
+    -| (loopLinX |- make_ret)
+    |- ([yshift=-3mm]whileq.west);
+
+  % move -> whileq: внутренняя правая дуга
+  \draw[flowline]
+    (move.south) -- ++(0,-7mm) coordinate (move_ret)
+    -| (loopRinX |- move_ret)
+    |- ([yshift=-3mm]whileq.east);
+
+  % addr -> whileq: внешняя правая дуга
+  \draw[flowline]
+    (addr.south) -- ++(0,-7mm) coordinate (addr_ret)
+    -| (loopRoutX |- addr_ret)
+    |- ([yshift=3mm]whileq.east);
+
+  % Выход из цикла
+  \draw[flowline]
+    (whileq.east) -- ++(0,-10mm) node[flowlbl, above]{нет}
+    |- (ret);
 \end{tikzpicture}%
