@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners, align=center, minimum width=2.2cm, minimum height=0.85cm, font=\scriptsize},
+    arrow/.style={-Latex, semithick}
+]
+%        БДМ
+%         |  тамбуры
+%       Склады ---тамбуры---> ПРС ---рулоны---> Заказы
+%         |                    |
+%  рулоны для БРС        рулоны |
+%         |                    |
+%        БРС <--- рулоны ------+
+%         |
+%         +--- рулоны -----------------------> Заказы
+
+\node[box, fill=blue!10, font=\scriptsize\bfseries] at (0,1.5) (bdm) {Бумагоделательные\\машины};
+\node[box, fill=yellow!15, font=\scriptsize\bfseries] at (0,0) (sklad) {Склады};
+\node[box, fill=green!10, font=\scriptsize\bfseries] at (4,0) (prs) {Продольно-\\резательные станки};
+\node[box, fill=orange!10, font=\scriptsize\bfseries] at (7.5,0) (order) {Заказы};
+\node[box, fill=gray!10, font=\scriptsize\bfseries] at (0,-1.8) (brs) {Бобино-\\резательные станки};
+
+% БДМ → Склады
+\draw[arrow] (bdm) -- node[left, font=\scriptsize\bfseries] {тамбуры} (sklad);
+% Склады → ПРС
+\draw[arrow] (sklad) -- node[above, font=\scriptsize\bfseries] {тамбуры} (prs);
+% ПРС → Заказы
+\draw[arrow] (prs) -- node[above, font=\scriptsize\bfseries] {рулоны} (order);
+% ПРС → Склады (возврат рулонов для БРС, дуга снизу)
+\draw[arrow] (prs.south) -- ++(0,-0.6) -| node[below, font=\scriptsize\bfseries, pos=0.25] {рулоны для БРС} (sklad.south east);
+% Склады → БРС
+\draw[arrow] (sklad) -- node[left, font=\scriptsize\bfseries] {рулоны для БРС} (brs);
+% БРС → Заказы
+\draw[arrow] (brs.east) -| node[below, font=\scriptsize\bfseries, pos=0.2] {рулоны} (order.south);
+\end{tikzpicture}
