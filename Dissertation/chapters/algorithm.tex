@@ -24,15 +24,13 @@
 По завершении обеих фаз вызываются алгоритмы формирования плана производства~$\overline{\overline{X}}$ и~расписания~$\overline{\overline{Z}}$ (разделы~\ref{sec:alg/production_plans},~\ref{sec:alg/schedule}), после чего проверяется допустимость итогового плана.
 
 
-\FloatBarrier
-\begin{figure}[!htb]
+\begin{center}
     \resizebox{\textwidth}{!}{
         \input{Dissertation/images/full_enumeration.tikz}
     }
-    \legend{}
-    \caption{Блок-схема полного перебора (двухфазный вариант)}
+    \captionof{figure}{Блок-схема полного перебора (двухфазный вариант)}
     \label{alg:full_enum}
-\end{figure}
+\end{center}
 
 Пошаговое описание алгоритма полного перебора:
 \begin{enumerate}
@@ -69,15 +67,13 @@
 Сначала предпринимается попытка вставить рулон в~последний раскрой $Y_{j,|\overline{Y}_j|}$; если это невозможно (нарушается ограничение по~ширине или числу ножей), создаётся новый раскрой.
 При добавлении первого формата в~раскрой формируются мастер-рулоны: для малого заказа~--- слитые мастер-рулоны типа $\mathrm{SlittedMasterRoll}$ шириной ${w^c}_j$, для обычного~--- стандартные мастер-рулоны.
 Число мастер-рулонов равно числу слоёв~$l_o$ заказа.
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{\textwidth}{!}{%
     \input{Dissertation/images/add_plan_roll.tikz}
 }
-\caption{Блок-схемы процедур AddPlanRoll}
+\captionof{figure}{Блок-схемы процедур AddPlanRoll}
 \label{alg:add_plan_roll}
-\end{figure}
+\end{center}
 
 
 Пошаговое описание алгоритма $\mathrm{AddPlanRoll}(j, o)$:
@@ -89,14 +85,13 @@
   \item Если успешно, вернуть $\mathrm{True}$; иначе удалить $L_{\mathrm{new}}$ из~$\overline{Y}_j$ и~вернуть $\mathrm{False}$.
 \end{enumerate}
 
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{\textwidth}{!}{%
     \input{Dissertation/images/add_layout_roll.tikz}
 }
-\caption{Блок-схемы процедур AddLayoutRoll}
+\captionof{figure}{Блок-схемы процедур AddLayoutRoll}
 \label{alg:add_layout_roll}
-\end{figure}
+\end{center}
 
 Пошаговое описание алгоритма $\mathrm{AddLayoutRoll}(L, o, c_j)$:
 \begin{enumerate}
@@ -142,15 +137,13 @@ M_{\mathrm{comp}}(u) = \bigl\{\,m_i\in M : |{w^m}_i - w_u| < \varepsilon\,\bigr\
 и~случайным образом выбирается одна из~них.
 Мастер-рулон добавляется в~план производства выбранной БДМ.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{!}{0.8\textheight}{%
     \input{Dissertation/images/generate_pm_plans.tikz}
 }
-\caption{Блок-схема формирования плана производства $\overline{\overline X}$}
+\captionof{figure}{Блок-схема формирования плана производства $\overline{\overline X}$}
 \label{alg:generate_pm_plans}
-\end{figure}
+\end{center}
 
 Пошаговое описание алгоритма $\mathrm{GenerateProductionPlan}$:
 \begin{enumerate}
@@ -200,15 +193,13 @@ M_{\mathrm{comp}}(u) = \bigl\{\,m_i\in M : |{w^m}_i - w_u| < \varepsilon\,\bigr\
 Если хотя~бы одна машина доступна, случайным образом выбирается тип операции и~машина; операция назначается с~текущим временем~$t$, вычисляется её длительность и~обновляется состояние складов.
 Если ни~одна машина не~доступна, из~очереди $\mathcal{E}$ извлекается ближайшая завершающаяся операция, время сдвигается к~$\overline{h}$ этой операции, и~склады обновляются.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{0.98\textwidth}{!}{%
     \input{Dissertation/images/generate_event_queue.tikz}
 }
-\caption{Блок-схема формирования расписания}
+\captionof{figure}{Блок-схема формирования расписания}
 \label{alg:generate_event_queue}
-\end{figure}
+\end{center}
 
 Пошаговое описание алгоритма $\mathrm{GenerateEventQueue}$:
 \begin{enumerate}
@@ -268,15 +259,13 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
 После распределения малых заказов собираются слитые мастер-рулоны~$\mathcal{S}$ из~раскроев БРС.
 Далее обычные заказы и~$\mathcal{S}$ объединяются, перемешиваются и~распределяются аналогично.
 По~завершении вызываются $\mathrm{GenerateProductionPlan}$ и, если задан временной горизонт, $\mathrm{GenerateEventQueue}$.
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{!}{0.8\textheight}{%
     \input{Dissertation/images/random_global_plan.tikz}
 }
-\caption{Блок-схема формирования случайного глобального плана}
+\captionof{figure}{Блок-схема формирования случайного глобального плана}
 \label{alg:random_global_plan}
-\end{figure}
+\end{center}
 
 Пошаговое описание алгоритма $\mathrm{RandomGlobalPlan}$:
 \begin{enumerate}
@@ -326,9 +315,7 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
 Он создаёт копию плана, случайным образом перемешивает форматы $y_{j,k,\ell}$ внутри каждого раскроя $Y_{j,k}$, а~затем перемешивает порядок самих раскроев.
 Перестановки не~меняют набор выполненных заказов, но~влияют на~число перестановок ножей~$\tau(\overline{\overline{Y}})$, поскольку оно зависит от~порядка форматов в~смежных раскроях.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
   \node[flowstart] (s) {Старт\\Mutate$(\overline Y_j)$};
   \node[flowproc, below=of s] (copy) {Скопировать план:\\$newY\leftarrow \overline Y_j$};
@@ -337,9 +324,9 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
   \node[flowstop, below=of sh2] (ret) {Вернуть $newY$};
   \draw[flowline] (s) -- (copy) -- (sh1) -- (sh2) -- (ret);
 \end{tikzpicture}
-\caption{Блок-схема локальной мутации плана нарезки}
+\captionof{figure}{Блок-схема локальной мутации плана нарезки}
 \label{alg:mutate}
-\end{figure}
+\end{center}
 
 Сложность $\mathrm{Mutate}$: $O(|\overline{Y}_j|+R_j)$, где $R_j$~--- суммарное число форматов в~плане станка~$j$.
 
@@ -347,9 +334,7 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
 Новый план принимается только если $\mu(G')<\mu(G)$; в~противном случае возвращается исходный план.
 Это гарантирует, что мутация не~ухудшает решение.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
   \node[flowstart] (s) {Старт\\GlobalMutate$(G)$};
   \node[flowproc, below=of s] (copy) {Скопировать глобальный план:\\$newG\leftarrow G$};
@@ -363,18 +348,16 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
   \draw[flowline] (cmp) -- node[flowlbl, above left]{да} (ret1);
   \draw[flowline] (cmp) -- node[flowlbl, above right]{нет} (ret2);
 \end{tikzpicture}
-\caption{Блок-схема глобальной мутации}
+\captionof{figure}{Блок-схема глобальной мутации}
 \label{alg:global_mutate}
-\end{figure}
+\end{center}
 
 Сложность $\mathrm{GlobalMutate}$: $O(R + T_X + T_Z)$, где $T_X=O(N_Y\cdot L_{\max}\cdot I)$ и~$T_Z=O(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}))$~--- стоимости формирования плана производства и~расписания соответственно.
 
 Оператор $\mathrm{Crossingover}$ реализован как парный отбор: из~двух планов выбирается лучший по~$\mu(G)$.
 Классический кроссинговер (обмен частями хромосом) не~применяется, поскольку он порождает недопустимые решения из-за~нарушения связей между компонентами $\overline{\overline{X}}$, $\overline{\overline{Y}}$ и~$\overline{\overline{Z}}$ \cite{kureichik1998,genetics_2}.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
   \node[flowstart] (s) {Старт\\Crossingover$(G_1,G_2)$};
   \node[flowdec, below=of s] (cmp) {$\mu(G_1)<\mu(G_2)$?};
@@ -384,9 +367,9 @@ T_{\mathrm{sched}} = O\bigl(N_{\mathrm{ops}}\cdot(I+J+\log N_{\mathrm{ops}}+K)\b
   \draw[flowline] (cmp) -- node[flowlbl, above left]{да} (ret1);
   \draw[flowline] (cmp) -- node[flowlbl, above right]{нет} (ret2);
 \end{tikzpicture}
-\caption{Блок-схема оператора отбора}
+\captionof{figure}{Блок-схема оператора отбора}
 \label{alg:crossingover}
-\end{figure}
+\end{center}
 
 
 Сложность $\mathrm{Crossingover}$: $O(1)$ (сравнение двух векторов фиксированной размерности).
@@ -421,15 +404,13 @@ $Y'_{1,1}:\{(20,2),\,(20,2)\}$, $Y'_{1,2}:\{(40,4),\,(20,2)\}$, $Y'_{1,3}:\{(50,
 На~каждой итерации выполняются два этапа: (1)~глобальная мутация каждой особи и (2)~парный отбор, уменьшающий размер популяции вдвое.
 Итерации продолжаются до~$|S_t|=1$.
 
-\FloatBarrier
-\begin{figure}[!htb]
-\centering
+\begin{center}
 \resizebox{0.92\textwidth}{!}{%
     \input{Dissertation/images/genetic_search.tikz}
 }
-\caption{Блок-схема генетического поиска}
+\captionof{figure}{Блок-схема генетического поиска}
 \label{alg:genetic_search}
-\end{figure}
+\end{center}
 
 Поскольку $\mathrm{GlobalMutate}$ не~ухудшает решение, а~$\mathrm{Crossingover}$ выбирает лучшее из~пары, итоговый план $S_{t,1}$ не~хуже любого плана из~начальной популяции~$S_0$.
 
