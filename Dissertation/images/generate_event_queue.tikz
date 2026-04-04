@@ -1,6 +1,6 @@
 \begin{tikzpicture}[node distance=8mm and 10mm, font=\small]
   \node[flowstart] (s) {Старт\\GenerateEventQueue$(G)$};
-  \node[flowproc, below=of s] (init) {Инициализировать $t=H$, счётчики $z_j,x_i$,\\моменты $\lambda_j,\lambda'_i$, склады $\overline T$, $\overline{\overline T}$,\\очередь событий $\mathcal E$ и историю Hist};
+  \node[flowproc, below=of s] (init) {Инициализировать $t=H$, счётчики $z_j,x_i$,\\моменты $\lambda_j,\lambda'_i$, склады $\overline T$, $\overline{\overline T}$,\\очередь событий $\mathcal E$ и историю $\overline{\overline{Z}}$};
   \node[flowdec, below=of init] (whileq) {Есть невыполненные\\операции или\\$\mathcal E\neq\emptyset$?};
   \node[flowproc, below=of whileq] (avail) {Построить множества доступных\\$C_{\mathrm{avail}}(t)$ и $M_{\mathrm{avail}}(t)$};
   \node[flowdec, below=of avail] (freeq) {$C_{\mathrm{avail}}\neq\emptyset$\\или $M_{\mathrm{avail}}\neq\emptyset$?};
@@ -10,13 +10,13 @@
   \node[flowproc, below left=18mm and 20mm of typeq] (slit) {Удалить мастер-рулоны\\раскроя из $\overline T$ и $\overline{\overline T}$,\\вычислить $\tau$, поместить событие\\$(t,t+\tau,1,j,z_j,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda_j$ и $z_j$};
   \node[flowproc, below right=18mm and 20mm of typeq] (make) {Вычислить $\tau$, поместить событие\\$(t,t+\tau,0,i,x_i,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda'_i$ и $x_i$,\\поместить $X_{i,x_i}$ в $\overline{\overline T}$};
 
-  \node[flowproc, right=40mm of freeq] (pop) {Извлечь из $\mathcal E$ событие\\с минимальным временем окончания,\\сдвинуть $t$, добавить событие в Hist};
+  \node[flowproc, right=40mm of freeq] (pop) {Извлечь из $\mathcal E$ событие\\с минимальным временем окончания,\\сдвинуть $t$, добавить операцию в $\overline{\overline{Z}}$};
   \node[flowdec, below=of pop] (peq) {$e(Z)=0$?};
   \node[flowproc, below left=16mm and 18mm of peq] (move) {Переместить тамбур\\из $\overline{\overline T}$ в $\overline T$};
   \node[flowproc, below right=16mm and 18mm of peq] (addr) {Добавить произведённые\\рулоны в $\overline T$ и $\overline{\overline T}$};
 
   % ret перенесён ниже и правее whileq
-  \node[flowstop, below right=16mm and 34mm of whileq] (ret) {Вернуть Hist};
+  \node[flowstop, below right=16mm and 34mm of whileq] (ret) {Вернуть $\overline{\overline{Z}}$};
 
   % Основной поток
   \draw[flowline] (s) -- (init) -- (whileq);
