@@ -52,28 +52,28 @@
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[
-        node distance=8mm and 12mm,
+        node distance=6mm and 15mm,
         comp/.style={draw, rounded corners, align=center, minimum width=3.2cm, minimum height=0.9cm},
         arrow/.style={-Latex, thick}
     ]
         \node[comp, fill=green!10] (genetic) {GeneticSearch};
-        \node[comp, fill=green!10, right=of genetic] (mutation) {GlobalMutate};
-        \node[comp, fill=green!10, right=of mutation] (cross) {Crossingover};
-        \node[comp, fill=green!10, below=of genetic] (enum) {FullEnumeration};
-        \node[comp, fill=green!10, right=of enum] (builder) {CuttingPlansBuilder};
-        \node[comp, fill=green!10, right=of builder] (queue) {EventQueueBuilder};
-
-        \node[comp, fill=blue!10, below=of enum] (globalplan) {GlobalPlan};
-        \node[comp, fill=blue!10, right=of globalplan] (cuttingplan) {CuttingPlan / Layout};
-        \node[comp, fill=blue!10, right=of cuttingplan] (makingplan) {MakingPlan};
-        \node[comp, fill=blue!10, below=of globalplan] (problem) {Problem};
-        \node[comp, fill=blue!10, right=of problem] (rolls) {Rolls / Orders};
-        \node[comp, fill=blue!10, right=of rolls] (machines) {Machines / Storage};
-
-        \draw[arrow] (genetic) -- (mutation);
-        \draw[arrow] (genetic) -- (cross);
-        \draw[arrow] (enum) -- (builder);
-        \draw[arrow] (genetic) -- (builder);
+        \node[comp, fill=green!10, left=of genetic] (mutation) {GlobalMutate};
+        \node[comp, fill=green!10, right=of genetic] (cross) {Crossingover}; 
+         \node[comp, fill=green!10, below=of genetic] (builder) {CuttingPlansBuilder};
+         \node[comp, fill=green!10, left=of builder] (enum) {FullEnumeration};
+         \node[comp, fill=green!10, right=of builder] (queue) {EventQueueBuilder};
+ 
+         \node[comp, fill=blue!10, below=of builder] (globalplan) {GlobalPlan};
+         \node[comp, fill=blue!10, right=of globalplan] (cuttingplan) {CuttingPlan / Layout};
+         \node[comp, fill=blue!10, below=of globalplan] (problem) {Problem};
+         \node[comp, fill=blue!10, left=of problem] (makingplan) {MakingPlan};
+         \node[comp, fill=blue!10, below=of problem] (rolls) {Rolls / Orders};
+         \node[comp, fill=blue!10, right=of rolls] (machines) {Machines / Storage};
+ 
+         \draw[arrow] (genetic) -- (mutation);
+         \draw[arrow] (genetic) -- (cross);
+         \draw[arrow] (enum) -- (builder);
+         \draw[arrow] (genetic) -- (builder);
         \draw[arrow] (builder) -- (globalplan);
         \draw[arrow] (queue) -- (globalplan);
 
