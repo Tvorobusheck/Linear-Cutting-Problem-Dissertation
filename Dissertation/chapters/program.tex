@@ -16,11 +16,10 @@
         arrow/.style={-Latex, thick}
     ]
         \node[box, fill=blue!10] (system) {\textbf{Система оптимизации раскроя}\\\footnotesize{Python-приложение}};
-        \node[actor, left=of system] (user) {\textbf{Инженер-планировщик}\\\footnotesize{задает входные данные}};
-        \node[actor, right=of system] (files) {\textbf{Файловая система}\\\footnotesize{CSV/Excel}};
-        \draw[arrow] (user) -- node[above]{\footnotesize параметры и команды} (system);
-        \draw[arrow] (system) -- node[above]{\footnotesize отчеты и планы} (files);
-        \draw[arrow] (files) -- node[below]{\footnotesize входные данные} (system);
+        \node[actor, above=of system] (user) {\textbf{Инженер-планировщик}\\\footnotesize{задает входные данные}};
+        \node[actor, below=of system] (files) {\textbf{Файловая система}\\\footnotesize{CSV/Excel}};
+        \draw[arrow] (user) -- node[right]{\footnotesize параметры и команды} (system);
+        \draw[arrow] (system) -- node[right]{\footnotesize отчеты и планы} (files);
     \end{tikzpicture}
     \caption{Контекст системы: акторы и внешние связи}
     \label{fig:c4-context}
