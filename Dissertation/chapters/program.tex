@@ -101,41 +101,44 @@
 На рис.~\ref{fig:c4-component} приведены ключевые компоненты алгоритмического ядра (\textit{GeneticSearch}, \textit{GlobalMutate}, \textit{Crossingover}, \textit{FullEnumeration}, \textit{CuttingPlansBuilder}, \textit{EventQueueBuilder}) и модельного слоя (\textit{Problem}, \textit{GlobalPlan}, \textit{CuttingPlan}, \textit{CuttingLayout}, \textit{MakingPlan}, \textit{Order/Roll}, \textit{Storage/StorageState}, \textit{EventQueue}).
 
 Сопоставление сущностей математической модели и классов реализации приведено в таблице~\ref{tab:model_mapping}.
-\begin{table}[htbp]
-    \centering
-    \begin{threeparttable}
-        \caption{Сопоставление сущностей математической модели и классов программной реализации}
-        \label{tab:model_mapping}
-        \begin{tabular}{|p{3.4cm}|p{3.2cm}|p{4.2cm}|p{4.2cm}|}
-            \hline
-            \textbf{Сущность мат.
+\begin{longtable}{|p{3.4cm}|p{3.2cm}|p{4.2cm}|p{4.2cm}|}
+    \caption{Сопоставление сущностей математической модели и классов программной реализации}\label{tab:model_mapping}\\
+    \hline
+    \textbf{Сущность мат.
 модели} & \textbf{Символ} & \textbf{Класс/модуль} & \textbf{Комментарий} \\
-            \hline
-            Заказы & $O=\{o_i\}$ & \texttt{RollOrder} (models/order.py) & Экземпляр заказа с шириной, количеством, плотностью, маркой, слоями и дедлайном.\\
-            \hline
-            БДМ & $M=\{m_i\}$ & \texttt{PaperMakingMachine} (models/pm\_machine.py) & Параметры БДМ: ширина, скорость, смена плотности.\\
-            \hline
-            ПРС/БРС & $C=\{c_i\}$ & \texttt{SlittingMachine} (models/slitting\_machine.py) & Параметры раскроя: ширина, ножи, скорость, смена ножей, тип (small/normal).\\
-            \hline
-            Склады & $T=\{t_i\}$ & \texttt{Storage}, \texttt{StorageState} (models/storage.py) & Складские ограничения по ширине и вместимости, состояние запасов.\\
-            \hline
-            Тамбуры/рулоны & $X_{i,j}$, $y_{i,j,k}$ & \texttt{MasterRoll}, \texttt{SlittedRoll}, \texttt{SlittedMasterRoll} (models/roll.py) & Представление тамбуров и конечных рулонов; тип определяет, где используется.\\
-            \hline
-            План производства БДМ & $\overline{\overline{X}}$ & \texttt{MakingPlan} (models/making\_plan.py) & Последовательность тамбуров для БДМ.\\
-            \hline
-            План раскроя ПРС & $\overline{\overline{Y}}$ & \texttt{CuttingPlan} (models/cutting\_plan.py) & Содержит набор раскроев (layouts) для станка.\\
-            \hline
-            Раскрой & $Y_{i,j}$ & \texttt{CuttingLayout} (models/cutting\_layout.py) & Конкретный набор форматов в одном раскрое.\\
-            \hline
-            Расписание & $\overline{\overline{Z}}$ & \texttt{GlobalPlanEvent} + наследники (models/event\_queue.py) & Расписание операций раскроя/производства.\\
-            \hline
-            Глобальный план & $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$ & \texttt{GlobalPlan} (models/global\_plan.py) & Центральный объект решения: планы раскроя, производства, события.\\
-            \hline
-            Постановка задачи & --- & \texttt{Problem} (models/problem.py) & Агрегирует заказы, машины, ограничения по времени и складам.\\
-            \hline
-        \end{tabular}
-    \end{threeparttable}
-\end{table}
+    \hline
+    \endfirsthead
+    \caption[]{Сопоставление сущностей математической модели и классов программной реализации (продолжение)}\\
+    \hline
+    \textbf{Сущность мат.
+модели} & \textbf{Символ} & \textbf{Класс/модуль} & \textbf{Комментарий} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    Заказы & $O=\{o_i\}$ & \texttt{RollOrder} (models/order.py) & Экземпляр заказа с шириной, количеством, плотностью, маркой, слоями и дедлайном.\\
+    \hline
+    БДМ & $M=\{m_i\}$ & \texttt{PaperMakingMachine} (models/pm\_machine.py) & Параметры БДМ: ширина, скорость, смена плотности.\\
+    \hline
+    ПРС/БРС & $C=\{c_i\}$ & \texttt{SlittingMachine} (models/slitting\_machine.py) & Параметры раскроя: ширина, ножи, скорость, смена ножей, тип (small/normal).\\
+    \hline
+    Склады & $T=\{t_i\}$ & \texttt{Storage}, \texttt{StorageState} (models/storage.py) & Складские ограничения по ширине и вместимости, состояние запасов.\\
+    \hline
+    Тамбуры/рулоны & $X_{i,j}$, $y_{i,j,k}$ & \texttt{MasterRoll}, \texttt{SlittedRoll}, \texttt{SlittedMasterRoll} (models/roll.py) & Представление тамбуров и конечных рулонов; тип определяет, где используется.\\
+    \hline
+    План производства БДМ & $\overline{\overline{X}}$ & \texttt{MakingPlan} (models/making\_plan.py) & Последовательность тамбуров для БДМ.\\
+    \hline
+    План раскроя ПРС & $\overline{\overline{Y}}$ & \texttt{CuttingPlan} (models/cutting\_plan.py) & Содержит набор раскроев (layouts) для станка.\\
+    \hline
+    Раскрой & $Y_{i,j}$ & \texttt{CuttingLayout} (models/cutting\_layout.py) & Конкретный набор форматов в одном раскрое.\\
+    \hline
+    Расписание & $\overline{\overline{Z}}$ & \texttt{GlobalPlanEvent} + наследники (models/event\_queue.py) & Расписание операций раскроя/производства.\\
+    \hline
+    Глобальный план & $G=(\overline{\overline{X}},\overline{\overline{Y}},\overline{\overline{Z}})$ & \texttt{GlobalPlan} (models/global\_plan.py) & Центральный объект решения: планы раскроя, производства, события.\\
+    \hline
+    Постановка задачи & --- & \texttt{Problem} (models/problem.py) & Агрегирует заказы, машины, ограничения по времени и складам.\\
+    \hline
+\end{longtable}
 
 На уровне кода классы и функции сгруппированы по папкам:
 \texttt{models/} --- классы предметной области,
