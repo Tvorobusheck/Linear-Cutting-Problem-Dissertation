@@ -33,11 +33,28 @@
 
 
 \begin{center}
-    \resizebox{\textwidth}{!}{
-        \input{Dissertation/images/full_enumeration.tikz}
+    \resizebox{\textwidth}{!}
+    {
+      \input{Dissertation/images/full_enumeration_overview.tikz}
     }
-    \captionof{figure}{Блок-схема полного перебора (двухфазный вариант)}
+    \captionof{figure}{Блок-схема полного перебора: общая структура}
     \label{alg:full_enum}
+\end{center}
+
+\begin{center}
+    \resizebox{\textwidth}{!}
+    {
+      \input{Dissertation/images/full_enumeration_phase1.tikz}
+    }
+    \captionof{figure}{Блок-схема полного перебора: фаза~1 (малые заказы)}
+\end{center}
+
+\begin{center}
+    \resizebox{\textwidth}{!}
+    {
+      \input{Dissertation/images/full_enumeration_phase2.tikz}
+    }
+    \captionof{figure}{Блок-схема полного перебора: фаза~2 (обычные заказы и~$\mathcal{S}$)}
 \end{center}
 
 Пошаговое описание алгоритма полного перебора:

@@ -1,0 +1,25 @@
+\begin{tikzpicture}[node distance=8mm and 10mm, font=\large]
+  \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
+
+  \node[flowproc] (enumsmall) {\textbf{Фаза 1:}\\EnumerateSmall$(G)$};
+  \node[flowdec, below=of enumsmall] (small_done) {Все малые\\заказы\\выполнены?};
+  \node[flowproc, below left=14mm and 24mm of small_done] (small_try) {Выбрать невыполненный $o\in O^{\mathrm{small}}$\\и совместимый $c_j$,\\создать копию $G'$,\\вызвать AddPlanRoll};
+  \node[flowproc, below right=14mm and 24mm of small_done] (collects) {Собрать слитые\\мастер-рулоны $\mathcal S$\\из раскроев БРС};
+  \node[flowdec, below=of small_try] (small_ok) {AddPlanRoll\\успешен?};
+  \node[flowproc, below=of small_ok] (small_rec) {Рекурсивно вызвать\\EnumerateSmall$(G')$\\и обновить лучший план};
+  \node[flowstop, below=18mm of collects] (ret1) {Вернуть $\mathcal S$\\и частичный лучший план};
+
+  \draw[flowline] (enumsmall) -- (small_done);
+  \draw[flowline] (small_done) -- node[flowlbl, above left]{нет} (small_try);
+  \draw[flowline] (small_done) -- node[flowlbl, above right]{да} (collects);
+  \draw[flowline] (small_try) -- (small_ok);
+  \draw[flowline] (small_ok) -- node[flowlbl, right]{да} (small_rec);
+
+  % Обратная связь small_rec -> small_done
+  \draw[flowline] (small_rec.west) -- ++(-18mm,0) |- (small_done.west);
+
+  % "нет" от small_ok -> small_done
+  \draw[flowline] (small_ok.west) -- ++(-12mm,0) node[flowlbl, above right]{нет} |- ([yshift=-2mm]small_done.south west);
+
+  \draw[flowline] (collects) -- (ret1);
+\end{tikzpicture}%

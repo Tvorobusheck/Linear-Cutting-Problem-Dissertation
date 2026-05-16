@@ -1,0 +1,59 @@
+\begin{tikzpicture}[node distance=8mm and 10mm, font=\large]
+  \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
+
+  \node[flowproc] (enumnorm0) {\textbf{Фаза 2:}\\EnumerateNormal$(G,\mathcal S)$};
+  \node[flowdec, below=of enumnorm0] (norm_done) {Все обычные заказы\\выполнены и\\$\mathcal S=\emptyset$?};
+
+  \node[flowproc, below left=14mm and 26mm of norm_done] (norm_try_o) {Выбрать невыполненный\\$o\in O^{\mathrm{norm}}$ и\\совместимый $c_j$,\\создать $G'$,\\вызвать AddPlanRoll};
+  \node[flowproc, below right=14mm and 26mm of norm_done] (norm_try_s) {Выбрать $s\in\mathcal S$\\и совместимый $c_j$,\\создать $G'$,\\вызвать AddPlanRoll};
+
+  \node[flowdec, below=of norm_try_o] (norm_ok_o) {AddPlanRoll\\для $o$\\успешен?};
+  \node[flowdec, below=of norm_try_s] (norm_ok_s) {AddPlanRoll\\для $s$\\успешен?};
+
+  \node[flowproc, below=of norm_ok_o] (norm_rec_o) {Рекурсивно вызвать\\EnumerateNormal$(G',\mathcal S)$\\и обновить лучший план};
+  \node[flowproc, below=of norm_ok_s] (norm_rec_s) {Рекурсивно вызвать\\EnumerateNormal$(G',\mathcal S\setminus\{s\})$\\и обновить лучший план};
+
+  \node[flowproc, below=26mm of norm_done] (finalize) {Finalize$(G)$:\\сформировать $\overline{\overline X}$, $\overline{\overline Z}$\\и проверить допустимость};
+  \node[flowstop, below=of finalize] (ret) {Вернуть лучший\\допустимый план};
+
+  \draw[flowline] (enumnorm0) -- (norm_done);
+  \draw[flowline] (norm_done.south) -- (finalize.north) node[flowlbl, pos=0.05, right]{да};
+
+  \draw[flowline] (norm_done) -- node[flowlbl, above left]{нет, есть $o$} (norm_try_o);
+  \draw[flowline] (norm_done) -- node[flowlbl, above right]{нет, есть $s$} (norm_try_s);
+  \draw[flowline] (norm_try_o) -- (norm_ok_o);
+  \draw[flowline] (norm_try_s) -- (norm_ok_s);
+  \draw[flowline] (norm_ok_o) -- node[flowlbl, right]{да} (norm_rec_o);
+  \draw[flowline] (norm_ok_s) -- node[flowlbl, right]{да} (norm_rec_s);
+
+  % Вспомогательные координаты для чистой трассировки обратных дуг
+  \coordinate (norm_fail_L) at ([xshift=-8mm]norm_try_o.west);
+  \coordinate (norm_loop_L) at ([xshift=-18mm]norm_try_o.west);
+  \coordinate (norm_fail_R) at ([xshift=8mm]norm_try_s.east);
+  \coordinate (norm_loop_R) at ([xshift=18mm]norm_try_s.east);
+
+  % Обратная связь norm_rec_o -> norm_done (внешняя левая дуга)
+  \draw[flowline]
+    (norm_rec_o.west) -- (norm_loop_L |- norm_rec_o.west)
+    |- ([yshift=2mm]norm_done.west);
+
+  % "нет" от norm_ok_o -> norm_done (внутренняя левая дуга)
+  \draw[flowline]
+    (norm_ok_o.west) -- (norm_fail_L |- norm_ok_o.west)
+    node[flowlbl, above left]{нет}
+    |- ([yshift=-2mm]norm_done.south west);
+
+  % Обратная связь norm_rec_s -> norm_done (внешняя правая дуга)
+  \draw[flowline]
+    (norm_rec_s.east) -- (norm_loop_R |- norm_rec_s.east)
+    |- ([yshift=2mm]norm_done.east);
+
+  % "нет" от norm_ok_s -> norm_done (внутренняя правая дуга)
+  \draw[flowline]
+    (norm_ok_s.east) -- (norm_fail_R |- norm_ok_s.east)
+    node[flowlbl, above right]{нет}
+    |- ([yshift=-2mm]norm_done.south east);
+
+  % Завершение
+  \draw[flowline] (finalize) -- (ret);
+\end{tikzpicture}%

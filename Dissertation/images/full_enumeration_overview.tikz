@@ -1,0 +1,16 @@
+\begin{tikzpicture}[node distance=8mm and 10mm, font=\large]
+  \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
+  \tikzset{flowproc/.append style={text width=46mm}}
+
+  \node[flowstart] (s) {Старт\\FullEnumeration$(O,C,M)$};
+  \node[flowproc, below=of s] (init) {Инициализировать пустой глобальный план $G_0$};
+  \node[flowdec, below=of init] (smallq) {Есть малые\\заказы?};
+
+  \node[flowproc, below left=14mm and 26mm of smallq] (enumsmall) {\textbf{Фаза 1:}\\EnumerateSmall$(G)$};
+  \node[flowproc, below right=14mm and 26mm of smallq] (enumnorm0) {\textbf{Фаза 2:}\\EnumerateNormal$(G,\emptyset)$};
+
+  \draw[flowline] (s) -- (init) -- (smallq);
+  \draw[flowline] (smallq) -- node[flowlbl, above left]{да} (enumsmall);
+  \draw[flowline] (smallq) -- node[flowlbl, above right]{нет} (enumnorm0);
+  \draw[flowline] (enumsmall.east) -- (enumnorm0.west);
+\end{tikzpicture}%
