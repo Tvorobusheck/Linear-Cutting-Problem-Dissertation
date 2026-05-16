@@ -1,19 +1,22 @@
-\begin{tikzpicture}[node distance=8mm and 10mm, font=\small]
+\begin{tikzpicture}[node distance=6mm and 8mm, font=\large]
+  \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
+  \tikzset{flowproc/.append style={text width=95mm, minimum height=7mm}}
+  \tikzset{flowdec/.append style={text width=42mm}}
   \node[flowstart] (s) {Старт\\GenerateEventQueue$(G)$};
   \node[flowproc, below=of s] (init) {Инициализировать $t=H$, счётчики $z_j,x_i$,\\моменты $\lambda_j,\lambda'_i$, склады $\overline T$, $\overline{\overline T}$,\\расписание $\mathcal E$ и историю $\overline{\overline{Z}}$};
   \node[flowdec, below=of init] (whileq) {Есть невыполненные\\операции или\\$\mathcal E\neq\emptyset$?};
   \node[flowproc, below=of whileq] (avail) {Построить множества доступных\\$C_{\mathrm{avail}}(t)$ и $M_{\mathrm{avail}}(t)$};
   \node[flowdec, below=of avail] (freeq) {$C_{\mathrm{avail}}\neq\emptyset$\\или $M_{\mathrm{avail}}\neq\emptyset$?};
 
-  \node[flowproc, below left=18mm and 26mm of freeq] (choose1) {Случайно выбрать тип\\операции и машину};
+  \node[flowproc, below left=14mm and 22mm of freeq] (choose1) {Случайно выбрать тип\\операции и машину};
   \node[flowdec, below=of choose1] (typeq) {$e=1$\\(нарезка)?};
-  \node[flowproc, below left=18mm and 20mm of typeq] (slit) {Удалить мастер-рулоны\\раскроя из $\overline T$ и $\overline{\overline T}$,\\вычислить $\tau$, поместить операцию\\$(t,t+\tau,1,j,z_j,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda_j$ и $z_j$};
-  \node[flowproc, below right=18mm and 20mm of typeq] (make) {Вычислить $\tau$, поместить операцию\\$(t,t+\tau,0,i,x_i,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda'_i$ и $x_i$,\\поместить $X_{i,x_i}$ в $\overline{\overline T}$};
+  \node[flowproc, below left=14mm and 18mm of typeq] (slit) {Удалить мастер-рулоны\\раскроя из $\overline T$ и $\overline{\overline T}$,\\вычислить $\tau$, поместить операцию\\$(t,t+\tau,1,j,z_j,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda_j$ и $z_j$};
+  \node[flowproc, below right=14mm and 18mm of typeq] (make) {Вычислить $\tau$, поместить операцию\\$(t,t+\tau,0,i,x_i,\overline T,\overline{\overline T})$ в $\mathcal E$,\\обновить $\lambda'_i$ и $x_i$,\\поместить $X_{i,x_i}$ в $\overline{\overline T}$};
 
-  \node[flowproc, right=40mm of freeq] (pop) {Извлечь из $\mathcal E$ операцию\\с минимальным временем окончания,\\сдвинуть $t$, добавить операцию в $\overline{\overline{Z}}$};
+  \node[flowproc, right=34mm of freeq] (pop) {Извлечь из $\mathcal E$ операцию\\с минимальным временем окончания,\\сдвинуть $t$, добавить операцию в $\overline{\overline{Z}}$};
   \node[flowdec, below=of pop] (peq) {$e(Z)=0$?};
-  \node[flowproc, below left=16mm and 18mm of peq] (move) {Переместить тамбур\\из $\overline{\overline T}$ в $\overline T$};
-  \node[flowproc, below right=16mm and 18mm of peq] (addr) {Добавить произведённые\\рулоны в $\overline T$ и $\overline{\overline T}$};
+  \node[flowproc, below left=12mm and 16mm of peq] (move) {Переместить тамбур\\из $\overline{\overline T}$ в $\overline T$};
+  \node[flowproc, below right=12mm and 16mm of peq] (addr) {Добавить произведённые\\рулоны в $\overline T$ и $\overline{\overline T}$};
 
   % ret перенесён ниже и правее whileq
   \node[flowstop, below right=16mm and 34mm of whileq] (ret) {Вернуть $\overline{\overline{Z}}$};
@@ -40,30 +43,30 @@
 
   % slit -> whileq: внешняя левая дуга
   \draw[flowline]
-    (slit.south) -- ++(0,-7mm) coordinate (slit_ret)
+    (slit.south) -- ++(0,-5mm) coordinate (slit_ret)
     -| (loopLoutX |- slit_ret)
     |- (whileq.west);
 
   % make -> whileq: внутренняя левая дуга
   \draw[flowline]
-    (make.south) -- ++(0,-17mm) coordinate (make_ret)
+    (make.south) -- ++(0,-12mm) coordinate (make_ret)
     -| (loopLinX |- make_ret)
     |- ([yshift=6mm]whileq.west);
 
   % move -> whileq: внутренняя правая дуга
   \draw[flowline]
-    (move.south) -- ++(0,-17mm) coordinate (move_ret)
+    (move.south) -- ++(0,-12mm) coordinate (move_ret)
     -| (loopRinX |- move_ret)
     |- ([yshift=6mm]whileq.east);
 
   % addr -> whileq: внешняя правая дуга
   \draw[flowline]
-    (addr.south) -- ++(0,-7mm) coordinate (addr_ret)
+    (addr.south) -- ++(0,-3mm) coordinate (addr_ret)
     -| (loopRoutX |- addr_ret)
     |- (whileq.east);
 
   % Выход из цикла
   \draw[flowline]
-    (whileq.east) -- ++(0,-10mm) node[flowlbl, above]{нет}
+    (whileq.east) -- ++(0,-7mm) node[flowlbl, above]{нет}
     |- (ret);
 \end{tikzpicture}%
