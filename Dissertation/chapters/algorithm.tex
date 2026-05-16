@@ -395,19 +395,9 @@ T_{\mathrm{plan}} = O(R\cdot J\cdot n^c_{\max}) + O(N_Y\cdot L_{\max}\cdot I) + 
 Это гарантирует, что мутация не~ухудшает решение.
 
 \begin{center}
-\begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
-  \node[flowstart] (s) {Старт\\GlobalMutate$(G)$};
-  \node[flowproc, below=of s] (copy) {Скопировать глобальный план:\\$newG\leftarrow G$};
-  \node[flowproc, below=of copy] (mut) {Для каждого $j=1,\ldots,J$\\заменить $newG.Y_j$ на\\Mutate$(newG.Y_j)$};
-  \node[flowproc, below=of mut] (prod) {Пересоздать план производства\\$newG.X=\mathrm{GenerateProductionPlan}(newG.Y,M)$};
-  \node[flowproc, below=of prod] (sched) {Пересоздать расписание\\$newG.Z=\mathrm{GenerateEventQueue}(newG)$};
-  \node[flowdec, below=of sched] (cmp) {$\mu(newG)<\mu(G)$?};
-  \node[flowstop, below left=16mm and 20mm of cmp] (ret1) {Вернуть $newG$};
-  \node[flowstop, below right=16mm and 20mm of cmp] (ret2) {Вернуть $G$};
-  \draw[flowline] (s) -- (copy) -- (mut) -- (prod) -- (sched) -- (cmp);
-  \draw[flowline] (cmp) -- node[flowlbl, above left]{да} (ret1);
-  \draw[flowline] (cmp) -- node[flowlbl, above right]{нет} (ret2);
-\end{tikzpicture}
+\resizebox{!}{0.8\textheight}{%
+    \input{Dissertation/images/global_mutate.tikz}
+}
 \captionof{figure}{Блок-схема глобальной мутации}
 \label{alg:global_mutate}
 \end{center}
