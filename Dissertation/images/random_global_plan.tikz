@@ -1,4 +1,7 @@
-\begin{tikzpicture}[node distance=8mm and 12mm, font=\small]
+\begin{tikzpicture}[node distance=8mm and 12mm, font=\large]
+  \tikzset{flowproc/.append style={text width=100mm}}
+  \tikzset{flowdec/.append style={text width=34mm}}
+  \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
   \node[flowstart] (s) {Старт\\RandomGlobalPlan$(O,C,M)$};
   \node[flowproc, below=of s] (init) {Инициализировать\\пустые планы нарезки\\$\overline Y_j=\emptyset$};
   \node[flowproc, below=of init] (small) {Выделить $O^{\mathrm{small}}$\\и перемешать их\\через ShuffleByBrand};
