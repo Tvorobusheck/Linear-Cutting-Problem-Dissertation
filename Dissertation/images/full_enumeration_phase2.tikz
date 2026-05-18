@@ -1,5 +1,6 @@
 \begin{tikzpicture}[node distance=8mm and 10mm, font=\large]
   \tikzset{flowlbl/.style={inner sep=1pt, fill=white}}
+  \tikzset{flowproc/.append style={text width=60mm}}
 
   \node[flowproc] (enumnorm0) {\textbf{Фаза 2:}\\EnumerateNormal$(G,\mathcal S)$};
   \node[flowdec, below=of enumnorm0] (norm_done) {Все обычные заказы\\выполнены и\\$\mathcal S=\emptyset$?};
@@ -27,10 +28,10 @@
   \draw[flowline] (norm_ok_s) -- node[flowlbl, right]{да} (norm_rec_s);
 
   % Вспомогательные координаты для чистой трассировки обратных дуг
-  \coordinate (norm_fail_L) at ([xshift=-8mm]norm_try_o.west);
-  \coordinate (norm_loop_L) at ([xshift=-18mm]norm_try_o.west);
-  \coordinate (norm_fail_R) at ([xshift=8mm]norm_try_s.east);
-  \coordinate (norm_loop_R) at ([xshift=18mm]norm_try_s.east);
+  \coordinate (norm_fail_L) at ([xshift=-28mm]norm_try_o.west);
+  \coordinate (norm_loop_L) at ([xshift=-48mm]norm_try_o.west);
+  \coordinate (norm_fail_R) at ([xshift=28mm]norm_try_s.east);
+  \coordinate (norm_loop_R) at ([xshift=38mm]norm_try_s.east);
 
   % Обратная связь norm_rec_o -> norm_done (внешняя левая дуга)
   \draw[flowline]
