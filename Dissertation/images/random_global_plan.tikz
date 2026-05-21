@@ -8,7 +8,7 @@
   \node[flowproc, below=of small] (addsmall) {Для каждого $o\in O^{\mathrm{small}}$\\и каждого из $q_o$ рулонов\\вызвать AddRollRandomly};
   \node[flowproc, below=of addsmall] (collect) {Собрать слитые мастер-рулоны\\$\mathcal S$ из раскроев БРС};
   \node[flowproc, below=of collect] (ostar) {Сформировать $O^*=O^{\mathrm{norm}}\cup\mathcal S$\\и перемешать через ShuffleByBrand};
-  \node[flowproc, below=of ostar] (addrest) {Для каждого элемента $o\in O^*$:\\если это слитый мастер-рулон ---\\вызвать AddRollRandomly один раз,\\иначе выполнить $q_o$ вызовов};
+  \node[flowproc, below=of ostar] (addrest) {Для каждого элемента $o\in O^*$:\\если это промежуточный мастер‑рулон для~БРС ---\\вызвать AddRollRandomly один раз,\\иначе выполнить $q_o$ вызовов};
   \node[flowproc, below=of addrest] (prod) {Сформировать\\$\overline{\overline X}=\mathrm{GenerateProductionPlan}(\overline{\overline Y},M)$};
   \node[flowdec, below=of prod] (timeq) {Задан временной\\горизонт?};
   \node[flowproc, below left=16mm and 22mm of timeq] (sched) {Сформировать\\$\overline{\overline Z}=\mathrm{GenerateEventQueue}(G)$};
