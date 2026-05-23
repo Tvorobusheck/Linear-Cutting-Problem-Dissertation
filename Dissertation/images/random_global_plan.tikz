@@ -6,7 +6,7 @@
   \node[flowproc, below=of s] (init) {Инициализировать\\пустые планы нарезки\\$\overline Y_j=\emptyset$};
   \node[flowproc, below=of init] (small) {Выделить $O^{\mathrm{small}}$\\и перемешать их\\через ShuffleByBrand};
   \node[flowproc, below=of small] (addsmall) {Для каждого $o\in O^{\mathrm{small}}$\\и каждого из $q_o$ рулонов\\вызвать AddRollRandomly};
-  \node[flowproc, below=of addsmall] (collect) {Собрать слитые мастер-рулоны\\$\mathcal S$ из раскроев БРС};
+  \node[flowproc, below=of addsmall] (collect) {Собрать промежуточные мастер-рулоны\\ для БРС};
   \node[flowproc, below=of collect] (ostar) {Сформировать $O^*=O^{\mathrm{norm}}\cup\mathcal S$\\и перемешать через ShuffleByBrand};
   \node[flowproc, below=of ostar] (addrest) {Для каждого элемента $o\in O^*$:\\если это промежуточный мастер‑рулон для~БРС ---\\вызвать AddRollRandomly один раз,\\иначе выполнить $q_o$ вызовов};
   \node[flowproc, below=of addrest] (prod) {Сформировать\\$\overline{\overline X}=\mathrm{GenerateProductionPlan}(\overline{\overline Y},M)$};

@@ -8,7 +8,7 @@
 
   \node[flowdec, below=of enumsmall] (small_done) {Все малые\\заказы\\выполнены?};
   \node[flowproc, below left=18mm and 24mm of small_done] (small_try) {Выбрать невыполненный $o\in O^{\mathrm{small}}$\\и совместимый $c_j$,\\создать копию $G'$,\\вызвать AddPlanRoll};
-  \node[flowproc, below right=18mm and 24mm of small_done] (collects) {Собрать слитые\\мастер-рулоны $\mathcal S$\\из раскроев БРС};
+  \node[flowproc, below right=18mm and 24mm of small_done] (collects) {Собрать промежуточные\\мастер-рулоны для БРС};
   \node[flowdec, below=of small_try] (small_ok) {AddPlanRoll\\успешен?};
   \node[flowproc, below=of small_ok] (small_rec) {Рекурсивно вызвать\\EnumerateSmall$(G')$\\и обновить лучший план};
 
@@ -45,7 +45,7 @@
   % Переход к фазе 2 после сбора S
   \draw[flowline] (collects.east) -- (enumnorm0);
 
-  % Фаза 2: обычные заказы и слитые мастер-рулоны
+  % Фаза 2: обычные заказы и промежуточные мастер-рулоны для БРС
   \draw[flowline] (enumnorm0) -- (norm_done);
   \draw[flowline] (norm_done.south) -- (finalize.north) node[flowlbl, pos=0.05, right]{да};
 
