@@ -38,8 +38,8 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Генерация расписания (очередь событий)}
-    Каждое событие $\overline{Z}=(h,\overline{h},e,d,z,\overline{T},\overline{\overline{T}},\overline{t'})$
+    \frametitle{Генерация расписания}
+    Каждая операция $\overline{Z}=(h,\overline{h},e,d,z,\overline{T},\overline{\overline{T}},\overline{t'})$
 
     \vspace{0.2cm}
     \textbf{Время окончания выпуска тамбура} ($e{=}0$):
@@ -52,7 +52,7 @@
     \]
     \vspace{0.2cm}
     \begin{itemize}
-        \item Склад $\overline{T}$ обновляется при каждом событии
+        \item Склад $\overline{T}$ обновляется при каждой операции
         \item Нарезка возможна только при наличии тамбуров на складе
     \end{itemize}
 \end{frame}
@@ -60,7 +60,7 @@
 \begin{frame}
     \frametitle{Динамика склада при формировании расписания}
     \small
-    При каждом событии $\overline{Z}$ склад обновляется:
+    При каждой операции $\overline{Z}$ склад обновляется:
 
     \vspace{0.2cm}
     \textbf{Выпуск тамбура} ($e{=}0$): тамбур попадает в~$\overline{\overline{T}}$ (запланированное содержимое); станет доступен в~$\overline{T}$ (текущее содержимое), когда $h_{\text{след}} \ge \overline{h}_{\text{тек}}$
