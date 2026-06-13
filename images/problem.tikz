@@ -1,6 +1,6 @@
 \begin{tikzpicture}[
     box/.style={draw, rounded corners, align=center, minimum width=2.2cm, minimum height=0.85cm, font=\scriptsize},
-    arrow/.style={Latex-, semithick},
+    arrow/.style={-Latex, semithick},
     lbl/.style={font=\scriptsize, fill=white, inner sep=1pt}
 ]
 
