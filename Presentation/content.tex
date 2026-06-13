@@ -129,6 +129,28 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Целевая функция}
+    \[
+    \mu(G) = \Bigl\langle \omega(G),\;\varphi(G),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
+    \]
+    \vspace{0.1cm}
+    \textbf{1. Суммарные отходы} (разность ширин тамбуров и~форматов):
+    \[
+    \omega(G)=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
+    \Biggl(\underbrace{\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i}_{\text{ширины тамбуров}} - \underbrace{\sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}}_{\text{ширины форматов}}\Biggr)
+    \]
+    \textbf{2. Максимальное число раскроев на одной ПРС:}
+    \[
+    \varphi(G)=\max_{\overline{Z}\in\overline{\overline{Z}}:\,e=1} z
+    \]
+    \textbf{3. Общее количество перестановок ножей:}
+    \[
+    \tau\bigl(\overline{\overline{Y}}\bigr)=\sum_{i=1}^{J}\sigma\bigl(i,\,|\overline{Y}_i|\bigr)
+    \]
+    Минимизация~--- \textbf{лексикографическая} (приоритет: $\omega \succ \varphi \succ \tau$)
+\end{frame}
+
+\begin{frame}
     \frametitle{Искомое решение~--- глобальный план $G$}
     Требуется найти план, объединяющий выпуск тамбуров, схемы раскроя и~расписание операций, при минимизации критериев целевой функции:
     \[
@@ -186,28 +208,6 @@
     \end{itemize}
     \vspace{0.1cm}
     Операция фиксирует состояние склада~--- связывает $\overline{\overline{X}}$ и~$\overline{\overline{Y}}$ во~времени
-\end{frame}
-
-\begin{frame}
-    \frametitle{Целевая функция}
-    \[
-    \mu(G) = \Bigl\langle \omega(G),\;\varphi(G),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
-    \]
-    \vspace{0.1cm}
-    \textbf{1. Суммарные отходы} (разность ширин тамбуров и~форматов):
-    \[
-    \omega(G)=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
-    \Biggl(\underbrace{\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i}_{\text{ширины тамбуров}} - \underbrace{\sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}}_{\text{ширины форматов}}\Biggr)
-    \]
-    \textbf{2. Максимальное число раскроев на одной ПРС:}
-    \[
-    \varphi(G)=\max_{\overline{Z}\in\overline{\overline{Z}}:\,e=1} z
-    \]
-    \textbf{3. Общее количество перестановок ножей:}
-    \[
-    \tau\bigl(\overline{\overline{Y}}\bigr)=\sum_{i=1}^{J}\sigma\bigl(i,\,|\overline{Y}_i|\bigr)
-    \]
-    Минимизация~--- \textbf{лексикографическая} (приоритет: $\omega \succ \varphi \succ \tau$)
 \end{frame}
 
 \begin{frame}
