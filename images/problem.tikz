@@ -6,7 +6,7 @@
 
 
 \node[box, fill=blue!10, font=\scriptsize\bfseries] at (9,1.5) (bdm) {Бумагоделательные\\машины};
-\node[box, fill=yellow!15, font=\scriptsize\bfseries] at (9.3,0) (sklad) {Склады};
+\node[box, fill=yellow!15, font=\scriptsize\bfseries] at (10.3,0) (sklad) {Склады\\полуфабрикатов};
 \node[box, fill=green!10, font=\scriptsize\bfseries] at (4.5,0) (prs) {Продольно-\\резательные станки};
 \node[box, fill=orange!10, font=\scriptsize\bfseries] at (0,0) (order) {Заказы};
 \node[box, fill=gray!10, font=\scriptsize\bfseries] at (9,-1.8) (brs) {Бобино-\\резательные станки};
