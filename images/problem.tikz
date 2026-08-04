@@ -1,26 +1,68 @@
 \begin{tikzpicture}[
-    box/.style={draw, rounded corners, align=center, minimum width=2.2cm, minimum height=0.85cm, font=\scriptsize},
+    node distance=0.8cm and 0.8cm,
+    box/.style={
+        draw,
+        very thick,
+        minimum width=7.2cm,
+        minimum height=2.8cm,
+        align=center,
+        font=\small
+    },
+    smallbox/.style={
+        draw,
+        rounded corners,
+        align=center,
+        font=\scriptsize,
+        inner sep=3pt,
+        fill=gray!5
+    },
     arrow/.style={-Latex, semithick},
     lbl/.style={font=\scriptsize, fill=white, inner sep=1pt}
 ]
 
+% Центральная функция IDEF0
+\node[box] (func) at (0,0) {\textbf{A0}\\[2mm]
+Сформировать и выполнить\\
+производственный план ЦБК};
 
-\node[box, fill=blue!10, font=\scriptsize\bfseries] at (9,1.5) (bdm) {Бумагоделательные\\машины};
-\node[box, fill=yellow!15, font=\scriptsize\bfseries] at (10.3,0) (sklad) {Склады\\полуфабрикатов};
-\node[box, fill=green!10, font=\scriptsize\bfseries] at (4.5,0) (prs) {Продольно-\\резательные станки};
-\node[box, fill=orange!10, font=\scriptsize\bfseries] at (0,0) (order) {Заказы};
-\node[box, fill=gray!10, font=\scriptsize\bfseries] at (9,-1.8) (brs) {Бобино-\\резательные станки};
+% Входы (слева)
+\node[smallbox] (orders) at (-6,0.8) {Заказы на бумажную\\продукцию};
+\node[smallbox] (raw) at (-6,-0.9) {Исходные материалы\\и полуфабрикаты};
 
-% БДМ → Склады
-\draw[arrow] (bdm) -- node[midway, right, xshift=8pt, lbl] {тамбуры} (sklad);
-% Склады → ПРС
-\draw[arrow] (sklad) -- node[midway, below, yshift=-3pt, lbl] {тамбуры} (prs);
-% ПРС → Заказы
-\draw[arrow] (prs) -- node[midway, below, yshift=-3pt, lbl] {рулоны} (order);
-% ПРС → Склады (возврат рулонов для БРС, дуга снизу)
-\draw[arrow] (prs.south) -- ++(0,-0.3) -| node[below, pos=0.05, lbl] {рулоны для БРС} (sklad.south west);
-% Склады → БРС
-\draw[arrow] (sklad) -- node[midway, right, xshift=5pt, lbl] {рулоны для БРС} (brs);
-% БРС → Заказы
-\draw[arrow] (brs.west) -| node[below, pos=0.75, yshift=-2pt, lbl] {рулоны} (order.south);
+% Управление (сверху)
+\node[smallbox] (ctrl1) at (-2.8,3.0) {Сроки выполнения\\заказов};
+\node[smallbox] (ctrl2) at (0.8,3.0) {Технологические\\ограничения};
+\node[smallbox] (ctrl3) at (4.2,3.0) {Производственные\\нормативы};
+
+% Выходы (справа)
+\node[smallbox] (out1) at (6,0.9) {Готовая\\продукция};
+\node[smallbox] (out2) at (6,-0.5) {Производственный план\\и расписание};
+\node[smallbox] (out3) at (6,-1.8) {Отходы};
+
+% Механизмы (снизу)
+\node[smallbox] (mech1) at (-4.8,-3.0) {Бумагоделательные\\машины};
+\node[smallbox] (mech2) at (-1.8,-3.0) {Склады\\полуфабрикатов};
+\node[smallbox] (mech3) at (1.2,-3.0) {Продольно-\\резательные станки};
+\node[smallbox] (mech4) at (4.4,-3.0) {Бобино-\\резательные станки};
+
+% Стрелки: входы
+\draw[arrow] (orders.east) -- node[midway, above, lbl] {} (func.west|-orders.east);
+\draw[arrow] (raw.east) -- node[midway, below, lbl] {} (func.west|-raw.east);
+
+% Стрелки: управление
+\draw[arrow] (ctrl1.south) -- (func.north|-ctrl1.south);
+\draw[arrow] (ctrl2.south) -- (func.north|-ctrl2.south);
+\draw[arrow] (ctrl3.south) -- (func.north|-ctrl3.south);
+
+% Стрелки: выходы
+\draw[arrow] (func.east|-out1.west) -- (out1.west);
+\draw[arrow] (func.east|-out2.west) -- (out2.west);
+\draw[arrow] (func.east|-out3.west) -- (out3.west);
+
+% Стрелки: механизмы
+\draw[arrow] (mech1.north) -- (func.south|-mech1.north);
+\draw[arrow] (mech2.north) -- (func.south|-mech2.north);
+\draw[arrow] (mech3.north) -- (func.south|-mech3.north);
+\draw[arrow] (mech4.north) -- (func.south|-mech4.north);
+
 \end{tikzpicture}
