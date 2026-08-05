@@ -1,68 +1,93 @@
 \begin{tikzpicture}[
-    node distance=0.8cm and 0.8cm,
-    box/.style={
-        draw,
-        very thick,
-        minimum width=7.2cm,
-        minimum height=2.8cm,
-        align=center,
-        font=\small
-    },
-    smallbox/.style={
+    x=1cm, y=1cm,
+    font=\scriptsize,
+    flow/.style={-Latex, semithick},
+    task/.style={
         draw,
         rounded corners,
         align=center,
-        font=\scriptsize,
-        inner sep=3pt,
-        fill=gray!5
+        minimum width=2.6cm,
+        minimum height=0.9cm,
+        fill=blue!8
     },
-    arrow/.style={-Latex, semithick},
-    lbl/.style={font=\scriptsize, fill=white, inner sep=1pt}
+    gateway/.style={
+        draw,
+        diamond,
+        aspect=1.8,
+        align=center,
+        inner sep=1pt,
+        fill=orange!12
+    },
+    event/.style={
+        draw,
+        circle,
+        minimum size=0.55cm,
+        inner sep=0pt
+    },
+    endevent/.style={
+        draw,
+        circle,
+        double,
+        minimum size=0.55cm,
+        inner sep=0pt
+    },
+    lane title/.style={font=\scriptsize\bfseries},
+    lbl/.style={font=\tiny, fill=white, inner sep=1pt}
 ]
 
-% Центральная функция IDEF0
-\node[box] (func) at (0,0) {\textbf{A0}\\[2mm]
-Сформировать и выполнить\\
-производственный план ЦБК};
+% --- Пул и дорожки ---
+\draw[rounded corners] (0,0) rectangle (20,10.6);
+\draw (2.4,0) -- (2.4,10.6);
 
-% Входы (слева)
-\node[smallbox] (orders) at (-6,0.8) {Заказы на бумажную\\продукцию};
-\node[smallbox] (raw) at (-6,-0.9) {Исходные материалы\\и полуфабрикаты};
+\draw (0,7.6) -- (20,7.6);
+\draw (0,5.7) -- (20,5.7);
+\draw (0,3.8) -- (20,3.8);
+\draw (0,1.9) -- (20,1.9);
 
-% Управление (сверху)
-\node[smallbox] (ctrl1) at (-2.8,3.0) {Сроки выполнения\\заказов};
-\node[smallbox] (ctrl2) at (0.8,3.0) {Технологические\\ограничения};
-\node[smallbox] (ctrl3) at (4.2,3.0) {Производственные\\нормативы};
+\node[lane title] at (1.2,9.1) {Зказчик};
+\node[lane title] at (1.2,6.65) {БДМ};
+\node[lane title] at (1.2,4.75) {Склад};
+\node[lane title] at (1.2,2.85) {ПРС};
+\node[lane title] at (1.2,0.95) {БРС};
 
-% Выходы (справа)
-\node[smallbox] (out1) at (6,0.9) {Готовая\\продукция};
-\node[smallbox] (out2) at (6,-0.5) {Производственный план\\и расписание};
-\node[smallbox] (out3) at (6,-1.8) {Отходы};
+% --- BPMN элементы ---
+\node[event] (start) at (4.8,9.8) {};
+\node[above=1pt] at (start.north) {Заказ};
 
-% Механизмы (снизу)
-\node[smallbox] (mech1) at (-4.8,-3.0) {Бумагоделательные\\машины};
-\node[smallbox] (mech2) at (-1.8,-3.0) {Склады\\полуфабрикатов};
-\node[smallbox] (mech3) at (1.2,-3.0) {Продольно-\\резательные станки};
-\node[smallbox] (mech4) at (4.4,-3.0) {Бобино-\\резательные станки};
+\node[task] (plan) at (4.8,8.55) {Сформировать\\производственный план};
 
-% Стрелки: входы
-\draw[arrow] (orders.east) -- node[midway, above, lbl] {} (func.west|-orders.east);
-\draw[arrow] (raw.east) -- node[midway, below, lbl] {} (func.west|-raw.east);
+\node[task] (bdm) at (7.1,6.65) {Изготовить\\тамбуры};
 
-% Стрелки: управление
-\draw[arrow] (ctrl1.south) -- (func.north|-ctrl1.south);
-\draw[arrow] (ctrl2.south) -- (func.north|-ctrl2.south);
-\draw[arrow] (ctrl3.south) -- (func.north|-ctrl3.south);
+\node[task] (wh1) at (9.6,4.75) {Разместить\\на складе};
 
-% Стрелки: выходы
-\draw[arrow] (func.east|-out1.west) -- (out1.west);
-\draw[arrow] (func.east|-out2.west) -- (out2.west);
-\draw[arrow] (func.east|-out3.west) -- (out3.west);
+\node[task] (prs) at (12.3,2.85) {Выполнить\\продольную резку};
 
-% Стрелки: механизмы
-\draw[arrow] (mech1.north) -- (func.south|-mech1.north);
-\draw[arrow] (mech2.north) -- (func.south|-mech2.north);
-\draw[arrow] (mech3.north) -- (func.south|-mech3.north);
-\draw[arrow] (mech4.north) -- (func.south|-mech4.north);
+\node[gateway] (gw) at (15.7,2.85) {Нужна\\БРС?};
+
+\node[task] (wh2) at (17.2,4.75) {Передать рулоны\\для БРС на склад};
+
+\node[task] (brs) at (17.2,0.95) {Выполнить\\бобинорезку};
+
+\node[endevent] (end) at (18.5,9.8) {};
+\node[above=1pt] at (end.north) {Заказ выполнен};
+
+% --- Потоки ---
+\draw[flow] (start.south) -- (plan.north);
+
+\draw[flow] (plan) |- (bdm);
+
+\draw[flow] (bdm) |- node[pos=0.25, left, lbl] {тамбуры} (wh1);
+
+\draw[flow] (wh1) |- node[pos=0.25, left, lbl] {тамбуры} (prs);
+
+\draw[flow] (prs.east) -- (gw.west);
+
+\draw[flow] (gw.north) -- node[pos=0.22, right, lbl] {Да} (wh2);
+
+\draw[flow] (wh2.south) -- node[midway, right, lbl] {рулоны\\для БРС} (brs.north);
+
+\draw[flow] (gw.north) -- ++(-0.4,0) |- node[pos=0.20, left, lbl] {Нет} node[pos=0.72, above, lbl] {рулоны} (end.west);
+
+\draw[flow] (brs.east) -- ++(1.2,0) |- node[pos=0.4, left, lbl] {рулоны} (end.east);
 
 \end{tikzpicture}
