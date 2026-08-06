@@ -32,7 +32,7 @@
         inner sep=0pt
     },
     lane title/.style={font=\scriptsize\bfseries},
-    lbl/.style={font=\tiny, fill=white, inner sep=1pt}
+    lbl/.style={font=\tiny, fill=white, inner sep=1pt, align=center}
 ]
 
 % --- Пул и дорожки ---
