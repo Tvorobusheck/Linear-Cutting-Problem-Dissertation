@@ -5,7 +5,7 @@
   \node[flowproc, below=of copy] (mut) {Для каждого $j=1,\ldots,J$\\заменить $newG.Y_j$ на\\Mutate$(newG.Y_j)$};
   \node[flowproc, below=of mut] (prod) {Пересоздать план производства\\$newG.X=\mathrm{GenerateProductionPlan}(newG.Y,M)$};
   \node[flowproc, below=of prod] (sched) {Пересоздать расписание\\$newG.Z=\mathrm{GenerateEventQueue}(newG)$};
-  \node[flowdec, below=of sched] (cmp) {$\mu(newG)<\mu(G)$?};
+  \node[flowdec, below=of sched] (cmp) {$\mu(newY)<\mu(\overline{\overline{Y}})$?};
   \node[flowstop, below left=16mm and 20mm of cmp] (ret1) {Вернуть $newG$};
   \node[flowstop, below right=16mm and 20mm of cmp] (ret2) {Вернуть $G$};
   \draw[flowline] (s) -- (copy) -- (mut) -- (prod) -- (sched) -- (cmp);

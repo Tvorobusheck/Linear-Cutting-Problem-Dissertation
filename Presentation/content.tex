@@ -131,17 +131,17 @@
 \begin{frame}
     \frametitle{Целевая функция}
     \[
-    \mu(G) = \Bigl\langle \omega(G),\;\varphi(G),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
+    \mu(\overline{\overline{Y}}) = \Bigl\langle \omega(\overline{\overline{Y}}),\;\varphi(\overline{\overline{Y}}),\;\tau\bigl(\overline{\overline{Y}}\bigr) \Bigr\rangle \rightarrow \min
     \]
     \vspace{0.1cm}
     \textbf{1. Суммарные отходы} (разность ширин тамбуров и~форматов):
     \[
-    \omega(G)=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
+    \omega(\overline{\overline{Y}})=\sum_{\overline{Z}\in\overline{\overline{Z}}:\,e=1}
     \Biggl(\underbrace{\sum_{i=1}^{l^Y_{d,z}}\overline{w^t}_i}_{\text{ширины тамбуров}} - \underbrace{\sum_{i=1}^{|{y^Y}_{d,z}|} r^Y_{d,z,i}}_{\text{ширины форматов}}\Biggr)
     \]
     \textbf{2. Максимальное число раскроев на одной ПРС:}
     \[
-    \varphi(G)=\max_{\overline{Z}\in\overline{\overline{Z}}:\,e=1} z
+    \varphi(\overline{\overline{Y}})=\max_{\overline{Z}\in\overline{\overline{Z}}:\,e=1} z
     \]
     \textbf{3. Общее количество перестановок ножей:}
     \[
@@ -155,7 +155,7 @@
     \frametitle{Искомое решение~--- глобальный план $G$}
     Требуется найти план, объединяющий выпуск тамбуров, схемы раскроя и~расписание операций, при минимизации критериев целевой функции:
     \[
-    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) \quad\longrightarrow\quad \mu(G)\to\min}
+    \boxed{G = \bigl(\,\overline{\overline{X}},\;\overline{\overline{Y}},\;\overline{\overline{Z}}\,\bigr) \quad\longrightarrow\quad \mu(\overline{\overline{Y}})\to\min}
     \]
 
     \vspace{0.2cm}
@@ -203,8 +203,8 @@
         \item $d$~--- номер машины (БДМ при $e{=}0$, ПРС при $e{=}1$)
         \item $z$~--- номер операции в~плане $d$-й машины
         \item $h$, $\overline{h}$~--- время начала и~окончания операции, с
-        \item $\overline{T}$~--- текущее содержимое складов (доступные тамбуры)
-        \item $\overline{\overline{T}}$~--- запланированное содержимое (включая тамбуры в~производстве)
+        \item $\overline{T}$~--- содержимое складов (доступные тамбуры)
+        \item $\overline{\overline{T}}$~--- зарезервированное содержимое складов (включая тамбуры в~производстве)
         \item $\overline{t'}$~--- тамбуры, использованные при нарезке ($\varnothing$ при $e{=}0$)
     \end{itemize}
     \vspace{0.1cm}
@@ -247,7 +247,7 @@
         \item Буфер между выпуском ($\overline{\overline{X}}$) и~нарезкой ($\overline{\overline{Y}}$)
         \item Тамбур появляется на~складе по~окончании производства на~БДМ
         \item При нарезке тамбуры изымаются со~склада
-        \item $\overline{T}$~--- текущее содержимое;\quad $\overline{\overline{T}}$~--- запланированное (включая тамбуры в~производстве)
+        \item $\overline{T}$~--- содержимое складов;\quad $\overline{\overline{T}}$~--- зарезервированное содержимое складов (включая тамбуры в~производстве)
     \end{itemize}
     \small
     \textbf{7. Наличие тамбуров на складе для нарезки (с~учётом слоёв):}
@@ -335,13 +335,13 @@
     \begin{enumerate}
         \item Для каждого ПРС $j=1,\ldots,J$: $\overline{Y}'_j=\textsc{Mutate}(\overline{Y}_j)$
         \item Пересчитать $\overline{\overline{X}}$ и~$\overline{\overline{Z}}$
-        \item Если $\mu(G')<\mu(G)$, принять; иначе~--- отклонить
+        \item Если $\mu(\overline{\overline{Y}}')<\mu(\overline{\overline{Y}})$, принять; иначе~--- отклонить
     \end{enumerate}
 
     \vspace{0.3cm}
     \textbf{Парный отбор}:
     \[
-    \textsc{Crossingover}(G_1,G_2) = \begin{cases} G_1, & \mu(G_1)\le\mu(G_2)\\ G_2, & \text{иначе} \end{cases}
+    \textsc{Crossingover}(G_1,G_2) = \begin{cases} G_1, & \mu(\overline{\overline{Y}}_1)\le\mu(\overline{\overline{Y}}_2)\\ G_2, & \text{иначе} \end{cases}
     \]
 \end{frame}
 
@@ -394,7 +394,7 @@
     \frametitle{Режимы работы комплекса программ}
     \textbf{1. Полный перебор:}
     \begin{itemize}
-        \item Гарантирует оптимальное $G^*$: $\mu(G^*)=\min$
+        \item Гарантирует оптимальное $\overline{\overline{Y}}^*$: $\mu(\overline{\overline{Y}}^*)=\min$
         \item Экспоненциальная сложность
     \end{itemize}
 
@@ -407,7 +407,7 @@
     \end{itemize}
 
     \vspace{0.3cm}
-    \textbf{Вывод:} планы $\overline{\overline{X}}$, $\overline{\overline{Y}}$, расписание $\overline{\overline{Z}}$, значение $\mu(G^*)=\langle\omega,\varphi,\tau\rangle$
+    \textbf{Вывод:} планы $\overline{\overline{X}}$, $\overline{\overline{Y}}$, расписание $\overline{\overline{Z}}$, значение $\mu(\overline{\overline{Y}}^*)=\langle\omega(\overline{\overline{Y}}^*),\varphi(\overline{\overline{Y}}^*),\tau(\overline{\overline{Y}}^*)\rangle$
 \end{frame}
 
 
@@ -423,7 +423,7 @@
     \begin{axis}[
         width=0.45\textwidth,
         height=0.35\textwidth,
-        ylabel={$\omega(G)$},
+        ylabel={$\omega(\overline{\overline{Y}})$},
         xmin=0, xmax=10000,
         ymin=0, ymax=150,
         xmode=log,
@@ -447,7 +447,7 @@
     \begin{axis}[
         width=0.45\textwidth,
         height=0.35\textwidth,
-        ylabel={$\varphi(G)$},
+        ylabel={$\varphi(\overline{\overline{Y}})$},
         xmin=0, xmax=10000,
         ymin=0, ymax=7,
         xmode=log,
@@ -526,7 +526,7 @@
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Экземпляр} & \textbf{\shortstack{Число\\заказов}} & \textbf{\shortstack{Число\\рулонов}} & \textbf{$\mu(G)$} & \textbf{$t$, с} \\
+\textbf{Экземпляр} & \textbf{\shortstack{Число\\заказов}} & \textbf{\shortstack{Число\\рулонов}} & \textbf{$\mu(\overline{\overline{Y}})$} & \textbf{$t$, с} \\
 \hline
 \multicolumn{5}{|c|}{\textit{Полный перебор}} \\
 \hline
