@@ -6,7 +6,11 @@
     \]
     Последующие раскрои ($j>1$):
     \[
-    \sigma(i,j) = \sigma(i,j{-}1) + |y_{i,j}| - \max_n\!\Bigl\{0\le n \le \min\bigl\{|y_{i,j-1}|,\,|y_{i,j}|\bigr\} : \forall k{\le}n\;\; r^Y_{i,j-1,k}=r^Y_{i,j,k}\Bigr\}
+    \begin{aligned}
+    a_{i,j}&=\max\bigl\{n:0\le n\le\min(|y_{i,j-1}|,|y_{i,j}|),\\
+    &\hspace{28mm}r^Y_{i,j-1,k}=r^Y_{i,j,k}\ \forall k\le n\bigr\},\\
+    \sigma(i,j)&=\sigma(i,j-1)+|y_{i,j}|-a_{i,j}.
+    \end{aligned}
     \]
     \vspace{0.2cm}
     \begin{itemize}
