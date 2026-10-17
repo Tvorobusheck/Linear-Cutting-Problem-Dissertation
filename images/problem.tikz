@@ -44,7 +44,7 @@
 \draw (0,3.8) -- (20,3.8);
 \draw (0,1.9) -- (20,1.9);
 
-\node[lane title] at (1.2,9.1) {Зказчик};
+\node[lane title] at (1.2,9.1) {Заказчик};
 \node[lane title] at (1.2,6.65) {БДМ};
 \node[lane title] at (1.2,4.75) {Склад};
 \node[lane title] at (1.2,2.85) {ПРС};
