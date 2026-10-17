@@ -7,20 +7,22 @@
     \frametitle{Производственная цепочка}
     \centering
     \begin{figure}
-        \resizebox{0.72\textwidth}{!}{
+        \resizebox{\textwidth}{!}{
             \input{images/problem.tikz}
         }
     \end{figure}
 
     \vspace{0.1cm}
-    \small
+    
+\end{frame}
+\note{
     \begin{itemize}
         \item \textbf{Бумагоделательная машина (БДМ)} выпускает тамбуры~--- широкие рулоны-полуфабрикаты фиксированной ширины
         \item \textbf{Продольно-резательный станок (ПРС)} нарезает тамбур на~рулоны заданных форматов; ограничен по~ширине и~числу ножей
         \item \textbf{Бобино-резательный станок (БРС)} нарезает узкие форматы из~рулонов, полученных на~ПРС
         \item \textbf{Склады полуфабрикатов} хранят тамбуры и промежуточные рулоны; ограничены по~ширине и вместимости
     \end{itemize}
-\end{frame}
+}
 
 \begin{frame}
     \frametitle{Актуальность темы исследования}
@@ -42,7 +44,7 @@
 
 \begin{frame}
     \frametitle{Цель и задачи исследования}
-    \small
+    
     \textbf{Цель:} разработать математическую модель, численные методы и~программные средства формирования согласованного плана раскроя и~производственного расписания для ЦБК.
 
     \vspace{0.2cm}
@@ -110,8 +112,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Три части глобального плана}
-    \scriptsize
+    \frametitle{Компоненты производственного плана}
     \centering
     \begin{tabular}{|p{0.20\linewidth}|p{0.31\linewidth}|p{0.35\linewidth}|}
         \hline
@@ -163,9 +164,9 @@
 
 \begin{frame}
     \frametitle{Система ограничений модели}
-    \scriptsize
+    \small
     \centering
-    \begin{tabular}{|p{0.22\linewidth}|p{0.62\linewidth}|}
+    \begin{tabular}{|p{0.25\linewidth}|p{0.70\linewidth}|}
         \hline
         \textbf{Группа} & \textbf{Содержание} \\
         \hline
@@ -207,9 +208,8 @@
 
 \begin{frame}
     \frametitle{Параметры имитационного сценария}
-    \scriptsize
     \centering
-    \begin{tabular}{|p{0.25\linewidth}|p{0.28\linewidth}|p{0.32\linewidth}|}
+    \begin{tabular}{|p{0.25\linewidth}|p{0.20\linewidth}|p{0.40\linewidth}|}
         \hline
         \textbf{Группа} & \textbf{Параметры} & \textbf{Назначение} \\
         \hline
@@ -272,10 +272,9 @@
 %=============================================================================
 \begin{frame}
     \frametitle{Переменные и показатели по этапам исследования}
-    \scriptsize
     \centering
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|p{0.19\linewidth}|p{0.23\linewidth}|p{0.28\linewidth}|p{0.20\linewidth}|}
+    \begin{tabular}{|p{0.25\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.30\linewidth}|}
         \hline
         \textbf{Этап} & \textbf{Объекты и обозначения} & \textbf{Основные показатели} & \textbf{Результат этапа} \\
         \hline
@@ -301,16 +300,19 @@
         \hline
     \end{tabular}
     }
+\end{frame}
+\note{
 
     \vspace{0.2cm}
     $R_{95}(G)=\max_s\widehat q_{0.95}
     \bigl(D_\Sigma\mid c=1,G,\Theta_s\bigr)$
     используется только на этапе последующего сценарного сравнения альтернатив.
-\end{frame}
+}
+
 
 \begin{frame}
     \frametitle{Численные масштабы и результаты экспериментов}
-    \small
+    
     \begin{columns}[T]
         \column{0.48\textwidth}
         \textbf{Тестовые экземпляры}
@@ -342,10 +344,9 @@
 
 \begin{frame}
     \frametitle{Методы решения}
-    \scriptsize
     \centering
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|p{0.28\linewidth}|p{0.30\linewidth}|p{0.30\linewidth}|}
+    \begin{tabular}{|p{0.25\linewidth}|p{0.30\linewidth}|p{0.35\linewidth}|}
         \hline
         \textbf{Характеристика} & \textbf{Полный перебор} & \textbf{Генетический поиск} \\
         \hline
@@ -490,7 +491,7 @@
 \begin{frame}
     \frametitle{Сравнение с полным перебором}
     \centering
-    \small
+    
     \begin{tabular}{|c|c|c|c|}
         \hline
         \textbf{Заказы / рулоны} & \textbf{Критерии} & \multicolumn{2}{c|}{\textbf{Время, с}} \\
