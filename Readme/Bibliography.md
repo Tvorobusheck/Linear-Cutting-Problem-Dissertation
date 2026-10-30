@@ -38,7 +38,7 @@
   * *authorvak = {true}* если публикация индексирована ВАК,
   * *authorscopus = {true}* если публикация индексирована Scopus,
   * *authorwos = {true}* если публикация индексирована Web of Science,
-  * *authorconf = {true}* для докладов конференций,
+  * *authorrinz = {true}* для публикаций, индексируемых в РИНЦ,
   * *authorother = {true}* для других публикаций.
 * Автоматический подсчёт патентов и зарегистрированных программ для ЭВМ осуществляется путём
   добавления в файл `biblio/registered.bib` полей:
@@ -131,7 +131,7 @@
     \fi
     \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorwos,    title=\bibtitleauthorwos,resetnumbers=false]% Работы автора, индексируемые Web of Science
     \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorscopus, title=\bibtitleauthorscopus,resetnumbers=false]% Работы автора, индексируемые Scopus
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorconf,   title=\bibtitleauthorconf,resetnumbers=false]% Тезисы конференций
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorrinz,   title=\bibtitleauthorrinz,resetnumbers=false]% Публикации, индексируемые в РИНЦ
     \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorother,  title=\bibtitleauthorother,resetnumbers=false]% Прочие работы автора
 ```
 
@@ -150,7 +150,7 @@
 \newcommand{\bibtitleauthorscopus}{В изданиях, входящих в международную базу цитирования Scopus}
 \newcommand{\bibtitleauthorwos}{В изданиях, входящих в международную базу цитирования Web of Science}
 \newcommand{\bibtitleauthorother}{В прочих изданиях}
-\newcommand{\bibtitleauthorconf}{В сборниках трудов конференций}
+\newcommand{\bibtitleauthorrinz}{В публикациях, индексируемых в РИНЦ}
 
 % для стиля библиографии `\insertbiblioauthorimportant`:
 \newcommand{\bibtitleauthorimportant}{Наиболее значимые \protect\MakeLowercase\bibtitleauthor}

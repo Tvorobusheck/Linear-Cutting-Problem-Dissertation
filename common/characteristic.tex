@@ -198,7 +198,7 @@
         \phantom{\printbibliography[heading=nobibheading, section=1, env=countauthorvak,          keyword=biblioauthorvak]%
         \printbibliography[heading=nobibheading, section=1, env=countauthorwos,          keyword=biblioauthorwos]%
         \printbibliography[heading=nobibheading, section=1, env=countauthorscopus,       keyword=biblioauthorscopus]%
-        \printbibliography[heading=nobibheading, section=1, env=countauthorconf,         keyword=biblioauthorconf]%
+        \printbibliography[heading=nobibheading, section=1, env=countauthorrinz,         keyword=biblioauthorrinz]%
         \printbibliography[heading=nobibheading, section=1, env=countauthorother,        keyword=biblioauthorother]%
         \printbibliography[heading=nobibheading, section=1, env=countregistered,         keyword=biblioregistered]%
         \printbibliography[heading=nobibheading, section=1, env=countauthorpatent,       keyword=biblioauthorpatent]%
@@ -214,8 +214,8 @@
         \ifnum \value{citeauthorscopuswos}>0%
             , \arabic{citeauthorscopuswos} "--- в~периодических научных журналах, индексируемых Web of~Science и Scopus%
         \fi%
-        \ifnum \value{citeauthorconf}>0%
-            , \arabic{citeauthorconf} "--- в~тезисах докладов.
+        \ifnum \value{citeauthorrinz}>0%
+            , \arabic{citeauthorrinz} "--- в~публикациях, индексируемых в~РИНЦ.
         \else%
             .
         \fi%
@@ -269,7 +269,7 @@
 %         \item \texttt{authorvak} если публикация индексирована ВАК,
 %         \item \texttt{authorscopus} если публикация индексирована Scopus,
 %         \item \texttt{authorwos} если публикация индексирована Web of Science,
-%         \item \texttt{authorconf} для докладов конференций,
+%         \item \texttt{authorrinz} для публикаций, индексируемых в РИНЦ,
 %         \item \texttt{authorpatent} для патентов,
 %         \item \texttt{authorprogram} для зарегистрированных программ для ЭВМ,
 %         \item \texttt{authorother} для других публикаций.
@@ -281,7 +281,7 @@
 %         \item \texttt{citeauthorwos} для работ, индексируемых Web of Science,
 %         \item \texttt{citeauthorvakscopuswos} для работ, индексируемых одной из трёх баз,
 %         \item \texttt{citeauthorscopuswos} для работ, индексируемых Scopus или Web of~Science,
-%         \item \texttt{citeauthorconf} для докладов на конференциях,
+%         \item \texttt{citeauthorrinz} для публикаций, индексируемых в РИНЦ,
 %         \item \texttt{citeauthorother} для остальных работ,
 %         \item \texttt{citeauthorpatent} для патентов,
 %         \item \texttt{citeauthorprogram} для зарегистрированных программ для ЭВМ,
