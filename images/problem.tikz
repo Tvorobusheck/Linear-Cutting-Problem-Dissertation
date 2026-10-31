@@ -1,6 +1,6 @@
 \begin{tikzpicture}[
     x=1cm, y=1cm,
-    font=\scriptsize,
+    font=\normalsize,
     flow/.style={-Latex, semithick},
     task/.style={
         draw,
@@ -31,8 +31,8 @@
         minimum size=0.55cm,
         inner sep=0pt
     },
-    lane title/.style={font=\scriptsize\bfseries},
-    lbl/.style={font=\tiny, fill=white, inner sep=1pt, align=center}
+    lane title/.style={font=\normalsize\bfseries},
+    lbl/.style={font=\small, fill=white, inner sep=1pt, align=center}
 ]
 
 % --- Пул и дорожки ---
