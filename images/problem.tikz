@@ -1,6 +1,6 @@
 \begin{tikzpicture}[
-    x=1cm, y=1cm,
-    font=\normalsize,
+    x=1cm, y=1.2cm,
+    font=\ifsynopsis\LARGE\else\ifpresentation\large\else\small\fi\fi,
     flow/.style={-Latex, semithick},
     task/.style={
         draw,
@@ -31,18 +31,25 @@
         minimum size=0.55cm,
         inner sep=0pt
     },
-    lane title/.style={font=\normalsize\bfseries},
-    lbl/.style={font=\small, fill=white, inner sep=1pt, align=center}
+    lane title/.style={
+        font=\ifsynopsis\LARGE\bfseries\else\ifpresentation\large\bfseries\else\small\bfseries\fi\fi
+    },
+    lbl/.style={
+        font=\ifsynopsis\large\else\ifpresentation\normalsize\else\footnotesize\fi\fi,
+        fill=white,
+        inner sep=1pt,
+        align=center
+    }
 ]
 
 % --- Пул и дорожки ---
-\draw[rounded corners] (0,0) rectangle (20,10.6);
+\draw[rounded corners] (0,0) rectangle (21.5,10.6);
 \draw (2.4,0) -- (2.4,10.6);
 
-\draw (0,7.6) -- (20,7.6);
-\draw (0,5.7) -- (20,5.7);
-\draw (0,3.8) -- (20,3.8);
-\draw (0,1.9) -- (20,1.9);
+\draw (0,7.6) -- (21.5,7.6);
+\draw (0,5.7) -- (21.5,5.7);
+\draw (0,3.8) -- (21.5,3.8);
+\draw (0,1.9) -- (21.5,1.9);
 
 \node[lane title] at (1.2,9.1) {Заказчик};
 \node[lane title] at (1.2,6.65) {БДМ};
@@ -54,19 +61,19 @@
 \node[event] (start) at (4.8,9.8) {};
 \node[above=1pt] at (start.north) {Заказ};
 
-\node[task] (plan) at (4.8,8.55) {Сформировать\\производственный план};
+\node[task] (plan) at (4.8,8.55) {Сформировать\\производственный\\план};
 
 \node[task] (bdm) at (7.1,6.65) {Изготовить\\тамбуры};
 
 \node[task] (wh1) at (9.6,4.75) {Разместить\\на складе};
 
-\node[task] (prs) at (12.3,2.85) {Выполнить\\продольную резку};
+\node[task] (prs) at (12.3,2.85) {Выполнить\\продольную\\резку};
 
 \node[gateway] (gw) at (15.7,2.85) {Нужна\\БРС?};
 
-\node[task] (wh2) at (17.2,4.75) {Передать рулоны\\для БРС на склад};
+\node[task] (wh2) at (18.6,4.75) {Передать рулоны\\для БРС\\на склад};
 
-\node[task] (brs) at (17.2,0.95) {Выполнить\\бобинорезку};
+\node[task] (brs) at (18.6,0.95) {Выполнить\\бобинорезку};
 
 \node[endevent] (end) at (18.5,9.8) {};
 \node[above=1pt] at (end.north) {Заказ выполнен};
@@ -82,12 +89,12 @@
 
 \draw[flow] (prs.east) -- (gw.west);
 
-\draw[flow] (gw.north) -- node[pos=0.22, right, lbl] {Да} (wh2);
+\draw[flow] (gw.north) -- ++(0,0.6) |- node[pos=0.5, above, lbl] {Да} (wh2.west);
 
 \draw[flow] (wh2.south) -- node[midway, right, lbl] {рулоны\\для БРС} (brs.north);
 
 \draw[flow] (gw.north) -- ++(-0.4,0) |- node[pos=0.20, left, lbl] {Нет} node[pos=0.72, above, lbl] {рулоны} (end.west);
 
-\draw[flow] (brs.east) -- ++(1.2,0) |- node[pos=0.4, left, lbl] {рулоны} (end.east);
+\draw[flow] (brs.east) -- ++(0.8,0) |- node[pos=0.4, left, lbl] {рулоны} (end.east);
 
 \end{tikzpicture}
